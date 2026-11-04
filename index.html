@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipboardManager Plus — менеджер буфера обмена для Windows</title>
+<meta name="description" content="История копий, поиск, категории, шаблоны и скриншоты с редактором. Вставка горячими клавишами. Free и Pro, Windows 10/11, данные локально.">
+<link rel="canonical" href="https://clipboardmanager.ru/">
+<meta property="og:title" content="ClipboardManager Plus — менеджер буфера обмена для Windows">
+<meta property="og:description" content="История копий, шаблоны и скриншоты с редактором под одной клавишей. Free и Pro для Windows 10/11.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clipboardmanager.ru/">
+<meta property="og:image" content="https://clipboardmanager.ru/res/main-history-ru.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ClipboardManager Plus — менеджер буфера обмена для Windows">
+<meta name="twitter:description" content="История копий, шаблоны и скриншоты с редактором под одной клавишей. Free и Pro для Windows 10/11.">
+<meta name="twitter:image" content="https://clipboardmanager.ru/res/main-history-ru.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ClipboardManager Plus",
+  "operatingSystem": "Windows 10, Windows 11",
+  "applicationCategory": "UtilityApplication",
+  "softwareVersion": "1.2.1",
+  "downloadUrl": "https://clipboardmanager.ru/download/",
+  "offers": [
+    {
+      "@type": "AggregateOffer",
+      "lowPrice": "0",
+      "highPrice": "1490",
+      "priceCurrency": "RUB"
+    },
+    {
+      "@type": "AggregateOffer",
+      "lowPrice": "0",
+      "highPrice": "19",
+      "priceCurrency": "USD"
+    }
+  ]
+}
+</script>
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem("cm-theme");
+    if (t !== "dark" && t !== "light") {
+      t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+})();
+</script>
+<style>
+:root{
+  --bg:#f7f9fb; --bg2:#ffffff; --panel:#ffffff; --panel2:#f3f5f7;
+  --text:#1f2430; --muted:#5d6a78; --border:#e1e6ec; --border2:#d2d9e1;
+  --accent:#0078d4; --accent-hover:#106ebe; --accent-soft:#e8f2fa;
+  --sel-bg:#e5f1fb; --ok:#107c10; --radius-s:4px; --radius-m:8px; --radius-l:16px;
+  --shadow:0 2px 10px rgba(0,0,0,.06); --shadow-lg:0 18px 50px rgba(0,0,0,.14);
+  --mono:ui-monospace,'Cascadia Mono',Consolas,monospace;
+}
+[data-theme="dark"]{
+  --bg:#1a1d24; --bg2:#16181e; --panel:#232833; --panel2:#2b3140;
+  --text:#f3f5f8; --muted:#9aa7b5; --border:#333b49; --border2:#3e4857;
+  --accent:#4cc2ff; --accent-hover:#7fd4ff; --accent-soft:#1d3347;
+  --sel-bg:#26384a; --ok:#6ccb5f;
+  --shadow:0 2px 10px rgba(0,0,0,.35); --shadow-lg:0 18px 50px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Segoe UI Variable Text','Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .25s,color .25s}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;gap:16px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.05rem;color:var(--text)}
+.logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#0078d4,#5ec7ff);display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;flex:none;letter-spacing:.3px}
+.nav-links{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav-links a{padding:8px 12px;border-radius:var(--radius-s);color:var(--text);font-size:.95rem}
+.nav-links a:hover{background:var(--panel2);text-decoration:none}
+.toggle{display:inline-flex;border:1px solid var(--border2);border-radius:var(--radius-m);overflow:hidden;background:var(--panel)}
+.toggle button{border:0;background:transparent;padding:6px 12px;font-size:.85rem;font-weight:500;color:var(--muted);cursor:pointer}
+.toggle button.active{background:var(--accent);color:#fff}
+.theme-btn{display:inline-grid;place-items:center;width:32px;height:32px;margin-left:6px;border-radius:var(--radius-s);border:1px solid var(--border2);background:var(--panel);color:var(--text);cursor:pointer;flex:none}
+.theme-btn:hover{background:var(--panel2)}
+[data-theme="light"] .i-moon{display:none}
+[data-theme="dark"] .i-sun{display:none}
+button{font-family:inherit}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:var(--radius-s);border:0;font-weight:600;font-size:1rem;cursor:pointer;transition:transform .06s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover);text-decoration:none}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border2)}
+.btn-ghost:hover{background:var(--panel2);text-decoration:none}
+.hero{padding:72px 0 64px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:auto -20% -60% auto;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft),transparent 65%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero .badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent);border-radius:100px;padding:6px 14px;font-size:.85rem;font-weight:600}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.12;margin:20px 0 16px;font-weight:650;letter-spacing:-.5px}
+.hero p.lead{font-size:1.12rem;color:var(--muted);max-width:540px;margin:0 0 28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-meta{margin-top:22px;font-size:.88rem;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
+.hero-meta span{display:inline-flex;align-items:center;gap:6px}
+.hero-visual{border-radius:var(--radius-l);background:var(--panel);box-shadow:var(--shadow-lg);border:1px solid var(--border);overflow:hidden;max-width:560px}
+.app-window{display:flex;flex-direction:column;background:var(--panel);min-width:0}
+.app-titlebar{display:flex;align-items:center;gap:8px;padding:5px 10px;background:var(--accent);color:#fff}
+[data-theme="dark"] .app-titlebar{background:var(--accent-soft);color:var(--text)}
+.app-ico{width:16px;height:16px;border-radius:3px;background:#fff;color:var(--accent);display:grid;place-items:center;font-size:9px;font-weight:700;flex:none}
+.app-title{font-weight:600;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app-controls{margin-left:auto;display:flex;gap:2px}
+.win-btn{display:grid;place-items:center;width:24px;height:19px;border-radius:3px;font-size:.72rem;line-height:1;opacity:.92}
+.win-btn.close{background:#e81123}
+.app-menu{display:flex;gap:14px;padding:5px 10px;background:var(--panel2);border-bottom:1px solid var(--border);font-size:.74rem;color:var(--text)}
+.app-toolbar{display:flex;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid var(--border);color:var(--muted)}
+.app-toolbar svg{width:15px;height:15px;flex:none}
+.tb-sep{width:1px;height:16px;background:var(--border2);margin:0 2px}
+.app-search{display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:1px solid var(--border)}
+.app-search-field{flex:1;border:1px solid var(--border2);background:var(--panel);border-radius:var(--radius-s);padding:4px 9px;color:var(--muted);font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app-search svg{width:14px;height:14px;color:var(--muted);flex:none}
+.app-body{display:grid;grid-template-columns:128px 1fr;border-bottom:1px solid var(--border);min-width:0}
+.app-side{padding:6px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:2px;font-size:.73rem;min-width:0}
+.side-item{padding:3px 8px;border-radius:var(--radius-s);color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.side-item.active{background:var(--accent);color:#fff}
+.side-group{padding:3px 8px;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.side-group::before{content:"▸ ";font-size:.7rem}
+.side-sub{padding:2px 8px 2px 20px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app-list{display:flex;flex-direction:column;min-width:0}
+.app-row{display:flex;align-items:center;gap:7px;padding:4px 8px;border-bottom:1px solid var(--border);font-size:.73rem;color:var(--text);min-width:0}
+.app-row:last-child{border-bottom:0}
+.app-row svg{width:12px;height:12px;color:var(--muted);flex:none}
+.app-row .rt{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app-row .rd{color:var(--muted);font-size:.68rem;flex:none}
+.app-status{display:flex;justify-content:space-between;gap:10px;padding:5px 10px;background:var(--panel2);color:var(--muted);font-size:.7rem}
+.app-status .app-hotkey{font-family:var(--mono);font-size:.68rem;flex:none}
+.section{padding:64px 0}
+.section h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 10px;font-weight:650;letter-spacing:-.3px}
+.section .sub{color:var(--muted);max-width:660px;margin:0 0 36px}
+.section--tight{padding:0 0 64px}
+.check-list{list-style:none;padding:0;margin:16px 0 0;max-width:540px}
+.check-list li{position:relative;padding:6px 0 6px 26px;color:var(--muted);font-size:.95rem}
+.check-list li::before{content:"✓";position:absolute;left:0;top:6px;color:var(--ok);font-weight:700}
+.app-window--collapsed .app-side{display:none}
+.app-window--collapsed .app-body{grid-template-columns:1fr}
+.tb-on{color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px}
+.demo-caption{color:var(--muted);font-size:.8rem;text-align:center;margin:10px 0 0}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feat{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-l);padding:22px;box-shadow:var(--shadow)}
+.feat .fico{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:14px}
+.feat h3{margin:0 0 8px;font-size:1.05rem}
+.feat p{margin:0;color:var(--muted);font-size:.94rem}
+.hotkey{font-family:var(--mono);font-size:.78rem;background:var(--panel2);border:1px solid var(--border2);border-radius:var(--radius-s);padding:2px 7px;white-space:nowrap}
+.compare{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-l);overflow:hidden;box-shadow:var(--shadow)}
+.compare th,.compare td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--border)}
+.compare thead th{background:var(--panel2);font-size:.95rem}
+.compare td{font-size:.92rem}
+.compare .yes{color:var(--ok);font-weight:600}
+.compare .no{color:var(--muted)}
+.compare .part{color:var(--muted)}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius-l)}
+.table-scroll .compare{min-width:620px}
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.price-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-l);padding:28px;box-shadow:var(--shadow)}
+.price-card.pro{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),var(--shadow-lg)}
+.price-card h3{margin:0;font-size:1.15rem}
+.price-card .amount{font-size:2.3rem;font-weight:700;color:var(--accent);margin:10px 0 0}
+.price-card .per{color:var(--muted);font-size:.85rem;margin:2px 0 0}
+.price-card ul{list-style:none;padding:0;margin:18px 0 22px;flex:1}
+.price-card li{padding:7px 0;border-bottom:1px solid var(--border);font-size:.94rem}
+.price-card li:last-child{border-bottom:0}
+.price-card li.yes::before{content:"✓";color:var(--ok);font-weight:700;margin-right:9px}
+.price-card li.no{color:var(--muted)}
+.price-card li.no::before{content:"—";margin-right:9px}
+.dl-panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-l);box-shadow:var(--shadow);padding:34px;text-align:center}
+.dl-panel h2{margin:0 0 8px}
+.dl-panel .sub{margin:0 auto 22px;text-align:center}
+.dl-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 22px;text-align:left}
+.dl-btn{display:flex;flex-direction:column;gap:3px;padding:16px 18px;border-radius:var(--radius-m);border:1px solid var(--border2);background:var(--panel2);color:var(--text)}
+.dl-btn:hover{background:var(--sel-bg);text-decoration:none}
+.dl-btn strong{font-size:1rem;font-weight:600}
+.dl-btn span{font-size:.8rem;color:var(--muted)}
+.hash-box{max-width:720px;margin:0 auto}
+.hash-row{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;background:var(--panel2);border:1px solid var(--border);border-radius:var(--radius-s);padding:10px 12px;margin-bottom:8px;font-size:.8rem;text-align:left}
+.hash-file{font-weight:600}
+.hash-meta{color:var(--muted);flex:none}
+.hash-row code{font-family:var(--mono);word-break:break-all;color:var(--muted)}
+.note{color:var(--muted);font-size:.85rem}
+.faq{max-width:760px;margin:0 auto}
+.faq details{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-m);padding:16px 20px;margin-bottom:12px;box-shadow:var(--shadow)}
+.faq summary{cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--accent);font-size:1.3rem;font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:12px 0 0;color:var(--text)}
+footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted);font-size:.9rem;background:var(--bg2)}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot .brand{color:var(--text)}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+[hidden]{display:none!important}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .features{grid-template-columns:1fr 1fr}
+  .price-grid{grid-template-columns:1fr}
+  .dl-links{grid-template-columns:1fr}
+  .nav-links a{display:none}
+  .nav-links .toggle{margin-left:auto}
+}
+@media(max-width:560px){
+  .features{grid-template-columns:1fr}
+  .compare{font-size:.8rem}
+  .compare th,.compare td{padding:10px 12px}
+  .dl-panel{padding:24px 18px}
+  .nav-inner{gap:8px}
+  .brand{font-size:.85rem;gap:8px}
+  .brand span{white-space:nowrap}
+  .logo{width:30px;height:30px;font-size:12px}
+  .toggle button{padding:6px 9px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+  .btn:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+      <span class="logo">CB</span>
+      <span>ClipboardManager Plus</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#features" data-t="nav-features">Возможности</a>
+      <a href="#compare" data-t="nav-compare">Сравнение</a>
+      <a href="#pricing" data-t="nav-pricing">Тарифы</a>
+      <a href="#download" data-t="nav-download">Скачать</a>
+      <a href="#faq" data-t="nav-faq">FAQ</a>
+      <div class="toggle" role="group" aria-label="Language / Язык">
+        <button type="button" data-lang="ru" class="active" aria-label="Русский">RU</button>
+        <button type="button" data-lang="en" aria-label="English">EN</button>
+      </div>
+      <button type="button" class="theme-btn" id="themeToggle" aria-label="Тема / Theme" data-aria-ru="Сменить тему" data-aria-en="Switch theme">
+        <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg>
+        <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">✦ <span data-t="hero-badge">Free и Pro · Windows 10/11 · 8 языков</span></span>
+      <h1 data-t="hero-h1">Менеджер буфера обмена для Windows — всё скопированное под рукой</h1>
+      <p class="lead" data-t="hero-lead">ClipboardManager Plus сохраняет текст, изображения и скриншоты, ищет по истории, держит шаблоны и вставку чистым текстом на горячих клавишах. Работает локально, без облака и регистрации.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#download" data-t="hero-cta">Скачать бесплатно</a>
+        <a class="btn btn-ghost" href="#pricing" data-t="hero-cta2">Что входит в Pro</a>
+      </div>
+      <div class="hero-meta">
+        <span>● <span data-t="meta1">Версия 1.2.1</span></span>
+        <span>● <span data-t="meta2">Windows 10 / 11, x64</span></span>
+        <span>● <span data-t="meta3">Данные только на вашем ПК</span></span>
+        <span>● <span data-t="meta4">14 дней Pro без ключа</span></span>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="ClipboardManager Plus interface preview">
+      <div class="app-window">
+        <div class="app-titlebar">
+          <span class="app-ico">CB</span>
+          <span class="app-title">ClipboardManager Plus</span>
+          <span class="app-controls" aria-hidden="true"><span class="win-btn">–</span><span class="win-btn">□</span><span class="win-btn close">✕</span></span>
+        </div>
+        <div class="app-menu">
+          <span data-t="m-file">Файл</span>
+          <span data-t="m-edit">Правка</span>
+          <span data-t="m-cat">Категории</span>
+          <span data-t="m-view">Вид</span>
+          <span data-t="m-settings">Настройки</span>
+          <span data-t="m-help">Справка</span>
+        </div>
+        <div class="app-toolbar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 11v6M9 14h6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h5l2 3h9a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3"/><path d="M9 13h6M9 17h4"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6l-1 7 3 3H7l3-3-1-7Z"/><path d="M12 13v8"/></svg>
+          <span class="tb-sep"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          <span class="tb-sep"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+          <span class="tb-sep"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          <span class="tb-sep"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="12" cy="17" r="2"/></svg>
+        </div>
+        <div class="app-search">
+          <span class="app-search-field" data-t="m-search">Поиск по истории…</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </div>
+        <div class="app-body">
+          <div class="app-side">
+            <div class="side-item active" data-t="m-all">Все записи</div>
+            <div class="side-item" data-t="m-pinned">Закреплённые</div>
+            <div class="side-item" data-t="m-slots">Быстрые слоты</div>
+            <div class="side-item" data-t="m-nocat">Без категории</div>
+            <div class="side-item" data-t="m-trash">Корзина</div>
+            <div class="side-group" data-t="m-templates">Шаблоны</div>
+            <div class="side-sub" data-t="m-work">Work</div>
+            <div class="side-sub" data-t="m-nogroup">Без группы</div>
+            <div class="side-item" data-t="m-images">Изображения</div>
+            <div class="side-group" data-t="m-workcat">Work</div>
+            <div class="side-sub" data-t="m-personal">Personal</div>
+            <div class="side-sub" data-t="m-links">Links</div>
+          </div>
+          <div class="app-list">
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e1">Welcome to ClipboardManager! Press Ctrl+Shift+V …</span><span class="rd" data-t="d1">сегодня 09:02</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e2">Weekly report: milestone 2 shipped — API review</span><span class="rd" data-t="d2">сегодня 08:47</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e3">To-do: write tests for reorder · update docs · bump version</span><span class="rd" data-t="d3">сегодня 08:12</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e4">python -m venv .venv &amp;&amp; .\venv\Scripts\activate</span><span class="rd" data-t="d4">вчера 17:40</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e5">npm install @fluentui/react --save</span><span class="rd" data-t="d5">вчера 16:55</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e6">https://learn.microsoft.com/en-us/windows/win32/api/</span><span class="rd" data-t="d6">22.10 19:04</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e7">Invoice #1042 — $49.00, paid 2026-10-21</span><span class="rd" data-t="d7">21.10 13:09</span></div>
+          </div>
+        </div>
+        <div class="app-status"><span data-t="m-status">200 записей · @ — шаблоны</span><span class="app-hotkey">Ctrl+Shift+V</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight" id="categories">
+  <div class="container hero-grid">
+    <div>
+      <h2 data-t="cat-h2">Панель категорий — под ваши задачи</h2>
+      <p class="lead" data-t="cat-lead">Одна кнопка сворачивает панель, и списку отдаётся всё окно. А встроенные разделы, которыми вы не пользуетесь, можно убрать в настройках — останется только то, что нужно.</p>
+      <ul class="check-list">
+        <li data-t="cat-1">«Закреплённые», «Быстрые слоты», «Без категории», «Корзина», «Шаблоны» и «Изображения» скрываются отдельными переключателями</li>
+        <li data-t="cat-2">Свёрнутая панель запоминается: окно откроется так же в следующий раз</li>
+        <li data-t="cat-3">Свои категории создаются, переименовываются и меняются местами</li>
+      </ul>
+    </div>
+    <div class="hero-visual" aria-label="ClipboardManager Plus with the category panel collapsed">
+      <div class="app-window app-window--collapsed">
+        <div class="app-titlebar">
+          <span class="app-ico">CB</span>
+          <span class="app-title">ClipboardManager Plus</span>
+          <span class="app-controls" aria-hidden="true"><span class="win-btn">–</span><span class="win-btn">□</span><span class="win-btn close">✕</span></span>
+        </div>
+        <div class="app-menu">
+          <span data-t="m-file">Файл</span>
+          <span data-t="m-edit">Правка</span>
+          <span data-t="m-cat">Категории</span>
+          <span data-t="m-view">Вид</span>
+          <span data-t="m-settings">Настройки</span>
+          <span data-t="m-help">Справка</span>
+        </div>
+        <div class="app-toolbar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 11v6M9 14h6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h5l2 3h9a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3"/><path d="M9 13h6M9 17h4"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6l-1 7 3 3H7l3-3-1-7Z"/><path d="M12 13v8"/></svg>
+          <span class="tb-sep"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          <span class="tb-sep"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+          <span class="tb-sep"></span>
+          <span class="tb-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></span>
+        </div>
+        <div class="app-search">
+          <span class="app-search-field" data-t="m-search">Поиск по истории…</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </div>
+        <div class="app-body">
+          <div class="app-list">
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e1">Welcome to ClipboardManager! Press Ctrl+Shift+V …</span><span class="rd" data-t="d1">сегодня 09:02</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e2">Weekly report: milestone 2 shipped — API review</span><span class="rd" data-t="d2">сегодня 08:47</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e3">To-do: write tests for reorder · update docs · bump version</span><span class="rd" data-t="d3">сегодня 08:12</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e4">python -m venv .venv &amp;&amp; .\venv\Scripts\activate</span><span class="rd" data-t="d4">вчера 17:40</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e5">npm install @fluentui/react --save</span><span class="rd" data-t="d5">вчера 16:55</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e6">https://learn.microsoft.com/en-us/windows/win32/api/</span><span class="rd" data-t="d6">22.10 19:04</span></div>
+            <div class="app-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span class="rt" data-t="e7">Invoice #1042 — $49.00, paid 2026-10-21</span><span class="rd" data-t="d7">21.10 13:09</span></div>
+          </div>
+        </div>
+        <div class="app-status"><span data-t="m-status">200 записей · @ — шаблоны</span><span class="app-hotkey">Ctrl+Shift+V</span></div>
+      </div>
+      <p class="demo-caption" data-t="cat-cap">Панель категорий свёрнута — история занимает всю ширину</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="container">
+    <h2 data-t="f-title">Возможности</h2>
+    <p class="sub" data-t="f-sub">Менеджер буфера обмена, который не мешает работать и умеет больше, чем встроенный «Win+V».</p>
+    <div class="features">
+      <div class="feat">
+        <div class="fico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3"/></svg>
+        </div>
+        <h3 data-t="f1t">История текста и изображений</h3>
+        <p data-t="f1d">Каждая копия сохраняется автоматически — текст, картинки и скриншоты. История остаётся после перезапуска Windows.</p>
+      </div>
+      <div class="feat">
+        <div class="fico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </div>
+        <h3 data-t="f2t">Поиск, категории, закрепление</h3>
+        <p data-t="f2d">Мгновенный поиск по всей истории, раскладка по категориям и закрепление важного наверху списка. Панель категорий сворачивается, а ненужные разделы скрываются в настройках.</p>
+      </div>
+      <div class="feat">
+        <div class="fico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </div>
+        <h3 data-t="f3t">Шаблоны и сниппеты</h3>
+        <p data-ht="f3d">Частые адреса, реквизиты и формулировки — по <span class="hotkey">Ctrl+Shift+Alt+S</span>. Группы и подстановка переменных в Pro.</p>
+      </div>
+      <div class="feat">
+        <div class="fico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        </div>
+        <h3 data-t="f4t">Вставка чистым текстом</h3>
+        <p data-ht="f4d">Сброс форматирования по <span class="hotkey">Ctrl+Shift+Alt+U</span> и текстовые преобразования при вставке.</p>
+      </div>
+      <div class="feat">
+        <div class="fico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="m8 12 3 3 5-6"/></svg>
+        </div>
+        <h3 data-t="f5t">Скриншоты с редактором</h3>
+        <p data-ht="f5d">Область, активное окно или весь экран по <span class="hotkey">PrtScr</span>. Стрелки, текст и размытие прямо в оверлее.</p>
+      </div>
+      <div class="feat">
+        <div class="fico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="M12 12v9M4 7.5 12 12l8-4.5"/></svg>
+        </div>
+        <h3 data-t="f6t">Трей, автозапуск, 8 языков</h3>
+        <p data-t="f6d">Работает в фоне из системного трея, запускается с Windows. Светлая и тёмная темы, локализация на 8 языков.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="compare">
+  <div class="container">
+    <h2 data-t="cmp-title">Сравнение</h2>
+    <p class="sub" data-t="cmp-sub">ClipboardManager Plus и встроенный буфер обмена Windows (Win+V).</p>
+    <div class="table-scroll">
+    <table class="compare">
+      <thead>
+        <tr>
+          <th data-t="cmp-h1">Функция</th>
+          <th>ClipboardManager Plus</th>
+          <th data-t="cmp-h2">Win+V (встроенный)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-t="rc1">История текста</td>
+          <td class="yes">✓</td><td class="yes">✓</td>
+        </tr>
+        <tr>
+          <td data-t="rc2">История изображений и скриншотов</td>
+          <td class="yes">✓</td><td class="no">—</td>
+        </tr>
+        <tr>
+          <td data-t="rc3">Шаблоны и подстановка переменных</td>
+          <td class="yes">✓</td><td class="no">—</td>
+        </tr>
+        <tr>
+          <td data-t="rc4">Вставка чистым текстом и преобразования</td>
+          <td class="yes">✓</td><td class="part" data-t="cmp-part">частично</td>
+        </tr>
+        <tr>
+          <td data-t="rc5">Скриншоты с редактором пометок</td>
+          <td class="yes">✓</td><td class="no">—</td>
+        </tr>
+        <tr>
+          <td data-t="rc6">Категории, закрепление, корзина</td>
+          <td class="yes">✓</td><td class="no">—</td>
+        </tr>
+        <tr>
+          <td data-t="rc7">Тёмная тема Windows 11</td>
+          <td class="yes">✓</td><td class="yes">✓</td>
+        </tr>
+        <tr>
+          <td data-t="rc8">Данные локально, работа офлайн</td>
+          <td class="yes">✓</td><td class="yes">✓</td>
+        </tr>
+        <tr>
+          <td data-t="rc9">Цена</td>
+          <td data-t="cmp-price">Free, Pro по ключу</td>
+          <td class="yes" data-t="cmp-builtin">Встроен</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="container">
+    <h2 data-t="p-title">Тарифы</h2>
+    <p class="sub" data-t="p-sub">Ядро программы бесплатно навсегда. Pro открывается по ключу — один платёж, без подписки.</p>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>Free</h3>
+        <div class="amount" data-t="pc1-price">0 ₽</div>
+        <p class="per" data-t="pc1-per">бессрочно, без регистрации</p>
+        <ul>
+          <li class="yes" data-t="pc1-1">История, поиск, категории, закрепление</li>
+          <li class="yes" data-t="pc1-2">Изображения и скриншоты с редактором</li>
+          <li class="yes" data-t="pc1-3">Тёмная тема, 8 языков, трей и горячие клавиши</li>
+          <li class="no" data-t="pc1-4">Шаблоны с группами и переменными</li>
+          <li class="no" data-t="pc1-5">Текстовые преобразования при вставке</li>
+        </ul>
+        <a class="btn btn-ghost" href="#download" data-t="pc1-btn">Скачать Free</a>
+      </div>
+      <div class="price-card pro">
+        <h3>Pro</h3>
+        <div class="amount" data-t="pc2-price">от 1 490 ₽</div>
+        <p class="per" data-t="pc2-per">пожизненная лицензия на один ПК</p>
+        <ul>
+          <li class="yes" data-t="pc2-1">Всё из Free</li>
+          <li class="yes" data-t="pc2-2">Шаблоны и сниппеты с группами</li>
+          <li class="yes" data-t="pc2-3">Подстановка переменных</li>
+          <li class="yes" data-t="pc2-4">Расширенный импорт и экспорт</li>
+          <li class="yes" data-t="pc2-5">Текстовые преобразования при вставке</li>
+          <li class="yes" data-t="pc2-6">Приоритетная поддержка</li>
+        </ul>
+        <a class="btn btn-primary" href="#download" data-t="pc2-btn">Получить ключ</a>
+      </div>
+    </div>
+    <p class="note" style="margin-top:18px" data-t="p-note">Первые 14 дней Pro работает без ключа: скачайте программу и попробуйте все функции. Потом она останется в режиме Free, пока вы не введёте ключ.</p>
+  </div>
+</section>
+
+<section class="section" id="download">
+  <div class="container">
+    <div class="dl-panel">
+      <h2 data-t="dl-title">Скачать ClipboardManager Plus</h2>
+      <p class="sub" data-t="dl-sub">Версия 1.2.1 · Windows 10/11 (x64) · начинается с бесплатной Free</p>
+      <div class="dl-links">
+        <a class="dl-btn" href="download/ClipboardManagerPlus-Setup-1.2.1.exe" download>
+          <strong data-t="dl-install">Установщик</strong>
+          <span data-t="dl-install-sub">Мастер установки, ярлыки, автозапуск · 2,6 МБ</span>
+        </a>
+        <a class="dl-btn" href="download/ClipboardManagerPlus-Portable-1.2.1.zip" download>
+          <strong data-t="dl-portable">Портативная версия</strong>
+          <span data-t="dl-portable-sub">ZIP без установки, данные рядом с программой · 0,9 МБ</span>
+        </a>
+      </div>
+      <div class="hash-box">
+        <div class="hash-row"><span class="hash-file">ClipboardManagerPlus-Setup-1.2.1.exe</span><span class="hash-meta">2,6 МБ · v1.2.1</span><code>2D13FC9C5434004EE1A322537A28CCC7877A08C97069E08809DB0E6B661ED9E6</code></div>
+        <div class="hash-row"><span class="hash-file">ClipboardManagerPlus-Portable-1.2.1.zip</span><span class="hash-meta">0,9 МБ · v1.2.1</span><code>121DB53C2A9E8CBD12BEA37DADD89059EC0228121C3492289FC106693ABBA549</code></div>
+      </div>
+      <p class="note" style="margin-top:14px" data-t="dl-note">SHA-256 для проверки целостности файлов. Антивирус может предупредить: установщик пока без цифровой подписи. Подробности установки — на странице загрузки.</p>
+      <p style="margin-top:16px"><a href="download/" data-t="dl-more">Страница загрузки и инструкция по активации →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container">
+    <h2 data-t="faq-title" style="text-align:center">Частые вопросы</h2>
+    <div class="faq">
+      <details open>
+        <summary data-t="q1">Есть ли бесплатная версия?</summary>
+        <p data-t="a1">Да. Free работает без ограничения по времени: история, поиск, категории, изображения, скриншоты, тёмная тема и 8 языков. Регистрация не нужна.</p>
+      </details>
+      <details>
+        <summary data-t="q2">Чем Pro отличается от Free?</summary>
+        <p data-t="a2">В Pro входят шаблоны со сниппетами и группами, подстановка переменных, расширенный импорт и экспорт, текстовые преобразования при вставке и приоритетная поддержка.</p>
+      </details>
+      <details>
+        <summary data-t="q3">Как попробовать Pro без покупки?</summary>
+        <p data-t="a3">Первые 14 дней Pro включён автоматически — ключ не нужен. Когда пробный период закончится, программа перейдёт в режим Free, история и настройки сохранятся.</p>
+      </details>
+      <details>
+        <summary data-t="q4">Как активировать ключ?</summary>
+        <p data-t="a4">Откройте «Настройки» → «Активация», вставьте ключ и нажмите «Активировать». Ключ привязывается к компьютеру и работает офлайн, без обращения к серверу.</p>
+      </details>
+      <details>
+        <summary data-t="q5">Как вставить текст без форматирования?</summary>
+        <p data-ht="a5">Нажмите <span class="hotkey">Ctrl+Shift+Alt+U</span> — ClipboardManager Plus возьмёт текущий буфер обмена и вставит его чистым текстом, без шрифтов, цветов и ссылок.</p>
+      </details>
+      <details>
+        <summary data-t="q6">Где хранится история копий?</summary>
+        <p data-t="a6">Локально, в файле базы данных на вашем компьютере. Программа не отправляет содержимое буфера в интернет и работает без интернета.</p>
+      </details>
+      <details>
+        <summary data-t="q7">Какие версии Windows поддерживаются?</summary>
+        <p data-t="a7">Windows 10 и Windows 11, 64-битные редакции. Программа нативная, без Electron и фоновых служб.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot">
+    <div>
+      <div class="brand"><span class="logo" style="width:26px;height:26px;font-size:11px">CB</span> ClipboardManager Plus</div>
+      <p style="margin:10px 0 0" data-t="foot1">Менеджер буфера обмена для Windows. © <span data-year></span></p>
+    </div>
+    <div class="foot-links">
+      <a href="#features" data-t="foot-features">Возможности</a>
+      <a href="#pricing" data-t="foot-pricing">Тарифы</a>
+      <a href="download/" data-t="foot-download">Скачать</a>
+      <a href="support/" data-t="foot-support">Поддержка</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var translations = {
+    ru: {
+      "nav-features":"Возможности","nav-compare":"Сравнение",
+      "nav-pricing":"Тарифы","nav-download":"Скачать","nav-faq":"FAQ",
+      "hero-badge":"Free и Pro · Windows 10/11 · 8 языков",
+      "hero-h1":"Менеджер буфера обмена для Windows — всё скопированное под рукой",
+      "hero-lead":"ClipboardManager Plus сохраняет текст, изображения и скриншоты, ищет по истории, держит шаблоны и вставку чистым текстом на горячих клавишах. Работает локально, без облака и регистрации.",
+      "hero-cta":"Скачать бесплатно","hero-cta2":"Что входит в Pro",
+      "meta1":"Версия 1.2.1","meta2":"Windows 10 / 11, x64",
+      "meta3":"Данные только на вашем ПК","meta4":"14 дней Pro без ключа",
+      "m-file":"Файл","m-edit":"Правка","m-cat":"Категории","m-view":"Вид","m-settings":"Настройки","m-help":"Справка",
+      "m-search":"Поиск по истории…",
+      "m-all":"Все записи","m-pinned":"Закреплённые","m-slots":"Быстрые слоты","m-nocat":"Без категории","m-trash":"Корзина",
+      "m-templates":"Шаблоны","m-work":"Work","m-nogroup":"Без группы","m-images":"Изображения",
+      "m-workcat":"Work","m-personal":"Personal","m-links":"Links",
+      "m-status":"200 записей · @ — шаблоны",
+      "e1":"Welcome to ClipboardManager! Press Ctrl+Shift+V …","d1":"сегодня 09:02",
+      "e2":"Weekly report: milestone 2 shipped — API review","d2":"сегодня 08:47",
+      "e3":"To-do: write tests for reorder · update docs · bump version","d3":"сегодня 08:12",
+      "e4":"python -m venv .venv && .\\venv\\Scripts\\activate","d4":"вчера 17:40",
+      "e5":"npm install @fluentui/react --save","d5":"вчера 16:55",
+      "e6":"https://learn.microsoft.com/en-us/windows/win32/api/","d6":"22.10 19:04",
+      "e7":"Invoice #1042 — $49.00, paid 2026-10-21","d7":"21.10 13:09",
+      "cat-h2":"Панель категорий — под ваши задачи",
+      "cat-lead":"Одна кнопка сворачивает панель, и списку отдаётся всё окно. А встроенные разделы, которыми вы не пользуетесь, можно убрать в настройках — останется только то, что нужно.",
+      "cat-1":"«Закреплённые», «Быстрые слоты», «Без категории», «Корзина», «Шаблоны» и «Изображения» скрываются отдельными переключателями",
+      "cat-2":"Свёрнутая панель запоминается: окно откроется так же в следующий раз",
+      "cat-3":"Свои категории создаются, переименовываются и меняются местами",
+      "cat-cap":"Панель категорий свёрнута — история занимает всю ширину",
+      "f-title":"Возможности",
+      "f-sub":"Менеджер буфера обмена, который не мешает работать и умеет больше, чем встроенный «Win+V».",
+      "f1t":"История текста и изображений","f1d":"Каждая копия сохраняется автоматически — текст, картинки и скриншоты. История остаётся после перезапуска Windows.",
+      "f2t":"Поиск, категории, закрепление","f2d":"Мгновенный поиск по всей истории, раскладка по категориям и закрепление важного наверху списка. Панель категорий сворачивается, а ненужные разделы скрываются в настройках.",
+      "f3t":"Шаблоны и сниппеты","f3d":"Частые адреса, реквизиты и формулировки — по <span class=\"hotkey\">Ctrl+Shift+Alt+S</span>. Группы и подстановка переменных в Pro.",
+      "f4t":"Вставка чистым текстом","f4d":"Сброс форматирования по <span class=\"hotkey\">Ctrl+Shift+Alt+U</span> и текстовые преобразования при вставке.",
+      "f5t":"Скриншоты с редактором","f5d":"Область, активное окно или весь экран по <span class=\"hotkey\">PrtScr</span>. Стрелки, текст и размытие прямо в оверлее.",
+      "f6t":"Трей, автозапуск, 8 языков","f6d":"Работает в фоне из системного трея, запускается с Windows. Светлая и тёмная темы, локализация на 8 языков.",
+      "cmp-title":"Сравнение","cmp-sub":"ClipboardManager Plus и встроенный буфер обмена Windows (Win+V).",
+      "cmp-h1":"Функция","cmp-h2":"Win+V (встроенный)",
+      "rc1":"История текста","rc2":"История изображений и скриншотов",
+      "rc3":"Шаблоны и подстановка переменных","rc4":"Вставка чистым текстом и преобразования",
+      "rc5":"Скриншоты с редактором пометок","rc6":"Категории, закрепление, корзина",
+      "rc7":"Тёмная тема Windows 11","rc8":"Данные локально, работа офлайн","rc9":"Цена",
+      "cmp-part":"частично","cmp-price":"Free, Pro по ключу","cmp-builtin":"Встроен",
+      "p-title":"Тарифы",
+      "p-sub":"Ядро программы бесплатно навсегда. Pro открывается по ключу — один платёж, без подписки.",
+      "pc1-per":"бессрочно, без регистрации",
+      "pc1-1":"История, поиск, категории, закрепление",
+      "pc1-2":"Изображения и скриншоты с редактором",
+      "pc1-3":"Тёмная тема, 8 языков, трей и горячие клавиши",
+      "pc1-4":"Шаблоны с группами и переменными",
+      "pc1-5":"Текстовые преобразования при вставке",
+      "pc1-btn":"Скачать Free","pc1-price":"0 ₽",
+      "pc2-price":"от 1 490 ₽","pc2-per":"пожизненная лицензия на один ПК",
+      "pc2-1":"Всё из Free","pc2-2":"Шаблоны и сниппеты с группами","pc2-3":"Подстановка переменных",
+      "pc2-4":"Расширенный импорт и экспорт","pc2-5":"Текстовые преобразования при вставке",
+      "pc2-6":"Приоритетная поддержка","pc2-btn":"Получить ключ",
+      "p-note":"Первые 14 дней Pro работает без ключа: скачайте программу и попробуйте все функции. Потом она останется в режиме Free, пока вы не введёте ключ.",
+      "dl-title":"Скачать ClipboardManager Plus",
+      "dl-sub":"Версия 1.2.1 · Windows 10/11 (x64) · начинается с бесплатной Free",
+      "dl-install":"Установщик","dl-install-sub":"Мастер установки, ярлыки, автозапуск · 2,6 МБ",
+      "dl-portable":"Портативная версия","dl-portable-sub":"ZIP без установки, данные рядом с программой · 0,9 МБ",
+      "dl-note":"SHA-256 для проверки целостности файлов. Антивирус может предупредить: установщик пока без цифровой подписи. Подробности установки — на странице загрузки.",
+      "dl-more":"Страница загрузки и инструкция по активации →",
+      "faq-title":"Частые вопросы",
+      "q1":"Есть ли бесплатная версия?","a1":"Да. Free работает без ограничения по времени: история, поиск, категории, изображения, скриншоты, тёмная тема и 8 языков. Регистрация не нужна.",
+      "q2":"Чем Pro отличается от Free?","a2":"В Pro входят шаблоны со сниппетами и группами, подстановка переменных, расширенный импорт и экспорт, текстовые преобразования при вставке и приоритетная поддержка.",
+      "q3":"Как попробовать Pro без покупки?","a3":"Первые 14 дней Pro включён автоматически — ключ не нужен. Когда пробный период закончится, программа перейдёт в режим Free, история и настройки сохранятся.",
+      "q4":"Как активировать ключ?","a4":"Откройте «Настройки» → «Активация», вставьте ключ и нажмите «Активировать». Ключ привязывается к компьютеру и работает офлайн, без обращения к серверу.",
+      "q5":"Как вставить текст без форматирования?","a5":"Нажмите <span class=\"hotkey\">Ctrl+Shift+Alt+U</span> — ClipboardManager Plus возьмёт текущий буфер обмена и вставит его чистым текстом, без шрифтов, цветов и ссылок.",
+      "q6":"Где хранится история копий?","a6":"Локально, в файле базы данных на вашем компьютере. Программа не отправляет содержимое буфера в интернет и работает без интернета.",
+      "q7":"Какие версии Windows поддерживаются?","a7":"Windows 10 и Windows 11, 64-битные редакции. Программа нативная, без Electron и фоновых служб.",
+      "foot1":"Менеджер буфера обмена для Windows.","foot-features":"Возможности","foot-pricing":"Тарифы","foot-download":"Скачать","foot-support":"Поддержка"
+    },
+    en: {
+      "nav-features":"Features","nav-compare":"Compare",
+      "nav-pricing":"Pricing","nav-download":"Download","nav-faq":"FAQ",
+      "hero-badge":"Free & Pro · Windows 10/11 · 8 languages",
+      "hero-h1":"Clipboard manager for Windows — everything you copy, one keystroke away",
+      "hero-lead":"ClipboardManager Plus keeps text, images and screenshots, searches your history, and holds snippets and paste-as-plain-text on hotkeys. Runs locally, no cloud and no sign-up.",
+      "hero-cta":"Download free","hero-cta2":"What's in Pro",
+      "meta1":"Version 1.2.1","meta2":"Windows 10 / 11, x64",
+      "meta3":"Data stays on your PC","meta4":"14 days of Pro, no key",
+      "m-file":"File","m-edit":"Edit","m-cat":"Categories","m-view":"View","m-settings":"Settings","m-help":"Help",
+      "m-search":"Search history…",
+      "m-all":"All items","m-pinned":"Pinned","m-slots":"Quick slots","m-nocat":"Uncategorized","m-trash":"Trash",
+      "m-templates":"Snippets","m-work":"Work","m-nogroup":"No group","m-images":"Images",
+      "m-workcat":"Work","m-personal":"Personal","m-links":"Links",
+      "m-status":"200 items · @ for snippets",
+      "e1":"Welcome to ClipboardManager! Press Ctrl+Shift+V …","d1":"today 09:02",
+      "e2":"Weekly report: milestone 2 shipped — API review","d2":"today 08:47",
+      "e3":"To-do: write tests for reorder · update docs · bump version","d3":"today 08:12",
+      "e4":"python -m venv .venv && .\\venv\\Scripts\\activate","d4":"yesterday 17:40",
+      "e5":"npm install @fluentui/react --save","d5":"yesterday 16:55",
+      "e6":"https://learn.microsoft.com/en-us/windows/win32/api/","d6":"10/22 19:04",
+      "e7":"Invoice #1042 — $49.00, paid 2026-10-21","d7":"10/21 13:09",
+      "cat-h2":"The category panel fits the way you work",
+      "cat-lead":"One button collapses the panel and the list takes the whole window. Built-in sections you don't use can be switched off in Settings, so only what matters stays.",
+      "cat-1":"Pinned, Quick slots, Uncategorized, Trash, Templates and Images each have their own switch",
+      "cat-2":"The collapsed state is remembered: the window opens the same way next time",
+      "cat-3":"Your own categories can be created, renamed and reordered",
+      "cat-cap":"Category panel collapsed — history uses the full width",
+      "f-title":"Features",
+      "f-sub":"A clipboard manager that stays out of your way and does more than the built-in Win+V.",
+      "f1t":"Text and image history","f1d":"Every copy is saved automatically — text, pictures and screenshots. Your history survives a Windows restart.",
+      "f2t":"Search, categories, pinning","f2d":"Instant search across the whole history, folders for clips, and pinning what matters to the top. The category panel collapses, and sections you don't need can be hidden in Settings.",
+      "f3t":"Snippets and templates","f3d":"Frequent addresses, details and phrases on <span class=\"hotkey\">Ctrl+Shift+Alt+S</span>. Groups and variables in Pro.",
+      "f4t":"Paste as plain text","f4d":"Strip formatting with <span class=\"hotkey\">Ctrl+Shift+Alt+U</span> and apply text transformations on paste.",
+      "f5t":"Screenshots with an editor","f5d":"Area, active window or full screen on <span class=\"hotkey\">PrtScr</span>. Arrows, text and blur right in the overlay.",
+      "f6t":"Tray, autostart, 8 languages","f6d":"Runs quietly in the system tray and starts with Windows. Light and dark themes, localized into 8 languages.",
+      "cmp-title":"Comparison","cmp-sub":"ClipboardManager Plus and the built-in Windows clipboard (Win+V).",
+      "cmp-h1":"Feature","cmp-h2":"Win+V (built-in)",
+      "rc1":"Text history","rc2":"Image and screenshot history",
+      "rc3":"Snippets and variables","rc4":"Paste as plain text and transformations",
+      "rc5":"Screenshots with annotation editor","rc6":"Categories, pinning, trash",
+      "rc7":"Windows 11 dark theme","rc8":"Local data, works offline","rc9":"Price",
+      "cmp-part":"partial","cmp-price":"Free, Pro by key","cmp-builtin":"Built in",
+      "p-title":"Pricing",
+      "p-sub":"The core app is free forever. Pro is unlocked by a key — one payment, no subscription.",
+      "pc1-per":"lifetime, no sign-up",
+      "pc1-1":"History, search, categories, pinning",
+      "pc1-2":"Images and screenshots with the editor",
+      "pc1-3":"Dark theme, 8 languages, tray and hotkeys",
+      "pc1-4":"Snippets with groups and variables",
+      "pc1-5":"Text transformations on paste",
+      "pc1-btn":"Download Free","pc1-price":"Free",
+      "pc2-price":"from $19","pc2-per":"lifetime license for one PC",
+      "pc2-1":"Everything in Free","pc2-2":"Snippets and templates with groups","pc2-3":"Variable substitution",
+      "pc2-4":"Advanced import and export","pc2-5":"Text transformations on paste",
+      "pc2-6":"Priority support","pc2-btn":"Get a key",
+      "p-note":"The first 14 days of Pro work without a key: download the app and try every feature. After that it stays in Free mode until you enter a key.",
+      "dl-title":"Download ClipboardManager Plus",
+      "dl-sub":"Version 1.2.1 · Windows 10/11 (x64) · starts as the free edition",
+      "dl-install":"Installer","dl-install-sub":"Setup wizard, shortcuts, autostart · 2.6 MB",
+      "dl-portable":"Portable version","dl-portable-sub":"ZIP, no install, data next to the app · 0.9 MB",
+      "dl-note":"SHA-256 to verify file integrity. Your antivirus may warn: the installer is not code-signed yet. Install steps are on the download page.",
+      "dl-more":"Download page and activation guide →",
+      "faq-title":"Frequently asked questions",
+      "q1":"Is there a free version?","a1":"Yes. Free has no time limit: history, search, categories, images, screenshots, dark theme and 8 languages. No sign-up required.",
+      "q2":"How is Pro different from Free?","a2":"Pro adds snippets and templates with groups, variable substitution, advanced import and export, text transformations on paste and priority support.",
+      "q3":"Can I try Pro before buying?","a3":"Pro is enabled for the first 14 days automatically — no key needed. When the trial ends the app switches to Free and keeps your history and settings.",
+      "q4":"How do I activate a key?","a4":"Open Settings → Activation, paste the key and click Activate. The key binds to that computer and works offline, without contacting a server.",
+      "q5":"How do I paste without formatting?","a5":"Press <span class=\"hotkey\">Ctrl+Shift+Alt+U</span> — ClipboardManager Plus takes the current clipboard and pastes it as clean text, without fonts, colors or links.",
+      "q6":"Where is my clipboard history stored?","a6":"Locally, in a database file on your computer. The app never sends clipboard content anywhere and works without internet.",
+      "q7":"Which Windows versions are supported?","a7":"Windows 10 and Windows 11, 64-bit editions. The app is native, without Electron or background services.",
+      "foot1":"Clipboard manager for Windows.","foot-features":"Features","foot-pricing":"Pricing","foot-download":"Download","foot-support":"Support"
+    }
+  };
+
+  var lang = "ru";
+  var root = document.documentElement;
+
+  function applyLanguage() {
+    var t = translations[lang];
+    root.lang = lang;
+    document.querySelectorAll("[data-t]").forEach(function (el) {
+      var key = el.getAttribute("data-t");
+      if (t[key] != null) el.textContent = t[key];
+    });
+    document.querySelectorAll("[data-ht]").forEach(function (el) {
+      var key = el.getAttribute("data-ht");
+      if (t[key] != null) el.innerHTML = t[key];
+    });
+    var theme = document.getElementById("themeToggle");
+    if (theme) theme.setAttribute("aria-label", lang === "ru" ? "Сменить тему" : "Switch theme");
+    document.title = lang === "ru"
+      ? "ClipboardManager Plus — менеджер буфера обмена для Windows"
+      : "ClipboardManager Plus — clipboard manager for Windows";
+    document.querySelectorAll(".toggle button").forEach(function (b) {
+      b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+    });
+  }
+
+  document.querySelectorAll(".toggle button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      lang = btn.getAttribute("data-lang") === "en" ? "en" : "ru";
+      try { localStorage.setItem("cm-lang", lang); } catch (e) {}
+      applyLanguage();
+    });
+  });
+
+  var themeBtn = document.getElementById("themeToggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("cm-theme", next); } catch (e) {}
+    });
+  }
+
+  try {
+    var saved = localStorage.getItem("cm-lang");
+    var fromQuery = new URLSearchParams(location.search).get("lang");
+    if (fromQuery === "en" || fromQuery === "ru") lang = fromQuery;
+    else if (saved === "en" || saved === "ru") lang = saved;
+  } catch (e) {}
+
+  applyLanguage();
+
+  var year = new Date().getFullYear();
+  document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = year; });
+})();
+</script>
+</body>
+</html>
