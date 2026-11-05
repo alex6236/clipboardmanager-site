@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Политика конфиденциальности — ClipboardManager Plus</title>
+<meta name="description" content="Какие данные обрабатывает сайт clipboardmanager.ru и программа ClipboardManager Plus: статистика Яндекс.Метрики, локальное хранение истории, обращения программы в сеть.">
+<link rel="canonical" href="https://clipboardmanager.ru/privacy/">
+<link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/privacy/">
+<link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/privacy/index.en.html">
+<meta property="og:title" content="Политика конфиденциальности — ClipboardManager Plus">
+<meta property="og:description" content="Какие данные обрабатывает сайт и программа, что хранится локально и как отказаться от статистики.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clipboardmanager.ru/privacy/">
+<meta name="robots" content="index,follow">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+  })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=114086821','ym');
+  ym(114086821,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,referrer:document.referrer,url:location.href});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114086821" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<style>
+:root{
+  --bg:#f7f9fb; --panel:#ffffff; --panel2:#f3f5f7;
+  --text:#1f2430; --muted:#5d6a78; --border:#e1e6ec;
+  --accent:#0078d4; --accent-hover:#106ebe; --code-bg:#eef2f6;
+  --shadow:0 2px 10px rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1a1d24; --panel:#232833; --panel2:#2b3140;
+    --text:#f3f5f8; --muted:#9aa7b5; --border:#333b49;
+    --accent:#4cc2ff; --accent-hover:#7ad1ff; --code-bg:#2b3140;
+    --shadow:0 2px 10px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);
+  font-family:'Segoe UI Variable Text','Segoe UI',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.container{max-width:820px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--border);background:var(--panel)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-weight:600}
+.logo{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:11px;font-weight:700;
+  color:#fff;background:linear-gradient(135deg,var(--accent),#6b5bd6)}
+.nav-links{display:flex;align-items:center;gap:18px;font-size:14px}
+.nav-links a{color:var(--muted);text-decoration:none}
+.nav-links a:hover{color:var(--accent)}
+main{padding:44px 0 64px}
+h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:-.01em;margin-bottom:10px}
+.updated{color:var(--muted);font-size:14px;margin-bottom:32px}
+h2{font-size:20px;font-weight:600;margin:34px 0 10px}
+p{margin:0 0 12px}
+ul{margin:0 0 14px;padding-left:22px}
+li{margin:6px 0}
+a{color:var(--accent)}
+a:hover{color:var(--accent-hover)}
+code{font-family:'Cascadia Mono',Consolas,var(--mono,monospace);font-size:14px;
+  background:var(--code-bg);border-radius:4px;padding:1px 6px;word-break:break-all}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;
+  padding:18px 20px;box-shadow:var(--shadow);margin:18px 0}
+.card p:last-child{margin-bottom:0}
+footer{border-top:1px solid var(--border);background:var(--panel);padding:22px 0;color:var(--muted);font-size:13px}
+.foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.foot a{color:var(--muted);text-decoration:none;margin-right:16px}
+.foot a:hover{color:var(--accent)}
+@media (max-width:640px){
+  h1{font-size:27px}
+  .nav-links a[data-optional]{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="../"><span class="logo">CB</span> ClipboardManager Plus</a>
+    <nav class="nav-links">
+      <a href="../" data-optional>Главная</a>
+      <a href="../download/" data-optional>Скачать</a>
+      <a href="../support/">Поддержка</a>
+      <a href="index.en.html" hreflang="en" lang="en">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1>Политика конфиденциальности</h1>
+    <p class="updated">Обновлено 5 ноября 2026 года</p>
+
+    <p>Политика описывает, какие данные обрабатываются при работе с сайтом <strong>clipboardmanager.ru</strong> (далее — Сайт) и программой <strong>ClipboardManager Plus</strong> для Windows (далее — Программа).</p>
+
+    <h2>1. Что хранится в Программе</h2>
+    <p>История копий, категории, шаблоны, настройки и скриншоты остаются на вашем компьютере. Владелец Сайта не имеет к ним доступа и не получает их копий.</p>
+    <ul>
+      <li>история и настройки — в базе <code>%USERPROFILE%\.clipboard_manager.db</code> и файле <code>.ini</code> рядом с ней;</li>
+      <li>снимки экрана — в папке, выбранной в настройках Программы;</li>
+      <li>учётной записи, облачной синхронизации и серверного профиля в Программе нет.</li>
+    </ul>
+
+    <h2>2. Обращения Программы в сеть</h2>
+    <p>Программа работает без интернета; сеть нужна только в двух случаях.</p>
+    <ul>
+      <li><strong>Название скопированной ссылки.</strong> Если вы копируете адрес страницы, Программа может один раз запросить у этого сайта его название (для YouTube и RuTube — через oEmbed, для остальных страниц — из заголовка страницы). В запросе участвует только сам адрес; содержимое буфера и другие данные не передаются.</li>
+      <li><strong>Активация Pro-ключа.</strong> Ключ проверяется на самом компьютере по его идентификатору, на сервер ничего не отправляется.</li>
+    </ul>
+    <p>Телеметрии, сбора статистики использования и фоновых обращений «домой» в Программе нет.</p>
+
+    <h2>3. Статистика Сайта</h2>
+    <p>На Сайте установлен счётчик <strong>Яндекс.Метрики</strong> (номер 114086821). Он нужен, чтобы понимать посещаемость и улучшать страницы.</p>
+    <p>Счётчик собирает:</p>
+    <ul>
+      <li>файлы cookie и идентификатор посетителя;</li>
+      <li>IP-адрес, сведения о браузере, устройстве и разрешении экрана;</li>
+      <li>адреса просмотренных страниц, источник перехода, время на странице;</li>
+      <li>клики по ссылкам и кнопкам (карта кликов).</li>
+    </ul>
+    <p>Обработку ведёт ООО «Яндекс» как поставщик сервиса, на условиях собственной политики конфиденциальности. Данные статистики не связываются с вами как с конкретным человеком и не используются для рекламы на других сайтах.</p>
+
+    <h2>4. Cookie</h2>
+    <p>Собственные cookie Сайт не устанавливает: выбранная тема и язык хранятся в локальном хранилище браузера (localStorage) и на сервер не отправляются. Cookie появляются только от счётчика Метрики.</p>
+
+    <h2>5. Как отказаться от статистики</h2>
+    <div class="card">
+      <p>Запретите cookie для сайта clipboardmanager.ru в настройках браузера или включите блокировщик рекламы. На работу Сайта и загрузку файлов это не влияет.</p>
+    </div>
+
+    <h2>6. Ваши права</h2>
+    <p>Вы можете запросить сведения об обработке своих данных или их удаление. Напишите через <a href="../support/">страницу поддержки</a> — ответим в течение 30 дней.</p>
+
+    <h2>7. Изменения политики</h2>
+    <p>Актуальная редакция всегда опубликована на этой странице; дата обновления указана в начале. Существенные изменения отражаются здесь же, до их вступления в силу.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>© 2026 ClipboardManager Plus</div>
+    <div>
+      <a href="../">Главная</a>
+      <a href="../download/">Скачать</a>
+      <a href="../support/">Поддержка</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
