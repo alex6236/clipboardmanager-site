@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Получить ключ повторно — ClipboardManager Plus</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Повторная выдача лицензионного ключа по номеру заказа и адресу почты.">
+<style>
+:root{
+  --bg:#f7f9fb; --panel:#ffffff; --text:#1f2430; --muted:#5d6a78; --border:#e1e6ec;
+  --accent:#0078d4; --accent-hover:#106ebe; --ok:#107c10; --field:#ffffff;
+  --shadow:0 2px 10px rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1a1d24; --panel:#232833; --text:#f3f5f8; --muted:#9aa7b5; --border:#333b49;
+    --accent:#4cc2ff; --accent-hover:#7ad1ff; --ok:#54d364; --field:#2b3140;
+    --shadow:0 2px 10px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;display:grid;place-items:center;padding:32px 20px;
+  background:var(--bg);color:var(--text);
+  font-family:'Segoe UI Variable Text','Segoe UI',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.65}
+.wrap{max-width:560px;width:100%}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;margin-bottom:22px}
+.logo{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:11px;font-weight:700;
+  color:#fff;background:linear-gradient(135deg,var(--accent),#6b5bd6)}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;
+  padding:28px;box-shadow:var(--shadow)}
+h1{font-size:26px;line-height:1.25;font-weight:700;margin-bottom:8px}
+p{margin:0 0 12px}
+.muted{color:var(--muted);font-size:14px}
+label{display:block;font-size:14px;font-weight:600;margin:16px 0 6px}
+input{width:100%;padding:11px 13px;font:inherit;color:var(--text);
+  background:var(--field);border:1px solid var(--border);border-radius:4px}
+input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+button{width:100%;margin-top:18px;font:inherit;font-weight:600;padding:12px 18px;border-radius:8px;
+  border:none;cursor:pointer;background:var(--accent);color:#fff}
+button:hover{background:var(--accent-hover)}
+button[disabled]{opacity:.6;cursor:default}
+.key{margin-top:18px;font-family:'Cascadia Mono',Consolas,monospace;font-size:17px;
+  padding:14px 16px;border-radius:6px;background:var(--field);border:1px solid var(--border);
+  user-select:all;word-break:break-all}
+.error{display:none;margin-top:14px;padding:10px 12px;border-radius:4px;font-size:14px;
+  background:#fde7e9;color:#a4262c}
+@media (prefers-color-scheme: dark){.error{background:#3a2226;color:#ffb3b8}}
+.hidden{display:none}
+a{color:var(--accent)}
+a:hover{color:var(--accent-hover)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><span class="logo">CB</span> ClipboardManager Plus</div>
+
+  <div class="card">
+    <h1>Получить ключ повторно</h1>
+    <p class="muted">Введите номер заказа и адрес почты, указанный при оплате. Номер есть в письме и на странице после оплаты.</p>
+
+    <form id="form" novalidate>
+      <label for="order">Номер заказа</label>
+      <input id="order" name="order" type="text" inputmode="numeric" autocomplete="off"
+             placeholder="например, 1042" required>
+      <label for="email">Электронная почта</label>
+      <input id="email" name="email" type="email" inputmode="email" autocomplete="email"
+             placeholder="you@example.com" required>
+      <button id="submitBtn" type="submit">Показать ключ</button>
+      <div class="error" id="err" role="alert"></div>
+    </form>
+
+    <div class="key hidden" id="keyBox"></div>
+    <p class="muted hidden" id="keyHint" style="margin-top:8px">Скопируйте ключ и вставьте его в программе: «Настройки» → «Активация».</p>
+    <p class="muted" style="margin-top:16px">Не помните номер заказа или почту? Напишите в <a href="../support/">поддержку</a>.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  // TODO: заменить на адрес развёрнутого Worker при деплое.
+  var API_BASE = 'https://clipboardmanager-payments.sova11.workers.dev';
+  var form = document.getElementById('form');
+  var btn = document.getElementById('submitBtn');
+  var err = document.getElementById('err');
+  var keyBox = document.getElementById('keyBox');
+  var keyHint = document.getElementById('keyHint');
+
+  function fail(message){
+    err.textContent = message;
+    err.style.display = 'block';
+  }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    err.style.display = 'none';
+    keyBox.classList.add('hidden');
+    keyHint.classList.add('hidden');
+
+    var order = (document.getElementById('order').value || '').trim();
+    var email = (document.getElementById('email').value || '').trim();
+
+    if (!/^\d{1,9}$/.test(order)) { fail('Номер заказа — несколько цифр, например 1042.'); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { fail('Проверьте адрес электронной почты.'); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Ищем ключ…';
+    fetch(API_BASE + '/api/reissue', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ order: Number(order), email: email })
+    }).then(function(r){
+      if (r.status === 404) throw new Error('notfound');
+      if (r.status === 429) throw new Error('ratelimit');
+      if (!r.ok) throw new Error('bad');
+      return r.json();
+    }).then(function(data){
+      if (!data || !data.key) throw new Error('empty');
+      keyBox.textContent = data.key;
+      keyBox.classList.remove('hidden');
+      keyHint.classList.remove('hidden');
+    }).catch(function(e){
+      if (e.message === 'notfound') fail('Заказ с таким номером и почтой не найден. Проверьте данные.');
+      else if (e.message === 'ratelimit') fail('Слишком много попыток. Подождите несколько минут.');
+      else fail('Не удалось получить ключ. Попробуйте позже или напишите в поддержку.');
+    }).then(function(){
+      btn.disabled = false;
+      btn.textContent = 'Показать ключ';
+    });
+  });
+})();
+</script>
+</body>
+</html>

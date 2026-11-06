@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment complete — ClipboardManager Plus</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Page shown after payment: your Pro licence key.">
+<style>
+:root{
+  --bg:#f7f9fb; --panel:#ffffff; --text:#1f2430; --muted:#5d6a78; --border:#e1e6ec;
+  --accent:#0078d4; --accent-hover:#106ebe; --ok:#107c10; --field:#ffffff;
+  --shadow:0 2px 10px rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1a1d24; --panel:#232833; --text:#f3f5f8; --muted:#9aa7b5; --border:#333b49;
+    --accent:#4cc2ff; --accent-hover:#7ad1ff; --ok:#54d364; --field:#2b3140;
+    --shadow:0 2px 10px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;display:grid;place-items:center;padding:32px 20px;
+  background:var(--bg);color:var(--text);
+  font-family:'Segoe UI Variable Text','Segoe UI',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.65}
+.wrap{max-width:620px;width:100%}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;margin-bottom:22px}
+.logo{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:11px;font-weight:700;
+  color:#fff;background:linear-gradient(135deg,var(--accent),#6b5bd6)}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;
+  padding:28px 28px 26px;box-shadow:var(--shadow)}
+h1{font-size:28px;line-height:1.25;font-weight:700;margin-bottom:8px}
+p{margin:0 0 12px}
+.muted{color:var(--muted);font-size:14px}
+.keybox{display:flex;gap:10px;align-items:center;margin:18px 0 8px}
+.key{flex:1;font-family:'Cascadia Mono',Consolas,monospace;font-size:18px;letter-spacing:.02em;
+  padding:14px 16px;border-radius:6px;background:var(--field);border:1px solid var(--border);
+  user-select:all;word-break:break-all}
+button{font:inherit;font-weight:600;padding:12px 18px;border-radius:8px;border:none;cursor:pointer;
+  background:var(--accent);color:#fff;white-space:nowrap}
+button:hover{background:var(--accent-hover)}
+.ok{color:var(--ok);font-weight:600}
+a{color:var(--accent)}
+a:hover{color:var(--accent-hover)}
+.hidden{display:none}
+.hint{margin-top:16px;font-size:14px;color:var(--muted)}
+ul{margin:6px 0 0;padding-left:20px;font-size:15px}
+li{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><span class="logo">CB</span> ClipboardManager Plus</div>
+
+  <div class="card">
+    <h1>Payment complete</h1>
+    <p class="muted">Thank you for your purchase. The key below has also been e-mailed to you.</p>
+
+    <div id="loading">
+      <p class="muted">Fetching your key…</p>
+    </div>
+
+    <div id="success" class="hidden">
+      <div class="keybox">
+        <div class="key" id="keyValue">—</div>
+        <button type="button" id="copyBtn">Copy</button>
+      </div>
+      <p class="muted" id="copyHint">Press “Copy” and paste the key into the app: Settings → Activation.</p>
+      <ul>
+        <li>The licence is perpetual and activation works offline.</li>
+        <li>It covers one user and is not tied to a specific computer.</li>
+        <li>The e-mail may land in your spam folder — please check it.</li>
+      </ul>
+      <p class="hint">Lost the key? Request it again on the <a href="../reissue/index.en.html">re-issue page</a>.</p>
+    </div>
+
+    <div id="failure" class="hidden">
+      <p>The key could not be displayed just now, but your payment went through. Copy it from the e-mail or request it again on the <a href="../reissue/index.en.html">re-issue page</a>.</p>
+      <p class="hint">If there is no e-mail and re-issue does not help, contact <a href="../support/?lang=en">support</a> with your order number.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // TODO: replace with the deployed Worker URL.
+  var API_BASE = 'https://clipboardmanager-payments.sova11.workers.dev';
+
+  var params = new URLSearchParams(location.search);
+  var order = params.get('order');
+  var token = params.get('t');
+
+  var loading = document.getElementById('loading');
+  var success = document.getElementById('success');
+  var failure = document.getElementById('failure');
+  var keyValue = document.getElementById('keyValue');
+  var copyBtn = document.getElementById('copyBtn');
+  var copyHint = document.getElementById('copyHint');
+
+  function showFailure(){
+    loading.classList.add('hidden');
+    failure.classList.remove('hidden');
+  }
+
+  if (!order || !token) { showFailure(); return; }
+
+  fetch(API_BASE + '/api/order?order=' + encodeURIComponent(order) + '&t=' + encodeURIComponent(token))
+    .then(function(r){ if (!r.ok) throw new Error('bad status'); return r.json(); })
+    .then(function(data){
+      if (!data || !data.key) throw new Error('no key');
+      keyValue.textContent = data.key;
+      loading.classList.add('hidden');
+      success.classList.remove('hidden');
+    })
+    .catch(showFailure);
+
+  copyBtn.addEventListener('click', function(){
+    var text = keyValue.textContent;
+    function done(){
+      copyBtn.textContent = 'Copied';
+      setTimeout(function(){ copyBtn.textContent = 'Copy'; }, 1500);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function(){ copyHint.textContent = 'Select the key and copy it manually.'; });
+    } else {
+      var range = document.createRange();
+      range.selectNodeContents(keyValue);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      copyHint.textContent = 'The key is selected — press Ctrl+C.';
+    }
+  });
+})();
+</script>
+</body>
+</html>
