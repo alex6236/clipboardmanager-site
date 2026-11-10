@@ -852,8 +852,8 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
     var el = document.querySelector('[data-t="pc2-price"]');
     if (!el) return;
     el.textContent = langNow() === 'ru'
-      ? 'от ' + Number(price.ru).toLocaleString('ru-RU') + ' ₽'
-      : 'from $' + price.priceUsd;
+      ? Number(price.ru).toLocaleString('ru-RU') + ' ₽'
+      : Number(price.ru).toLocaleString('ru-RU') + ' ₽ ≈ $' + price.priceUsd;
   }
 
   document.querySelectorAll('.toggle button').forEach(function(btn){
