@@ -1,7 +1,9 @@
 {
-  "version": "9.9.9",
+  "version": "1.2.13",
   "date": "2026-11-10",
-  "notes": "temporary manifest for update-check test",
-  "setup": "ClipboardManagerPlus-Setup-1.2.12.exe",
-  "portable": "ClipboardManagerPlus-Portable-1.2.12.zip"
+  "notes": "Проверка обновлений, portable-папка data\\screenshots, вертикальное окно 576x783",
+  "setup": "ClipboardManagerPlus-Setup-1.2.13.exe",
+  "sha256": "3C156D16553E3F6686874AC671819BBAA5C1BF85332E81572D174A8A83EB5747",
+  "portable": "ClipboardManagerPlus-Portable-1.2.13.zip",
+  "sha256_portable": "A62B318501A00D7603A3E88913FF38C51F0B382569FA5C5E248B33B0C4D103C0"
 }
