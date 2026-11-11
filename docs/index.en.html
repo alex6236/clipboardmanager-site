@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipboardManager Plus User Guide</title>
+<meta name="description" content="How to use ClipboardManager Plus: hotkeys, clipboard history, categories and quick slots, templates with variables, screenshots with the editor, settings, backup and Pro activation.">
+<link rel="canonical" href="https://clipboardmanager.ru/docs/?lang=en">
+<link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/docs/">
+<link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/docs/?lang=en">
+<meta property="og:title" content="ClipboardManager Plus User Guide">
+<meta property="og:description" content="Every feature in order: history, categories, slots, templates, screenshots, settings and the Pro license.">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --bg:#0f172a; --panel:#1e293b; --panel2:#334155; --text:#e2e8f0; --muted:#94a3b8;
+    --accent:#38bdf8; --accent2:#818cf8; --border:#334155; --ok:#34d399; --warn:#fbbf24;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:20px}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.65}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}
+  .brand{font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block}
+  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+  nav a:hover{color:var(--text)}
+  nav a.cur{color:var(--text);font-weight:700}
+  .lang a{color:var(--accent);text-decoration:none;font-size:13px}
+  .lang .current{color:var(--text);font-weight:700}
+  .hero{padding:44px 0 28px;border-bottom:1px solid var(--border)}
+  .hero .kicker{color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .hero h1{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:12px}
+  .hero p{color:var(--muted);font-size:16px;max-width:760px}
+  .docs{display:grid;grid-template-columns:250px 1fr;gap:40px;padding:34px 0 56px}
+  .toc{position:sticky;top:18px;align-self:start;font-size:14px}
+  .toc h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+  .toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0 4px 10px;border-left:2px solid transparent}
+  .toc a:hover{color:var(--text);border-left-color:var(--accent)}
+  article h2{font-size:24px;margin:34px 0 12px;padding-top:8px}
+  article h2:first-child{margin-top:0}
+  article h3{font-size:17px;margin:22px 0 8px}
+  article p{margin:10px 0}
+  article ul,article ol{margin:10px 0 10px 22px}
+  article li{margin:5px 0}
+  article li::marker{color:var(--accent)}
+  kbd{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:12px;line-height:1;padding:4px 7px;border-radius:5px;border:1px solid var(--panel2);border-bottom-width:2px;background:var(--panel);color:var(--text);white-space:nowrap}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  .note{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:14px;color:var(--muted)}
+  .note b{color:var(--text)}
+  .pro{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0b1220;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:5px;padding:2px 6px;vertical-align:2px}
+  footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  footer a{color:var(--muted)}
+  @media(max-width:880px){.docs{grid-template-columns:1fr;gap:18px}.toc{position:static;border-bottom:1px solid var(--border);padding-bottom:14px}.hero h1{font-size:27px}nav a{margin-left:0;margin-right:16px}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand"><span class="dot"></span> ClipboardManager Plus</div>
+  <nav>
+    <a href="/?lang=en">Home</a>
+    <a href="/download/?lang=en">Download</a>
+    <a href="/docs/?lang=en" class="cur">Guide</a>
+    <a href="/support/">Support</a>
+    <span class="lang"><a href="index.html">RU</a> · <span class="current">EN</span></span>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">User guide · Windows 10 / 11</div>
+    <h1>How to use ClipboardManager Plus</h1>
+    <p>The program remembers everything you copy so you can paste what you need with one key. Below is every feature in order — from the first launch to templates, screenshots and backup.</p>
+  </div>
+</section>
+
+<div class="wrap docs">
+  <aside class="toc">
+    <h2>Contents</h2>
+    <a href="#start">First launch</a>
+    <a href="#hotkeys">Hotkeys</a>
+    <a href="#window">History window</a>
+    <a href="#entries">Working with entries</a>
+    <a href="#quickmenu">Quick menu</a>
+    <a href="#snippets">Templates and variables</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#images">Images</a>
+    <a href="#trash">Trash and retention</a>
+    <a href="#settings">Settings</a>
+    <a href="#backup">Backup</a>
+    <a href="#updates">Updates</a>
+    <a href="#pro">Free and Pro</a>
+    <a href="#data">Where data lives</a>
+    <a href="#faq">FAQ</a>
+  </aside>
+
+  <article>
+
+    <h2 id="start">First launch</h2>
+    <p>After installation the program starts with Windows (this can be switched off) and lives in the notification area next to the clock. There is no main window on screen: the history opens with a hotkey.</p>
+    <ol>
+      <li>Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> — the history window opens next to the cursor.</li>
+      <li>Copy a few text fragments in any application — they appear in the list.</li>
+      <li>Select an entry with the arrow keys and press <kbd>Enter</kbd> — the text is pasted into the window you were working in.</li>
+      <li>Press <kbd>Esc</kbd> to close the window without pasting.</li>
+    </ol>
+    <div class="note"><b>Important.</b> The program does not send your data anywhere. History is stored in a local file on your computer; the update check only transmits the current version number.</div>
+
+    <h2 id="hotkeys">Hotkeys</h2>
+    <table>
+      <thead><tr><th>Keys</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td><td>Open the history window</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd></td><td>Quick menu at the cursor (recent entries only)</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Paste the selected entry</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Jump to history search</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd></td><td>Instant paste from a quick slot</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Close the window</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd></td><td>Paste as plain text</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd></td><td>Open templates <span class="pro">Pro</span></td></tr>
+        <tr><td><kbd>PrtScr</kbd></td><td>Screenshot of a selected area</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>PrtScr</kbd></td><td>Screenshot of the active window</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>PrtScr</kbd></td><td>Screenshot of the whole screen</td></tr>
+      </tbody>
+    </table>
+    <p>The main key and the plain-paste key can be changed in “Settings → Startup”, the template key is there as well, screenshot keys — in “Settings → Screenshots and images”. If a combination is already taken by another program, a warning appears next to the field.</p>
+
+    <h2 id="window">History window</h2>
+    <p>Categories are on the left, entries on the right. The search field at the top filters the list as you type.</p>
+    <h3>Built-in sections</h3>
+    <ul>
+      <li><b>All entries</b> — the full history in copy order.</li>
+      <li><b>Pinned</b> — what you marked as important; these entries are never removed by the retention limit.</li>
+      <li><b>Quick slots</b> — up to nine entries pasted with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd>.</li>
+      <li><b>Uncategorised</b> — entries without a category.</li>
+      <li><b>Images</b> — copied pictures and screenshots.</li>
+      <li><b>Templates</b> — text snippets <span class="pro">Pro</span>.</li>
+      <li><b>Trash</b> — deleted entries that can still be restored.</li>
+    </ul>
+    <p>Your own categories follow below; create, rename and delete them through the “Categories” menu. A category can be pinned — then every entry inside it is lifted to the top just like a pinned entry.</p>
+    <p>Hovering an entry shows a card with the full text; it can be turned off in “Settings → Storage”. The same page holds sorting by usage count and “pinned entries on top”.</p>
+    <p>The “View” menu controls the entry timestamp, collapsing the category pane and the dark theme.</p>
+
+    <h2 id="entries">Working with entries</h2>
+    <p>Every action is available from the “Edit” menu and from the right-click context menu.</p>
+    <ul>
+      <li><b>Paste</b> — copy the entry and send it to the active window.</li>
+      <li><b>Copy</b> — put the entry on the clipboard without pasting.</li>
+      <li><b>Paste and delete</b> — paste and immediately drop the entry from history.</li>
+      <li><b>Paste selected together</b> — select several entries (<kbd>Ctrl</kbd>+click or <kbd>Ctrl</kbd>+<kbd>A</kbd>) and paste them as one block, each on its own line.</li>
+      <li><b>Pin / unpin</b> — protects the entry from the retention limit and lifts it to the top.</li>
+      <li><b>Edit</b> — change the text right in the history.</li>
+      <li><b>View</b> — a separate window for long text or a picture.</li>
+      <li><b>Move to category / Remove from category</b> — sorting history into folders.</li>
+      <li><b>Add to quick slots / Remove from slots</b> — bind the entry to <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+digit.</li>
+      <li><b>Move up / down</b> — manual order in the list.</li>
+      <li><b>Delete</b> — sends the entry to the trash.</li>
+      <li><b>Paste as…</b> — <span class="pro">Pro</span>: paste in upper or lower case, capitalised, without extra spaces or without line breaks.</li>
+    </ul>
+    <div class="note">Double-clicking an entry does the same as <kbd>Enter</kbd>. With “Close window after pasting” enabled the window hides right after the text is sent.</div>
+
+    <h2 id="quickmenu">Quick menu at the cursor</h2>
+    <p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> opens a compact list of recent entries right where the cursor is. Double-click or <kbd>Enter</kbd> pastes the entry into the window that was active before the menu opened, <kbd>Esc</kbd> closes the list.</p>
+    <p>It is handy when you do not want to close what you are doing just to paste one of the last fragments.</p>
+
+    <h2 id="snippets">Templates and variables <span class="pro">Pro</span></h2>
+    <p>A template is a piece of prepared text that is pasted as a whole and can insert the current date, time and user name. Open templates via “Edit → Templates”, with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>, or from the tray menu.</p>
+    <h3>What the template editor offers</h3>
+    <ul>
+      <li>Name, group and template text.</li>
+      <li>Variable buttons that insert a placeholder at the caret.</li>
+      <li>Template groups: create, rename, move and delete.</li>
+      <li><kbd>Ctrl</kbd>+<kbd>Enter</kbd> — save the template.</li>
+    </ul>
+    <h3>Variables</h3>
+    <table>
+      <thead><tr><th>Variable</th><th>Inserts</th></tr></thead>
+      <tbody>
+        <tr><td><code>{date}</code> or <code>{d}</code></td><td>The current date, e.g. 11.11.2026</td></tr>
+        <tr><td><code>{time}</code> or <code>{t}</code></td><td>The current time, e.g. 14:05</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Date and time together</td></tr>
+        <tr><td><code>{year}</code></td><td>The current year</td></tr>
+        <tr><td><code>{user}</code> or <code>{username}</code></td><td>The Windows user name</td></tr>
+      </tbody>
+    </table>
+    <p>Variables are resolved at paste time, not when the template is created, so the same template always yields fresh date and time. Unknown braces are left untouched.</p>
+
+    <h2 id="screenshots">Screenshots</h2>
+    <p>Three modes start with <kbd>PrtScr</kbd>, <kbd>Alt</kbd>+<kbd>PrtScr</kbd> and <kbd>Shift</kbd>+<kbd>PrtScr</kbd>. If the system already owns <kbd>PrtScr</kbd>, the program reports it and assigns the area capture to <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd>.</p>
+    <h3>Editor</h3>
+    <p>After selecting an area, the annotation editor opens: hand to move the selection, arrow, pencil, line, rectangle, text, step numbering and blur. Colour and thickness are chosen on the toolbar.</p>
+    <table>
+      <thead><tr><th>Keys</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Undo / redo</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Copy the snapshot</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Save to a file</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Done: send to history</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Cancel</td></tr>
+      </tbody>
+    </table>
+    <p>In “Settings → Screenshots and images” you can hide the editor, enable automatic saving into a chosen folder and decide whether “Done” also copies the snapshot to the clipboard.</p>
+    <div class="note">Image files are removed from disk only when the entry is permanently deleted from the trash — while an entry can be restored, its picture stays in place.</div>
+
+    <h2 id="images">Images</h2>
+    <p>Pictures copied in a browser or an image editor land in the “Images” section and are kept together with the text history. Open such an entry with “View” — it offers zoom and a “Fit” mode.</p>
+    <p>With “Save copied images to a folder” enabled, every copied picture is additionally written to the chosen directory.</p>
+
+    <h2 id="trash">Trash and retention</h2>
+    <p>Deleting an entry does not erase it: it goes to the trash and stays there for the configured number of hours (24 by default). The trash offers “Restore”, “Delete permanently” and “Empty trash”.</p>
+    <p>“Settings → Storage” controls:</p>
+    <ul>
+      <li><b>Retention</b> in days — 0 by default, meaning forever. Pinned entries are exempt.</li>
+      <li><b>Trash lifetime</b> in hours.</li>
+      <li><b>Keep repeated copies</b> — by default a repeat does not create a new row but lifts the existing one.</li>
+      <li><b>Wheel scrolling</b> — how many rows one notch scrolls.</li>
+      <li><b>Show the entry category</b> in the list.</li>
+    </ul>
+
+    <h2 id="settings">Settings</h2>
+    <p>Open them from “Settings → Settings” or from the notification-area menu. Sections on the left:</p>
+    <table>
+      <thead><tr><th>Section</th><th>What it configures</th></tr></thead>
+      <tbody>
+        <tr><td>Clipboard</td><td>Interface language, clipboard watching, copy/paste sounds, application filter</td></tr>
+        <tr><td>Storage</td><td>Retention, trash, hover cards, sorting by usage, pinned on top, repeated copies, scrolling</td></tr>
+        <tr><td>Window</td><td>Always on top, close after pasting, hide after copying, minimise to tray, dark theme, font size, hiding built-in folders</td></tr>
+        <tr><td>Startup</td><td>Start with Windows, main hotkey, plain-paste key, template key</td></tr>
+        <tr><td>Screenshots and images</td><td>Editor, copy on “Done”, autosave, folder, three hotkeys, default colour and thickness</td></tr>
+        <tr><td>Advanced</td><td>Backup (export and import), update checks</td></tr>
+      </tbody>
+    </table>
+    <p><b>Application filter</b> in the “Clipboard” section lets you either record copies only from listed programs or ignore them. The list is given as process names separated by semicolons, e.g. <code>WINWORD.EXE;EXCEL.EXE</code>.</p>
+
+    <h2 id="backup">Backup <span class="pro">Pro</span></h2>
+    <p>History, categories, pinned entries, quick slots and templates are exported into a single JSON file. Export and import are available in two places: “File → Export to JSON / Import from JSON” and “Settings → Advanced → Backup”.</p>
+    <p>Import never duplicates: entries already present in history are skipped. Before moving to a new computer, save a copy on the old one, transfer the file and run the import.</p>
+
+    <h2 id="updates">Updates</h2>
+    <p>Once a day the program asks for the latest version number. Nothing is downloaded or installed automatically — when a new version exists you are offered to open the download page.</p>
+    <p>Check manually via “Help → Check for updates”, turn it off in “Settings → Advanced”.</p>
+
+    <h2 id="pro">Free and Pro</h2>
+    <p>The free version is a complete clipboard manager. Pro unlocks the features built around prepared text and moving data:</p>
+    <table>
+      <thead><tr><th>Feature</th><th>Free</th><th>Pro</th></tr></thead>
+      <tbody>
+        <tr><td>History, search, categories, pinning, slots</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Screenshots with the editor, images</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Templates and variables</td><td>—</td><td>Yes</td></tr>
+        <tr><td>“Paste as…” (case, spaces, line breaks)</td><td>—</td><td>Yes</td></tr>
+        <tr><td>Backup export and import</td><td>—</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+    <p>In the free version locked items carry a “· Pro” suffix. After installation a 14-day trial with all features starts automatically.</p>
+    <h3>Activation</h3>
+    <ol>
+      <li>Open “Settings → Activation” (or “Help → Activation”).</li>
+      <li>Copy the device ID — it is needed to obtain a key for this computer.</li>
+      <li>Paste a key like <code>CMGR-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code> and press “Activate”.</li>
+    </ol>
+    <p>The key is verified offline, no internet required. A regular key is bound to one computer; a retail key works on any PC. When a key does not fit, the program distinguishes <b>wrong format</b>, <b>invalid key</b>, <b>key issued for another computer</b> and <b>revoked key</b>. Deactivation releases the key on this device.</p>
+
+    <h2 id="data">Where data lives</h2>
+    <ul>
+      <li><b>Regular installation:</b> the history database and settings file live in your user profile — <code>%USERPROFILE%\.clipboard_manager.db</code> and <code>%USERPROFILE%\.clipboard_manager.db.ini</code>.</li>
+      <li><b>Portable mode:</b> when a <code>portable.txt</code> file sits next to <code>ClipboardManager.exe</code>, data moves into the <code>data</code> folder beside the program — handy for a USB stick.</li>
+      <li>Screenshots and images go to the folder chosen in settings; in portable mode the default is <code>data\screenshots</code>.</li>
+    </ul>
+
+    <h2 id="faq">FAQ</h2>
+    <h3>The hotkey does not work</h3>
+    <p>The combination is most likely taken by another program. Open “Settings → Startup” and assign another one; a message appears next to the field when the keys are already in use.</p>
+    <h3>Pasting goes to the wrong window</h3>
+    <p>Windows forbids sending input to programs running as administrator from a normal-privilege process. If the target application runs elevated, start ClipboardManager as administrator or paste through the clipboard (<kbd>Ctrl</kbd>+<kbd>V</kbd>).</p>
+    <h3>Old entries disappeared</h3>
+    <p>Check the retention period and trash lifetime in “Settings → Storage”. Pinned entries are never removed by retention — pin what matters.</p>
+    <h3><kbd>PrtScr</kbd> combinations do not work</h3>
+    <p>Another program or a Windows feature may own the key. The program reports this and suggests an alternative; change the keys in “Settings → Screenshots and images”.</p>
+    <h3>The key is rejected</h3>
+    <p>Make sure the whole key was copied and that it was issued for this device ID. Retail keys are not bound. If the key was revoked, contact support.</p>
+    <h3>The program does not start after an update</h3>
+    <p>Close it from the notification area and start it again. If that does not help, contact support and attach the log file from the data folder.</p>
+
+  </article>
+</div>
+
+<footer class="wrap">
+  <p>© 2026 ClipboardManager Plus. <a href="/privacy/">Privacy policy</a> · <a href="/terms/">Terms</a> · <a href="/support/">Support</a></p>
+  <p style="margin-top:8px">Self-employed Savitsa Alexey Vasilievich · INN 231003822887 · <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a></p>
+</footer>
+
+</body>
+</html>

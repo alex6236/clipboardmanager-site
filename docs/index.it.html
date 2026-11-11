@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipboardManager Plus — Guida utente</title>
+<meta name="description" content="Come usare ClipboardManager Plus: scorciatoie, cronologia, categorie e slot rapidi, modelli con variabili, schermate con editor, impostazioni, backup e attivazione Pro.">
+<link rel="canonical" href="https://clipboardmanager.ru/docs/index.it.html">
+<link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/docs/">
+<link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/docs/index.en.html">
+<meta property="og:title" content="ClipboardManager Plus — Guida utente">
+<meta property="og:description" content="Tutte le funzioni in ordine: cronologia, categorie, slot, modelli, schermate, impostazioni e licenza Pro.">
+<meta property="og:type" content="article">
+<style>
+  :root{--bg:#0f172a;--panel:#1e293b;--panel2:#334155;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;--accent2:#818cf8;--border:#334155;--ok:#34d399}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:20px}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.65}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}
+  .brand{font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block}
+  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+  nav a:hover{color:var(--text)}
+  nav a.cur{color:var(--text);font-weight:700}
+  .lang a{color:var(--accent);text-decoration:none;font-size:13px}
+  .lang .current{color:var(--text);font-weight:700}
+  .hero{padding:44px 0 28px;border-bottom:1px solid var(--border)}
+  .hero .kicker{color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .hero h1{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:12px}
+  .hero p{color:var(--muted);font-size:16px;max-width:760px}
+  .docs{display:grid;grid-template-columns:250px 1fr;gap:40px;padding:34px 0 56px}
+  .toc{position:sticky;top:18px;align-self:start;font-size:14px}
+  .toc h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+  .toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0 4px 10px;border-left:2px solid transparent}
+  .toc a:hover{color:var(--text);border-left-color:var(--accent)}
+  article h2{font-size:24px;margin:34px 0 12px;padding-top:8px}
+  article h2:first-child{margin-top:0}
+  article h3{font-size:17px;margin:22px 0 8px}
+  article p{margin:10px 0}
+  article ul,article ol{margin:10px 0 10px 22px}
+  article li{margin:5px 0}
+  kbd{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:12px;line-height:1;padding:4px 7px;border-radius:5px;border:1px solid var(--panel2);border-bottom-width:2px;background:var(--panel);color:var(--text);white-space:nowrap}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  .note{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:14px;color:var(--muted)}
+  .note b{color:var(--text)}
+  .pro{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0b1220;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:5px;padding:2px 6px;vertical-align:2px}
+  footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  footer a{color:var(--muted)}
+  @media(max-width:880px){.docs{grid-template-columns:1fr;gap:18px}.toc{position:static;border-bottom:1px solid var(--border);padding-bottom:14px}.hero h1{font-size:27px}nav a{margin-left:0;margin-right:16px}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand"><span class="dot"></span> ClipboardManager Plus</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/download/">Download</a>
+    <a href="/docs/index.it.html" class="cur">Guida</a>
+    <a href="/support/">Supporto</a>
+    <span class="lang"><a href="index.html">RU</a> · <a href="index.en.html">EN</a> · <span class="current">IT</span></span>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Guida utente · Windows 10 / 11</div>
+    <h1>Come usare ClipboardManager Plus</h1>
+    <p>Il programma ricorda tutto ciò che copi per incollarlo poi con un tasto. Qui trovi tutte le funzioni in ordine: dal primo avvio ai modelli, alle schermate e al backup.</p>
+  </div>
+</section>
+
+<div class="wrap docs">
+  <aside class="toc">
+    <h2>Contenuto</h2>
+    <a href="#start">Primo avvio</a>
+    <a href="#hotkeys">Scorciatoie</a>
+    <a href="#window">Finestra cronologia</a>
+    <a href="#entries">Lavorare con le voci</a>
+    <a href="#quickmenu">Menu rapido</a>
+    <a href="#snippets">Modelli e variabili</a>
+    <a href="#screenshots">Schermate</a>
+    <a href="#images">Immagini</a>
+    <a href="#trash">Cestino e conservazione</a>
+    <a href="#settings">Impostazioni</a>
+    <a href="#backup">Backup</a>
+    <a href="#updates">Aggiornamenti</a>
+    <a href="#pro">Free e Pro</a>
+    <a href="#data">Dove sono i dati</a>
+    <a href="#faq">Domande frequenti</a>
+  </aside>
+
+  <article>
+
+    <h2 id="start">Primo avvio</h2>
+    <p>Dopo l'installazione il programma si avvia con Windows (disattivabile) e vive nell'area di notifica accanto all'orologio. Non c'è una finestra principale fissa: la cronologia si apre con una scorciatoia.</p>
+    <ol>
+      <li>Premi <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> — la finestra della cronologia appare vicino al cursore.</li>
+      <li>Copia alcuni frammenti di testo in qualsiasi programma: compaiono nell'elenco.</li>
+      <li>Seleziona una voce con le frecce e premi <kbd>Enter</kbd>: il testo viene incollato nella finestra in cui lavoravi.</li>
+      <li>Premi <kbd>Esc</kbd> per chiudere senza incollare.</li>
+    </ol>
+    <div class="note"><b>Importante.</b> Il programma non invia dati a internet. La cronologia è in un file locale; il controllo aggiornamenti trasmette solo il numero di versione.</div>
+
+    <h2 id="hotkeys">Scorciatoie</h2>
+    <table>
+      <thead><tr><th>Tasti</th><th>Azione</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td><td>Apri la cronologia</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd></td><td>Menu rapido al cursore (solo recenti)</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Incolla la voce selezionata</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Vai alla ricerca</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd></td><td>Incolla subito da uno slot rapido</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Chiudi la finestra</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd></td><td>Incolla come testo semplice</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd></td><td>Apri i modelli <span class="pro">Pro</span></td></tr>
+        <tr><td><kbd>PrtScr</kbd></td><td>Schermata di un'area</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>PrtScr</kbd></td><td>Schermata della finestra attiva</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>PrtScr</kbd></td><td>Schermata dell'intero schermo</td></tr>
+      </tbody>
+    </table>
+    <p>Il tasto principale e quello del testo semplice si cambiano in «Impostazioni → Avvio»; quello dei modelli è lì, quelli delle schermate in «Impostazioni → Schermate e immagini». Se la combinazione è già occupata compare un avviso accanto al campo.</p>
+
+    <h2 id="window">Finestra cronologia</h2>
+    <p>A sinistra le categorie, a destra le voci. In alto il campo di ricerca filtra l'elenco mentre digiti.</p>
+    <h3>Sezioni fisse</h3>
+    <ul>
+      <li><b>Tutte le voci</b> — la cronologia completa in ordine di copia.</li>
+      <li><b>Fissate</b> — ciò che hai segnato come importante; non vengono mai rimosse per anzianità.</li>
+      <li><b>Slot rapidi</b> — fino a nove voci per <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd>.</li>
+      <li><b>Senza categoria</b> — voci non assegnate.</li>
+      <li><b>Immagini</b> — immagini copiate e schermate.</li>
+      <li><b>Modelli</b> — testi preparati <span class="pro">Pro</span>.</li>
+      <li><b>Cestino</b> — voci eliminate ancora recuperabili.</li>
+    </ul>
+    <p>Sotto ci sono le tue categorie: si creano, rinominano ed eliminano dal menu «Categorie». Una categoria può essere fissata: tutte le sue voci salgono, come quelle fissate singolarmente.</p>
+    <p>Passando il mouse su una voce appare una scheda con il testo completo; si disattiva in «Impostazioni → Archiviazione», dove ci sono anche l'ordinamento per frequenza e «Fissate in alto».</p>
+    <p>Il menu «Visualizza» gestisce l'ora delle voci, la compressione della barra categorie e il tema scuro.</p>
+
+    <h2 id="entries">Lavorare con le voci</h2>
+    <p>Tutte le azioni sono nel menu «Modifica» e nel menu contestuale del tasto destro.</p>
+    <ul>
+      <li><b>Incolla</b> — copia la voce e la invia alla finestra attiva.</li>
+      <li><b>Copia</b> — la mette negli appunti senza incollare.</li>
+      <li><b>Incolla ed elimina</b> — incolla e toglie subito la voce dalla cronologia.</li>
+      <li><b>Incolla insieme le selezionate</b> — seleziona più voci (<kbd>Ctrl</kbd>+clic o <kbd>Ctrl</kbd>+<kbd>A</kbd>) e incollale come blocco, una per riga.</li>
+      <li><b>Fissa / sblocca</b> — protegge dall'anzianità e la porta in alto.</li>
+      <li><b>Modifica</b> — cambia il testo nella cronologia.</li>
+      <li><b>Visualizza</b> — finestra dedicata per testo lungo o immagine.</li>
+      <li><b>Nella categoria / Rimuovi dalla categoria</b> — ordina la cronologia in cartelle.</li>
+      <li><b>Negli slot / Rimuovi dagli slot</b> — lega a <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+cifra.</li>
+      <li><b>Sposta su / giù</b> — ordine manuale nell'elenco.</li>
+      <li><b>Elimina</b> — manda la voce nel cestino.</li>
+      <li><b>Incolla come…</b> — <span class="pro">Pro</span>: maiuscolo o minuscolo, iniziale maiuscola, senza spazi superflui o senza a capo.</li>
+    </ul>
+    <div class="note">Il doppio clic fa lo stesso di <kbd>Enter</kbd>. Con «Chiudi la finestra dopo l'incolla» la finestra si nasconde appena il testo è inviato.</div>
+
+    <h2 id="quickmenu">Menu rapido al cursore</h2>
+    <p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> apre un elenco compatto delle voci recenti proprio dove si trova il cursore. Doppio clic o <kbd>Enter</kbd> incolla nella finestra che era attiva, <kbd>Esc</kbd> chiude.</p>
+    <p>Comodo per non interrompere il lavoro solo per incollare uno degli ultimi frammenti.</p>
+
+    <h2 id="snippets">Modelli e variabili <span class="pro">Pro</span></h2>
+    <p>Un modello è un testo preparato che si incolla intero e può inserire data, ora e nome utente correnti. Si aprono da «Modifica → Modelli», con <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> o dal menu dell'area di notifica.</p>
+    <h3>L'editor dei modelli</h3>
+    <ul>
+      <li>Nome, gruppo e testo del modello.</li>
+      <li>Pulsanti delle variabili che inseriscono il segnaposto al cursore.</li>
+      <li>Gruppi: crea, rinomina, sposta, elimina.</li>
+      <li><kbd>Ctrl</kbd>+<kbd>Enter</kbd> — salva il modello.</li>
+    </ul>
+    <h3>Variabili</h3>
+    <table>
+      <thead><tr><th>Variabile</th><th>Inserisce</th></tr></thead>
+      <tbody>
+        <tr><td><code>{date}</code> o <code>{d}</code></td><td>La data odierna, ad es. 11.11.2026</td></tr>
+        <tr><td><code>{time}</code> o <code>{t}</code></td><td>L'ora corrente, ad es. 14:05</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Data e ora insieme</td></tr>
+        <tr><td><code>{year}</code></td><td>L'anno corrente</td></tr>
+        <tr><td><code>{user}</code> o <code>{username}</code></td><td>Il nome utente di Windows</td></tr>
+      </tbody>
+    </table>
+    <p>Le variabili vengono risolte all'incolla, non alla creazione: lo stesso modello dà sempre data e ora fresche. Le graffe sconosciute restano invariate.</p>
+
+    <h2 id="screenshots">Schermate</h2>
+    <p>Tre modalità con <kbd>PrtScr</kbd>, <kbd>Alt</kbd>+<kbd>PrtScr</kbd> e <kbd>Shift</kbd>+<kbd>PrtScr</kbd>. Se <kbd>PrtScr</kbd> è già usato dal sistema, il programma lo segnala e assegna l'area a <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd>.</p>
+    <h3>Editor</h3>
+    <p>Dopo la selezione si apre l'editor di annotazioni: mano per spostare, freccia, matita, linea, rettangolo, testo, numerazione e sfocatura. Colore e spessore si scelgono nella barra.</p>
+    <table>
+      <thead><tr><th>Tasti</th><th>Azione</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Annulla / ripeti</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Copia la cattura</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Salva su file</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Fatto: invia alla cronologia</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Annulla</td></tr>
+      </tbody>
+    </table>
+    <p>In «Impostazioni → Schermate e immagini» puoi nascondere l'editor, attivare il salvataggio automatico in una cartella e decidere se «Fatto» copia anche la cattura.</p>
+    <div class="note">I file immagine vengono cancellati dal disco solo con l'eliminazione definitiva dal cestino: finché la voce è recuperabile, l'immagine resta.</div>
+
+    <h2 id="images">Immagini</h2>
+    <p>Le immagini copiate nel browser o in un editor vanno in «Immagini» e restano insieme alla cronologia testuale. Aprile con «Visualizza»: zoom e modalità «Adatta».</p>
+    <p>Con «Salva le immagini copiate in una cartella» ogni immagine copiata viene anche scritta come file nella cartella scelta.</p>
+
+    <h2 id="trash">Cestino e conservazione</h2>
+    <p>Eliminare non cancella subito: la voce va nel cestino e resta per il numero di ore impostato (24 per default). Lì trovi «Ripristina», «Elimina definitivamente» e «Svuota cestino».</p>
+    <p>In «Impostazioni → Archiviazione» si imposta:</p>
+    <ul>
+      <li><b>Conservazione</b> in giorni — 0 per default, quindi illimitata. Le fissate sono escluse.</li>
+      <li><b>Durata del cestino</b> in ore.</li>
+      <li><b>Mantieni le copie ripetute</b> — per default una ripetizione non crea una riga nuova ma porta su quella esistente.</li>
+      <li><b>Scorrimento con la rotella</b> — quante righe per scatto.</li>
+      <li><b>Mostra la categoria della voce</b> nell'elenco.</li>
+    </ul>
+
+    <h2 id="settings">Impostazioni</h2>
+    <p>Si aprono da «Impostazioni → Impostazioni» o dal menu dell'area di notifica. Sezioni a sinistra:</p>
+    <table>
+      <thead><tr><th>Sezione</th><th>Cosa configura</th></tr></thead>
+      <tbody>
+        <tr><td>Appunti</td><td>Lingua, controllo degli appunti, suoni, filtro applicazioni</td></tr>
+        <tr><td>Archiviazione</td><td>Conservazione, cestino, schede al passaggio, ordinamento per uso, fissate in alto, copie ripetute, scorrimento</td></tr>
+        <tr><td>Finestra</td><td>Sempre in primo piano, chiudi dopo l'incolla, nascondi dopo la copia, riduci nell'area, tema scuro, dimensione carattere, nascondi cartelle fisse</td></tr>
+        <tr><td>Avvio</td><td>Avvia con Windows, scorciatoia principale, testo semplice, scorciatoia modelli</td></tr>
+        <tr><td>Schermate e immagini</td><td>Editor, copia su «Fatto», salvataggio automatico, cartella, tre scorciatoie, colore e spessore predefiniti</td></tr>
+        <tr><td>Avanzate</td><td>Backup (esporta e importa), controllo aggiornamenti</td></tr>
+      </tbody>
+    </table>
+    <p>Il <b>filtro applicazioni</b> in «Appunti» permette di registrare solo i programmi elencati o di ignorarli. L'elenco contiene nomi di processo separati da punto e virgola, ad es. <code>WINWORD.EXE;EXCEL.EXE</code>.</p>
+
+    <h2 id="backup">Backup <span class="pro">Pro</span></h2>
+    <p>Cronologia, categorie, voci fissate, slot rapidi e modelli vengono esportati in un unico file JSON. Esportazione e importazione sono in due punti: «File → Esporta in JSON / Importa da JSON» e «Impostazioni → Avanzate → Backup».</p>
+    <p>L'importazione non crea duplicati: le voci già presenti vengono saltate. Prima di cambiare computer salva sul vecchio, trasferisci il file e importa.</p>
+
+    <h2 id="updates">Aggiornamenti</h2>
+    <p>Una volta al giorno il programma chiede il numero di versione più recente. Non scarica né installa nulla automaticamente; se c'è una nuova versione propone la pagina di download.</p>
+    <p>Controllo manuale in «Aiuto → Verifica aggiornamenti»; disattiva in «Impostazioni → Avanzate».</p>
+
+    <h2 id="pro">Free e Pro</h2>
+    <p>La versione gratuita è un gestore di appunti completo. Pro sblocca le funzioni legate ai testi preparati e al trasferimento dati:</p>
+    <table>
+      <thead><tr><th>Funzione</th><th>Free</th><th>Pro</th></tr></thead>
+      <tbody>
+        <tr><td>Cronologia, ricerca, categorie, fissaggio, slot</td><td>Sì</td><td>Sì</td></tr>
+        <tr><td>Schermate con editor, immagini</td><td>Sì</td><td>Sì</td></tr>
+        <tr><td>Modelli e variabili</td><td>—</td><td>Sì</td></tr>
+        <tr><td>«Incolla come…» (maiuscole, spazi, a capo)</td><td>—</td><td>Sì</td></tr>
+        <tr><td>Backup: esporta e importa</td><td>—</td><td>Sì</td></tr>
+      </tbody>
+    </table>
+    <p>Nella versione gratuita gli elementi bloccati portano il suffisso «· Pro». Dopo l'installazione parte automaticamente una prova di 14 giorni con tutte le funzioni.</p>
+    <h3>Attivazione</h3>
+    <ol>
+      <li>Apri «Impostazioni → Attivazione» (o «Aiuto → Attivazione»).</li>
+      <li>Copia l'ID dispositivo: serve per ottenere una chiave per questo computer.</li>
+      <li>Incolla una chiave come <code>CMGR-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code> e premi «Attiva».</li>
+    </ol>
+    <p>La chiave è verificata offline. Una chiave normale è legata a un computer; una chiave retail funziona su qualsiasi PC. Se non va, il programma distingue <b>formato errato</b>, <b>chiave non valida</b>, <b>chiave di un altro computer</b> e <b>chiave revocata</b>. La disattivazione libera la chiave su questo dispositivo.</p>
+
+    <h2 id="data">Dove sono i dati</h2>
+    <ul>
+      <li><b>Installazione normale:</b> database della cronologia e file impostazioni sono nel profilo — <code>%USERPROFILE%\.clipboard_manager.db</code> e <code>%USERPROFILE%\.clipboard_manager.db.ini</code>.</li>
+      <li><b>Modalità portatile:</b> se accanto a <code>ClipboardManager.exe</code> c'è il file <code>portable.txt</code>, i dati passano nella cartella <code>data</code> presso il programma — comodo per una chiavetta USB.</li>
+      <li>Schermate e immagini vanno nella cartella indicata; in modalità portatile, per default <code>data\screenshots</code>.</li>
+    </ul>
+
+    <h2 id="faq">Domande frequenti</h2>
+    <h3>La scorciatoia non funziona</h3>
+    <p>Probabilmente la combinazione è occupata da un altro programma. Scegline un'altra in «Impostazioni → Avvio»; accanto al campo compare un avviso se i tasti sono già in uso.</p>
+    <h3>L'incolla finisce in un'altra finestra</h3>
+    <p>Windows non consente di inviare input a programmi con privilegi di amministratore da un processo normale. Se la destinazione è elevata, avvia ClipboardManager come amministratore o incolla dagli appunti (<kbd>Ctrl</kbd>+<kbd>V</kbd>).</p>
+    <h3>Sono sparite vecchie voci</h3>
+    <p>Controlla conservazione e durata del cestino in «Impostazioni → Archiviazione». Le fissate non vengono mai rimosse per anzianità: fissa ciò che conta.</p>
+    <h3>Le combinazioni con <kbd>PrtScr</kbd> non funzionano</h3>
+    <p>Forse un altro programma o una funzione di Windows occupa il tasto. Il programma lo segnala e propone un'alternativa; cambiali in «Impostazioni → Schermate e immagini».</p>
+    <h3>La chiave viene rifiutata</h3>
+    <p>Verifica di aver copiato tutta la chiave e che sia stata emessa per l'ID di questo dispositivo. Le chiavi retail non sono legate. Se la chiave è stata revocata, contatta il supporto.</p>
+    <h3>Il programma non parte dopo un aggiornamento</h3>
+    <p>Chiudilo dall'area di notifica e riavvialo. Se non basta, scrivi al supporto allegando il file di log dalla cartella dati.</p>
+
+  </article>
+</div>
+
+<footer class="wrap">
+  <p>© 2026 ClipboardManager Plus. <a href="/privacy/">Privacy</a> · <a href="/terms/">Condizioni</a> · <a href="/support/">Supporto</a></p>
+  <p style="margin-top:8px">Lavoratore autonomo: Savitsa Alexey Vasilievich · INN 231003822887 · <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a></p>
+</footer>
+
+</body>
+</html>

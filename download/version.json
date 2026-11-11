@@ -1,9 +1,9 @@
 {
-  "version": "1.2.13",
-  "date": "2026-11-10",
-  "notes": "Проверка обновлений, portable-папка data\\screenshots, вертикальное окно 576x783",
-  "setup": "ClipboardManagerPlus-Setup-1.2.13.exe",
-  "sha256": "3C156D16553E3F6686874AC671819BBAA5C1BF85332E81572D174A8A83EB5747",
-  "portable": "ClipboardManagerPlus-Portable-1.2.13.zip",
-  "sha256_portable": "A62B318501A00D7603A3E88913FF38C51F0B382569FA5C5E248B33B0C4D103C0"
+  "version": "1.3.0",
+  "date": "2026-11-11",
+  "notes": "Справка в программе, удаление категории с записями, снятие записи со слота, поиск без учёта регистра",
+  "setup": "ClipboardManagerPlus-Setup-1.3.0.exe",
+  "sha256": "662C30794D920C1C8D690F7BCD70D79298FF55A1D1DB50D18C793C6BF56194E3",
+  "portable": "ClipboardManagerPlus-Portable-1.3.0.zip",
+  "sha256_portable": "D9817314E7EA631BA9879BB6DD1A262D4F3F86299B43CA495C3610D9439C6E9D"
 }

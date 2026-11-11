@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipboardManager Plus — Guide d'utilisation</title>
+<meta name="description" content="Utiliser ClipboardManager Plus : raccourcis, historique, catégories et emplacements rapides, modèles avec variables, captures avec éditeur, réglages, sauvegarde et activation Pro.">
+<link rel="canonical" href="https://clipboardmanager.ru/docs/index.fr.html">
+<link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/docs/">
+<link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/docs/index.en.html">
+<meta property="og:title" content="ClipboardManager Plus — Guide d'utilisation">
+<meta property="og:description" content="Toutes les fonctions dans l'ordre : historique, catégories, emplacements, modèles, captures, réglages et licence Pro.">
+<meta property="og:type" content="article">
+<style>
+  :root{--bg:#0f172a;--panel:#1e293b;--panel2:#334155;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;--accent2:#818cf8;--border:#334155;--ok:#34d399}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:20px}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.65}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}
+  .brand{font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block}
+  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+  nav a:hover{color:var(--text)}
+  nav a.cur{color:var(--text);font-weight:700}
+  .lang a{color:var(--accent);text-decoration:none;font-size:13px}
+  .lang .current{color:var(--text);font-weight:700}
+  .hero{padding:44px 0 28px;border-bottom:1px solid var(--border)}
+  .hero .kicker{color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .hero h1{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:12px}
+  .hero p{color:var(--muted);font-size:16px;max-width:760px}
+  .docs{display:grid;grid-template-columns:250px 1fr;gap:40px;padding:34px 0 56px}
+  .toc{position:sticky;top:18px;align-self:start;font-size:14px}
+  .toc h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+  .toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0 4px 10px;border-left:2px solid transparent}
+  .toc a:hover{color:var(--text);border-left-color:var(--accent)}
+  article h2{font-size:24px;margin:34px 0 12px;padding-top:8px}
+  article h2:first-child{margin-top:0}
+  article h3{font-size:17px;margin:22px 0 8px}
+  article p{margin:10px 0}
+  article ul,article ol{margin:10px 0 10px 22px}
+  article li{margin:5px 0}
+  kbd{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:12px;line-height:1;padding:4px 7px;border-radius:5px;border:1px solid var(--panel2);border-bottom-width:2px;background:var(--panel);color:var(--text);white-space:nowrap}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  .note{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:14px;color:var(--muted)}
+  .note b{color:var(--text)}
+  .pro{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0b1220;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:5px;padding:2px 6px;vertical-align:2px}
+  footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  footer a{color:var(--muted)}
+  @media(max-width:880px){.docs{grid-template-columns:1fr;gap:18px}.toc{position:static;border-bottom:1px solid var(--border);padding-bottom:14px}.hero h1{font-size:27px}nav a{margin-left:0;margin-right:16px}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand"><span class="dot"></span> ClipboardManager Plus</div>
+  <nav>
+    <a href="/">Accueil</a>
+    <a href="/download/">Télécharger</a>
+    <a href="/docs/index.fr.html" class="cur">Guide</a>
+    <a href="/support/">Support</a>
+    <span class="lang"><a href="index.html">RU</a> · <a href="index.en.html">EN</a> · <span class="current">FR</span></span>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Guide d'utilisation · Windows 10 / 11</div>
+    <h1>Utiliser ClipboardManager Plus</h1>
+    <p>Le programme retient tout ce que vous copiez pour le coller ensuite d'une seule touche. Voici toutes les fonctions dans l'ordre : du premier lancement aux modèles, captures et sauvegarde.</p>
+  </div>
+</section>
+
+<div class="wrap docs">
+  <aside class="toc">
+    <h2>Sommaire</h2>
+    <a href="#start">Premier lancement</a>
+    <a href="#hotkeys">Raccourcis</a>
+    <a href="#window">Fenêtre d'historique</a>
+    <a href="#entries">Travailler avec les entrées</a>
+    <a href="#quickmenu">Menu rapide</a>
+    <a href="#snippets">Modèles et variables</a>
+    <a href="#screenshots">Captures d'écran</a>
+    <a href="#images">Images</a>
+    <a href="#trash">Corbeille et conservation</a>
+    <a href="#settings">Réglages</a>
+    <a href="#backup">Sauvegarde</a>
+    <a href="#updates">Mises à jour</a>
+    <a href="#pro">Free et Pro</a>
+    <a href="#data">Où sont les données</a>
+    <a href="#faq">Questions fréquentes</a>
+  </aside>
+
+  <article>
+
+    <h2 id="start">Premier lancement</h2>
+    <p>Après l'installation, le programme démarre avec Windows (désactivable) et vit dans la zone de notification près de l'horloge. Pas de fenêtre principale permanente : l'historique s'ouvre par un raccourci.</p>
+    <ol>
+      <li>Appuyez sur <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> — la fenêtre d'historique apparaît près du curseur.</li>
+      <li>Copiez quelques extraits de texte dans n'importe quel programme : ils apparaissent dans la liste.</li>
+      <li>Sélectionnez une entrée aux flèches et appuyez sur <kbd>Enter</kbd> — le texte est collé dans la fenêtre où vous travailliez.</li>
+      <li>Appuyez sur <kbd>Esc</kbd> pour fermer sans coller.</li>
+    </ol>
+    <div class="note"><b>Important.</b> Le programme n'envoie aucune donnée sur internet. L'historique est stocké dans un fichier local ; la vérification des mises à jour ne transmet que le numéro de version.</div>
+
+    <h2 id="hotkeys">Raccourcis</h2>
+    <table>
+      <thead><tr><th>Touches</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td><td>Ouvrir l'historique</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd></td><td>Menu rapide au curseur (entrées récentes)</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Coller l'entrée sélectionnée</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Aller à la recherche</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd></td><td>Collage immédiat d'un emplacement rapide</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Fermer la fenêtre</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd></td><td>Coller en texte brut</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd></td><td>Ouvrir les modèles <span class="pro">Pro</span></td></tr>
+        <tr><td><kbd>PrtScr</kbd></td><td>Capture d'une zone</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>PrtScr</kbd></td><td>Capture de la fenêtre active</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>PrtScr</kbd></td><td>Capture de tout l'écran</td></tr>
+      </tbody>
+    </table>
+    <p>La touche principale et celle du collage brut se changent dans « Réglages → Démarrage » ; celle des modèles aussi, et celles des captures dans « Réglages → Captures et images ». Si la combinaison est déjà prise, un avertissement s'affiche près du champ.</p>
+
+    <h2 id="window">Fenêtre d'historique</h2>
+    <p>Les catégories sont à gauche, les entrées à droite. En haut, le champ de recherche filtre la liste pendant la saisie.</p>
+    <h3>Sections fixes</h3>
+    <ul>
+      <li><b>Toutes les entrées</b> — l'historique complet dans l'ordre de copie.</li>
+      <li><b>Épinglées</b> — ce que vous avez marqué comme important ; jamais supprimées par l'ancienneté.</li>
+      <li><b>Emplacements rapides</b> — jusqu'à neuf entrées pour <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd>.</li>
+      <li><b>Sans catégorie</b> — entrées non classées.</li>
+      <li><b>Images</b> — images copiées et captures.</li>
+      <li><b>Modèles</b> — textes préparés <span class="pro">Pro</span>.</li>
+      <li><b>Corbeille</b> — entrées supprimées encore récupérables.</li>
+    </ul>
+    <p>Vos catégories suivent ; on les crée, renomme et supprime via le menu « Catégories ». Une catégorie peut être épinglée : toutes ses entrées remontent alors, comme les entrées épinglées une à une.</p>
+    <p>Au survol, une carte affiche le texte complet ; elle se désactive dans « Réglages → Stockage », où se trouvent aussi le tri par fréquence et « Épinglées en haut ».</p>
+    <p>Le menu « Affichage » gère l'heure des entrées, le repli de la barre des catégories et le thème sombre.</p>
+
+    <h2 id="entries">Travailler avec les entrées</h2>
+    <p>Toutes les actions sont dans le menu « Édition » et dans le menu contextuel du clic droit.</p>
+    <ul>
+      <li><b>Coller</b> — copier l'entrée et l'envoyer à la fenêtre active.</li>
+      <li><b>Copier</b> — la mettre dans le presse-papiers sans coller.</li>
+      <li><b>Coller et supprimer</b> — coller puis retirer l'entrée de l'historique.</li>
+      <li><b>Coller la sélection ensemble</b> — sélectionnez plusieurs entrées (<kbd>Ctrl</kbd>+clic ou <kbd>Ctrl</kbd>+<kbd>A</kbd>) et collez-les en bloc, une par ligne.</li>
+      <li><b>Épingler / détacher</b> — protège de l'ancienneté et remonte l'entrée.</li>
+      <li><b>Modifier</b> — changer le texte dans l'historique.</li>
+      <li><b>Afficher</b> — fenêtre dédiée pour un texte long ou une image.</li>
+      <li><b>Vers la catégorie / Retirer de la catégorie</b> — classer l'historique en dossiers.</li>
+      <li><b>Vers les emplacements / Retirer des emplacements</b> — lier à <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+chiffre.</li>
+      <li><b>Monter / Descendre</b> — ordre manuel dans la liste.</li>
+      <li><b>Supprimer</b> — envoie l'entrée à la corbeille.</li>
+      <li><b>Coller comme…</b> — <span class="pro">Pro</span> : coller en majuscules ou minuscules, avec majuscule initiale, sans espaces superflus ou sans sauts de ligne.</li>
+    </ul>
+    <div class="note">Un double-clic équivaut à <kbd>Enter</kbd>. Avec « Fermer la fenêtre après le collage », la fenêtre se masque dès l'envoi.</div>
+
+    <h2 id="quickmenu">Menu rapide au curseur</h2>
+    <p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> ouvre une liste compacte des entrées récentes là où se trouve le curseur. Double-clic ou <kbd>Enter</kbd> colle dans la fenêtre qui était active, <kbd>Esc</kbd> ferme.</p>
+    <p>Pratique pour ne pas interrompre son travail juste pour coller un des derniers extraits.</p>
+
+    <h2 id="snippets">Modèles et variables <span class="pro">Pro</span></h2>
+    <p>Un modèle est un texte préparé qui se colle d'un bloc et peut insérer la date, l'heure et le nom d'utilisateur courants. Ouvrez-les via « Édition → Modèles », avec <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> ou depuis le menu de la zone de notification.</p>
+    <h3>L'éditeur de modèles</h3>
+    <ul>
+      <li>Nom, groupe et texte du modèle.</li>
+      <li>Boutons de variables qui insèrent le jeton au curseur.</li>
+      <li>Groupes : créer, renommer, déplacer, supprimer.</li>
+      <li><kbd>Ctrl</kbd>+<kbd>Enter</kbd> — enregistrer le modèle.</li>
+    </ul>
+    <h3>Variables</h3>
+    <table>
+      <thead><tr><th>Variable</th><th>Insère</th></tr></thead>
+      <tbody>
+        <tr><td><code>{date}</code> ou <code>{d}</code></td><td>La date du jour, p. ex. 11.11.2026</td></tr>
+        <tr><td><code>{time}</code> ou <code>{t}</code></td><td>L'heure actuelle, p. ex. 14:05</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Date et heure ensemble</td></tr>
+        <tr><td><code>{year}</code></td><td>L'année en cours</td></tr>
+        <tr><td><code>{user}</code> ou <code>{username}</code></td><td>Le nom d'utilisateur Windows</td></tr>
+      </tbody>
+    </table>
+    <p>Les variables sont résolues au collage, pas à la création : le même modèle donne toujours une date et une heure fraîches. Les accolades inconnues restent telles quelles.</p>
+
+    <h2 id="screenshots">Captures d'écran</h2>
+    <p>Trois modes avec <kbd>PrtScr</kbd>, <kbd>Alt</kbd>+<kbd>PrtScr</kbd> et <kbd>Shift</kbd>+<kbd>PrtScr</kbd>. Si <kbd>PrtScr</kbd> est déjà pris par le système, le programme le signale et attribue la zone à <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd>.</p>
+    <h3>Éditeur</h3>
+    <p>Après la sélection, l'éditeur d'annotations s'ouvre : main pour déplacer, flèche, crayon, ligne, rectangle, texte, numérotation et flou. Couleur et épaisseur se choisissent dans la barre.</p>
+    <table>
+      <thead><tr><th>Touches</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Annuler / rétablir</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Copier la capture</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Enregistrer dans un fichier</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Terminé : envoyer à l'historique</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Annuler</td></tr>
+      </tbody>
+    </table>
+    <p>Dans « Réglages → Captures et images », masquez l'éditeur, activez l'enregistrement automatique dans un dossier et choisissez si « Terminé » copie aussi la capture.</p>
+    <div class="note">Les fichiers d'image ne sont effacés du disque qu'à la suppression définitive depuis la corbeille : tant que l'entrée est récupérable, son image reste.</div>
+
+    <h2 id="images">Images</h2>
+    <p>Les images copiées dans le navigateur ou un éditeur vont dans « Images » et restent avec l'historique texte. Ouvrez-les avec « Afficher » : zoom et mode « Ajuster » inclus.</p>
+    <p>Avec « Enregistrer les images copiées dans un dossier », chaque image copiée est aussi écrite comme fichier dans le dossier choisi.</p>
+
+    <h2 id="trash">Corbeille et conservation</h2>
+    <p>La suppression n'efface pas tout de suite : l'entrée va dans la corbeille pour le nombre d'heures configuré (24 par défaut). On y trouve « Restaurer », « Supprimer définitivement » et « Vider la corbeille ».</p>
+    <p>Dans « Réglages → Stockage » :</p>
+    <ul>
+      <li><b>Conservation</b> en jours — 0 par défaut, donc illimitée. Les épinglées en sont exclues.</li>
+      <li><b>Durée de la corbeille</b> en heures.</li>
+      <li><b>Garder les copies répétées</b> — par défaut une répétition ne crée pas de ligne, elle remonte l'existante.</li>
+      <li><b>Défilement à la molette</b> — nombre de lignes par cran.</li>
+      <li><b>Afficher la catégorie de l'entrée</b> dans la liste.</li>
+    </ul>
+
+    <h2 id="settings">Réglages</h2>
+    <p>Ouverts par « Réglages → Réglages » ou le menu de la zone de notification. Sections à gauche :</p>
+    <table>
+      <thead><tr><th>Section</th><th>Ce qu'elle règle</th></tr></thead>
+      <tbody>
+        <tr><td>Presse-papiers</td><td>Langue, suivi du presse-papiers, sons, filtre d'applications</td></tr>
+        <tr><td>Stockage</td><td>Conservation, corbeille, cartes au survol, tri par usage, épinglées en haut, copies répétées, défilement</td></tr>
+        <tr><td>Fenêtre</td><td>Toujours au premier plan, fermer après collage, masquer après copie, réduire dans la zone, thème sombre, taille de police, masquer les dossiers fixes</td></tr>
+        <tr><td>Démarrage</td><td>Lancer avec Windows, raccourci principal, collage brut, raccourci des modèles</td></tr>
+        <tr><td>Captures et images</td><td>Éditeur, copie sur « Terminé », enregistrement auto, dossier, trois raccourcis, couleur et épaisseur par défaut</td></tr>
+        <tr><td>Avancé</td><td>Sauvegarde (export et import), vérification des mises à jour</td></tr>
+      </tbody>
+    </table>
+    <p>Le <b>filtre d'applications</b> de « Presse-papiers » permet d'enregistrer seulement les programmes listés ou de les ignorer. La liste contient des noms de processus séparés par des points-virgules, p. ex. <code>WINWORD.EXE;EXCEL.EXE</code>.</p>
+
+    <h2 id="backup">Sauvegarde <span class="pro">Pro</span></h2>
+    <p>Historique, catégories, épinglées, emplacements rapides et modèles sont exportés dans un seul fichier JSON. Export et import se trouvent à deux endroits : « Fichier → Exporter en JSON / Importer depuis JSON » et « Réglages → Avancé → Sauvegarde ».</p>
+    <p>L'import ne crée pas de doublons : les entrées déjà présentes sont ignorées. Avant de changer d'ordinateur, sauvegardez sur l'ancien, transférez le fichier puis importez.</p>
+
+    <h2 id="updates">Mises à jour</h2>
+    <p>Une fois par jour, le programme demande le dernier numéro de version. Rien n'est téléchargé ni installé automatiquement ; si une version existe, la page de téléchargement est proposée.</p>
+    <p>Vérifier à la main via « Aide → Rechercher des mises à jour » ; désactiver dans « Réglages → Avancé ».</p>
+
+    <h2 id="pro">Free et Pro</h2>
+    <p>La version gratuite est un gestionnaire de presse-papiers complet. Pro débloque les fonctions liées aux textes préparés et au transfert de données :</p>
+    <table>
+      <thead><tr><th>Fonction</th><th>Free</th><th>Pro</th></tr></thead>
+      <tbody>
+        <tr><td>Historique, recherche, catégories, épinglage, emplacements</td><td>Oui</td><td>Oui</td></tr>
+        <tr><td>Captures avec éditeur, images</td><td>Oui</td><td>Oui</td></tr>
+        <tr><td>Modèles et variables</td><td>—</td><td>Oui</td></tr>
+        <tr><td>« Coller comme… » (casse, espaces, sauts)</td><td>—</td><td>Oui</td></tr>
+        <tr><td>Sauvegarde : export et import</td><td>—</td><td>Oui</td></tr>
+      </tbody>
+    </table>
+    <p>Dans la version gratuite, les éléments verrouillés portent le suffixe « · Pro ». Après l'installation, un essai de 14 jours avec toutes les fonctions démarre automatiquement.</p>
+    <h3>Activation</h3>
+    <ol>
+      <li>Ouvrez « Réglages → Activation » (ou « Aide → Activation »).</li>
+      <li>Copiez l'ID de l'appareil : il sert à obtenir une clé pour cet ordinateur.</li>
+      <li>Collez une clé comme <code>CMGR-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code> et cliquez « Activer ».</li>
+    </ol>
+    <p>La clé est vérifiée hors ligne. Une clé normale est liée à un ordinateur ; une clé retail fonctionne sur tout PC. Si la clé ne convient pas, le programme distingue <b>format incorrect</b>, <b>clé invalide</b>, <b>clé d'un autre ordinateur</b> et <b>clé révoquée</b>. La désactivation libère la clé sur cet appareil.</p>
+
+    <h2 id="data">Où sont les données</h2>
+    <ul>
+      <li><b>Installation normale :</b> la base d'historique et le fichier de réglages sont dans le profil — <code>%USERPROFILE%\.clipboard_manager.db</code> et <code>%USERPROFILE%\.clipboard_manager.db.ini</code>.</li>
+      <li><b>Mode portable :</b> si le fichier <code>portable.txt</code> se trouve à côté de <code>ClipboardManager.exe</code>, les données passent dans le dossier <code>data</code> près du programme — pratique pour une clé USB.</li>
+      <li>Les captures et images vont dans le dossier indiqué ; en mode portable, par défaut <code>data\screenshots</code>.</li>
+    </ul>
+
+    <h2 id="faq">Questions fréquentes</h2>
+    <h3>Le raccourci ne réagit pas</h3>
+    <p>La combinaison est sans doute prise par un autre programme. Choisissez-en une autre dans « Réglages → Démarrage » ; un message s'affiche près du champ si les touches sont déjà utilisées.</p>
+    <h3>Le collage part dans une autre fenêtre</h3>
+    <p>Windows interdit d'envoyer des saisies à des programmes administrateur depuis un processus normal. Si la cible est élevée, lancez ClipboardManager en administrateur ou collez via le presse-papiers (<kbd>Ctrl</kbd>+<kbd>V</kbd>).</p>
+    <h3>D'anciennes entrées ont disparu</h3>
+    <p>Vérifiez la conservation et la durée de la corbeille dans « Réglages → Stockage ». Les épinglées ne sont jamais supprimées par ancienneté : épinglez l'important.</p>
+    <h3>Les combinaisons avec <kbd>PrtScr</kbd> ne marchent pas</h3>
+    <p>Un autre programme ou une fonction de Windows occupe peut-être la touche. Le programme le signale et propose une alternative ; changez-les dans « Réglages → Captures et images ».</p>
+    <h3>La clé est refusée</h3>
+    <p>Vérifiez que la clé entière est copiée et qu'elle a été émise pour l'ID de cet appareil. Les clés retail ne sont pas liées. Si la clé a été révoquée, contactez le support.</p>
+    <h3>Le programme ne démarre pas après une mise à jour</h3>
+    <p>Fermez-le depuis la zone de notification puis relancez. Sinon, écrivez au support en joignant le journal du dossier de données.</p>
+
+  </article>
+</div>
+
+<footer class="wrap">
+  <p>© 2026 ClipboardManager Plus. <a href="/privacy/">Confidentialité</a> · <a href="/terms/">Conditions</a> · <a href="/support/">Support</a></p>
+  <p style="margin-top:8px">Auto-entrepreneur : Savitsa Alexey Vasilievich · INN 231003822887 · <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a></p>
+</footer>
+
+</body>
+</html>

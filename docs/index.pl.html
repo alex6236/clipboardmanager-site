@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipboardManager Plus — Instrukcja obsługi</title>
+<meta name="description" content="Jak korzystać z ClipboardManager Plus: skróty klawiszowe, historia, kategorie i szybkie sloty, szablony ze zmiennymi, zrzuty z edytorem, ustawienia, kopia zapasowa i aktywacja Pro.">
+<link rel="canonical" href="https://clipboardmanager.ru/docs/index.pl.html">
+<link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/docs/">
+<link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/docs/index.en.html">
+<meta property="og:title" content="ClipboardManager Plus — Instrukcja obsługi">
+<meta property="og:description" content="Wszystkie funkcje po kolei: historia, kategorie, sloty, szablony, zrzuty, ustawienia i licencja Pro.">
+<meta property="og:type" content="article">
+<style>
+  :root{--bg:#0f172a;--panel:#1e293b;--panel2:#334155;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;--accent2:#818cf8;--border:#334155;--ok:#34d399}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:20px}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.65}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}
+  .brand{font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block}
+  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+  nav a:hover{color:var(--text)}
+  nav a.cur{color:var(--text);font-weight:700}
+  .lang a{color:var(--accent);text-decoration:none;font-size:13px}
+  .lang .current{color:var(--text);font-weight:700}
+  .hero{padding:44px 0 28px;border-bottom:1px solid var(--border)}
+  .hero .kicker{color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .hero h1{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:12px}
+  .hero p{color:var(--muted);font-size:16px;max-width:760px}
+  .docs{display:grid;grid-template-columns:250px 1fr;gap:40px;padding:34px 0 56px}
+  .toc{position:sticky;top:18px;align-self:start;font-size:14px}
+  .toc h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+  .toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0 4px 10px;border-left:2px solid transparent}
+  .toc a:hover{color:var(--text);border-left-color:var(--accent)}
+  article h2{font-size:24px;margin:34px 0 12px;padding-top:8px}
+  article h2:first-child{margin-top:0}
+  article h3{font-size:17px;margin:22px 0 8px}
+  article p{margin:10px 0}
+  article ul,article ol{margin:10px 0 10px 22px}
+  article li{margin:5px 0}
+  kbd{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:12px;line-height:1;padding:4px 7px;border-radius:5px;border:1px solid var(--panel2);border-bottom-width:2px;background:var(--panel);color:var(--text);white-space:nowrap}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  .note{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:14px;color:var(--muted)}
+  .note b{color:var(--text)}
+  .pro{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0b1220;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:5px;padding:2px 6px;vertical-align:2px}
+  footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  footer a{color:var(--muted)}
+  @media(max-width:880px){.docs{grid-template-columns:1fr;gap:18px}.toc{position:static;border-bottom:1px solid var(--border);padding-bottom:14px}.hero h1{font-size:27px}nav a{margin-left:0;margin-right:16px}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand"><span class="dot"></span> ClipboardManager Plus</div>
+  <nav>
+    <a href="/">Start</a>
+    <a href="/download/">Pobierz</a>
+    <a href="/docs/index.pl.html" class="cur">Instrukcja</a>
+    <a href="/support/">Pomoc</a>
+    <span class="lang"><a href="index.html">RU</a> · <a href="index.en.html">EN</a> · <span class="current">PL</span></span>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Instrukcja obsługi · Windows 10 / 11</div>
+    <h1>Jak korzystać z ClipboardManager Plus</h1>
+    <p>Program zapamiętuje wszystko, co kopiujesz, aby później wkleić to jednym klawiszem. Poniżej wszystkie funkcje po kolei: od pierwszego uruchomienia po szablony, zrzuty i kopię zapasową.</p>
+  </div>
+</section>
+
+<div class="wrap docs">
+  <aside class="toc">
+    <h2>Spis treści</h2>
+    <a href="#start">Pierwsze uruchomienie</a>
+    <a href="#hotkeys">Skróty klawiszowe</a>
+    <a href="#window">Okno historii</a>
+    <a href="#entries">Praca z wpisami</a>
+    <a href="#quickmenu">Szybkie menu</a>
+    <a href="#snippets">Szablony i zmienne</a>
+    <a href="#screenshots">Zrzuty ekranu</a>
+    <a href="#images">Obrazy</a>
+    <a href="#trash">Kosz i przechowywanie</a>
+    <a href="#settings">Ustawienia</a>
+    <a href="#backup">Kopia zapasowa</a>
+    <a href="#updates">Aktualizacje</a>
+    <a href="#pro">Free i Pro</a>
+    <a href="#data">Gdzie są dane</a>
+    <a href="#faq">Częste pytania</a>
+  </aside>
+
+  <article>
+
+    <h2 id="start">Pierwsze uruchomienie</h2>
+    <p>Po instalacji program startuje z Windows (można wyłączyć) i działa w zasobniku przy zegarze. Stałe okno główne nie istnieje: historia otwiera się skrótem.</p>
+    <ol>
+      <li>Naciśnij <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> — okno historii pojawi się przy kursorze.</li>
+      <li>Skopiuj kilka fragmentów tekstu w dowolnych programach — pojawią się na liście.</li>
+      <li>Wybierz wpis strzałkami i naciśnij <kbd>Enter</kbd> — tekst zostanie wklejony do okna, w którym pracowałeś.</li>
+      <li>Naciśnij <kbd>Esc</kbd>, aby zamknąć bez wklejania.</li>
+    </ol>
+    <div class="note"><b>Ważne.</b> Program nie wysyła danych do internetu. Historia jest w pliku lokalnym, a sprawdzanie aktualizacji przekazuje tylko numer wersji.</div>
+
+    <h2 id="hotkeys">Skróty klawiszowe</h2>
+    <table>
+      <thead><tr><th>Klawisze</th><th>Działanie</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td><td>Otwórz historię</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd></td><td>Szybkie menu przy kursorze (ostatnie wpisy)</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Wklej wybrany wpis</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Przejdź do wyszukiwania</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd></td><td>Natychmiastowe wklejenie ze slotu</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Zamknij okno</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd></td><td>Wklej jako czysty tekst</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd></td><td>Otwórz szablony <span class="pro">Pro</span></td></tr>
+        <tr><td><kbd>PrtScr</kbd></td><td>Zrzut obszaru</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>PrtScr</kbd></td><td>Zrzut aktywnego okna</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>PrtScr</kbd></td><td>Zrzut całego ekranu</td></tr>
+      </tbody>
+    </table>
+    <p>Główny klawisz i klawisz czystego wklejania zmienisz w „Ustawienia → Uruchamianie”; klawisz szablonów też tam, a klawisze zrzutów w „Ustawienia → Zrzuty i obrazy”. Jeśli kombinacja jest zajęta, obok pola pojawi się ostrzeżenie.</p>
+
+    <h2 id="window">Okno historii</h2>
+    <p>Po lewej kategorie, po prawej wpisy. U góry pole wyszukiwania filtruje listę podczas pisania.</p>
+    <h3>Stałe sekcje</h3>
+    <ul>
+      <li><b>Wszystkie wpisy</b> — pełna historia w kolejności kopiowania.</li>
+      <li><b>Przypięte</b> — to, co oznaczyłeś jako ważne; nigdy nie są usuwane z powodu wieku.</li>
+      <li><b>Szybkie sloty</b> — do dziewięciu wpisów pod <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd>.</li>
+      <li><b>Bez kategorii</b> — wpisy bez przypisania.</li>
+      <li><b>Obrazy</b> — skopiowane obrazy i zrzuty.</li>
+      <li><b>Szablony</b> — gotowe teksty <span class="pro">Pro</span>.</li>
+      <li><b>Kosz</b> — usunięte wpisy, które można przywrócić.</li>
+    </ul>
+    <p>Niżej są Twoje kategorie: tworzy się je, zmienia nazwę i usuwa z menu „Kategorie”. Kategorię można przypiąć — wtedy wszystkie jej wpisy idą w górę, jak przypięte pojedynczo.</p>
+    <p>Po najechaniu na wpis pojawia się karta z pełnym tekstem; wyłącza się ją w „Ustawienia → Przechowywanie”, gdzie są też sortowanie po częstotliwości i „Przypięte u góry”.</p>
+    <p>Menu „Widok” steruje czasem wpisu, zwijaniem paska kategorii i ciemnym motywem.</p>
+
+    <h2 id="entries">Praca z wpisami</h2>
+    <p>Wszystkie działania są w menu „Edycja” i w menu kontekstowym prawego przycisku.</p>
+    <ul>
+      <li><b>Wklej</b> — skopiuj wpis i wyślij go do aktywnego okna.</li>
+      <li><b>Kopiuj</b> — połóż w schowku bez wklejania.</li>
+      <li><b>Wklej i usuń</b> — wklej i od razu usuń wpis z historii.</li>
+      <li><b>Wklej wybrane razem</b> — zaznacz kilka wpisów (<kbd>Ctrl</kbd>+klik lub <kbd>Ctrl</kbd>+<kbd>A</kbd>) i wklej je jako blok, każdy w nowej linii.</li>
+      <li><b>Przypnij / odepnij</b> — chroni przed starzeniem i podnosi wpis.</li>
+      <li><b>Edytuj</b> — zmień tekst w historii.</li>
+      <li><b>Podgląd</b> — osobne okno dla długiego tekstu lub obrazu.</li>
+      <li><b>Do kategorii / Usuń z kategorii</b> — porządkuj historię w foldery.</li>
+      <li><b>Do slotów / Usuń ze slotów</b> — przypisz do <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+cyfra.</li>
+      <li><b>W górę / w dół</b> — ręczna kolejność na liście.</li>
+      <li><b>Usuń</b> — przenosi wpis do kosza.</li>
+      <li><b>Wklej jako…</b> — <span class="pro">Pro</span>: wielkie lub małe litery, z wielką pierwszą literą, bez zbędnych spacji lub bez podziałów wiersza.</li>
+    </ul>
+    <div class="note">Podwójne kliknięcie działa jak <kbd>Enter</kbd>. Przy opcji „Zamknij okno po wklejeniu” okno ukrywa się od razu po wysłaniu tekstu.</div>
+
+    <h2 id="quickmenu">Szybkie menu przy kursorze</h2>
+    <p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> otwiera zwięzłą listę ostatnich wpisów tam, gdzie jest kursor. Podwójne kliknięcie lub <kbd>Enter</kbd> wkleja do okna, które było aktywne, <kbd>Esc</kbd> zamyka.</p>
+    <p>Wygodne, gdy nie chcesz przerywać pracy, by wkleić jeden z ostatnich fragmentów.</p>
+
+    <h2 id="snippets">Szablony i zmienne <span class="pro">Pro</span></h2>
+    <p>Szablon to przygotowany tekst wklejany w całości, który może wstawić bieżącą datę, godzinę i nazwę użytkownika. Otwierasz je przez „Edycja → Szablony”, skrótem <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> lub z menu zasobnika.</p>
+    <h3>Edytor szablonów</h3>
+    <ul>
+      <li>Nazwa, grupa i tekst szablonu.</li>
+      <li>Przyciski zmiennych wstawiające znacznik w miejscu kursora.</li>
+      <li>Grupy: tworzenie, zmiana nazwy, przenoszenie i usuwanie.</li>
+      <li><kbd>Ctrl</kbd>+<kbd>Enter</kbd> — zapisz szablon.</li>
+    </ul>
+    <h3>Zmienne</h3>
+    <table>
+      <thead><tr><th>Zmienna</th><th>Wstawia</th></tr></thead>
+      <tbody>
+        <tr><td><code>{date}</code> lub <code>{d}</code></td><td>Bieżącą datę, np. 11.11.2026</td></tr>
+        <tr><td><code>{time}</code> lub <code>{t}</code></td><td>Bieżącą godzinę, np. 14:05</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Datę i godzinę razem</td></tr>
+        <tr><td><code>{year}</code></td><td>Bieżący rok</td></tr>
+        <tr><td><code>{user}</code> lub <code>{username}</code></td><td>Nazwę użytkownika Windows</td></tr>
+      </tbody>
+    </table>
+    <p>Zmienne są rozwiązywane w chwili wklejania, nie przy tworzeniu, więc ten sam szablon zawsze daje świeżą datę i godzinę. Nieznane nawiasy zostają bez zmian.</p>
+
+    <h2 id="screenshots">Zrzuty ekranu</h2>
+    <p>Trzy tryby: <kbd>PrtScr</kbd>, <kbd>Alt</kbd>+<kbd>PrtScr</kbd> i <kbd>Shift</kbd>+<kbd>PrtScr</kbd>. Jeśli <kbd>PrtScr</kbd> jest już zajęty przez system, program to zgłosi i przypisze obszar do <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd>.</p>
+    <h3>Edytor</h3>
+    <p>Po zaznaczeniu obszaru otwiera się edytor adnotacji: dłoń do przesuwania, strzałka, ołówek, linia, prostokąt, tekst, numeracja i rozmycie. Kolor i grubość wybierasz na pasku.</p>
+    <table>
+      <thead><tr><th>Klawisze</th><th>Działanie</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Cofnij / ponów</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Kopiuj zrzut</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Zapisz do pliku</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Gotowe: wyślij do historii</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Anuluj</td></tr>
+      </tbody>
+    </table>
+    <p>W „Ustawienia → Zrzuty i obrazy” ukryjesz edytor, włączysz automatyczny zapis do folderu i zdecydujesz, czy „Gotowe” kopiuje też zrzut.</p>
+    <div class="note">Pliki obrazów są usuwane z dysku dopiero przy ostatecznym usunięciu z kosza: dopóki wpis można przywrócić, jego obraz zostaje.</div>
+
+    <h2 id="images">Obrazy</h2>
+    <p>Obrazy skopiowane w przeglądarce lub edytorze trafiają do sekcji „Obrazy” i są przechowywane razem z historią tekstu. Otwierasz je przez „Podgląd” — z powiększeniem i trybem „Dopasuj”.</p>
+    <p>Przy opcji „Zapisuj skopiowane obrazy w folderze” każdy skopiowany obraz jest dodatkowo zapisywany jako plik w wybranym katalogu.</p>
+
+    <h2 id="trash">Kosz i przechowywanie</h2>
+    <p>Usunięcie nie kasuje od razu: wpis trafia do kosza i zostaje tam przez ustawioną liczbę godzin (domyślnie 24). Tam są „Przywróć”, „Usuń trwale” i „Opróżnij kosz”.</p>
+    <p>W „Ustawienia → Przechowywanie” ustawisz:</p>
+    <ul>
+      <li><b>Przechowywanie</b> w dniach — domyślnie 0, czyli bezterminowo. Przypięte są wyłączone.</li>
+      <li><b>Czas życia kosza</b> w godzinach.</li>
+      <li><b>Zachowuj powtórzone kopie</b> — domyślnie powtórka nie tworzy nowego wiersza, lecz podnosi istniejący.</li>
+      <li><b>Przewijanie kółkiem</b> — ile wierszy na jedno kliknięcie.</li>
+      <li><b>Pokazuj kategorię wpisu</b> na liście.</li>
+    </ul>
+
+    <h2 id="settings">Ustawienia</h2>
+    <p>Otwierasz je przez „Ustawienia → Ustawienia” lub z menu zasobnika. Sekcje po lewej:</p>
+    <table>
+      <thead><tr><th>Sekcja</th><th>Co ustawia</th></tr></thead>
+      <tbody>
+        <tr><td>Schowek</td><td>Język, śledzenie schowka, dźwięki, filtr aplikacji</td></tr>
+        <tr><td>Przechowywanie</td><td>Przechowywanie, kosz, karty po najechaniu, sortowanie po użyciu, przypięte u góry, powtórzone kopie, przewijanie</td></tr>
+        <tr><td>Okno</td><td>Zawsze na wierzchu, zamykaj po wklejeniu, ukryj po skopiowaniu, minimalizuj do zasobnika, ciemny motyw, rozmiar czcionki, ukrywanie stałych folderów</td></tr>
+        <tr><td>Uruchamianie</td><td>Start z Windows, główny skrót, czysty tekst, skrót szablonów</td></tr>
+        <tr><td>Zrzuty i obrazy</td><td>Edytor, kopiowanie przy „Gotowe”, automatyczny zapis, folder, trzy skróty, domyślny kolor i grubość</td></tr>
+        <tr><td>Zaawansowane</td><td>Kopia zapasowa (eksport i import), sprawdzanie aktualizacji</td></tr>
+      </tbody>
+    </table>
+    <p><b>Filtr aplikacji</b> w sekcji „Schowek” pozwala zapisywać tylko wskazane programy albo je pomijać. Lista to nazwy procesów rozdzielone średnikiem, np. <code>WINWORD.EXE;EXCEL.EXE</code>.</p>
+
+    <h2 id="backup">Kopia zapasowa <span class="pro">Pro</span></h2>
+    <p>Historia, kategorie, przypięte wpisy, szybkie sloty i szablony są eksportowane do jednego pliku JSON. Eksport i import są w dwóch miejscach: „Plik → Eksport do JSON / Import z JSON” oraz „Ustawienia → Zaawansowane → Kopia zapasowa”.</p>
+    <p>Import nie tworzy duplikatów: wpisy już obecne są pomijane. Przed zmianą komputera zapisz kopię na starym, przenieś plik i zaimportuj.</p>
+
+    <h2 id="updates">Aktualizacje</h2>
+    <p>Raz na dobę program pyta o najnowszy numer wersji. Nic nie jest pobierane ani instalowane automatycznie — przy nowej wersji pojawia się propozycja otwarcia strony pobierania.</p>
+    <p>Sprawdź ręcznie w „Pomoc → Sprawdź aktualizacje”, wyłącz w „Ustawienia → Zaawansowane”.</p>
+
+    <h2 id="pro">Free i Pro</h2>
+    <p>Wersja darmowa to pełny menedżer schowka. Pro odblokowuje funkcje związane z gotowymi tekstami i przenoszeniem danych:</p>
+    <table>
+      <thead><tr><th>Funkcja</th><th>Free</th><th>Pro</th></tr></thead>
+      <tbody>
+        <tr><td>Historia, wyszukiwanie, kategorie, przypinanie, sloty</td><td>Tak</td><td>Tak</td></tr>
+        <tr><td>Zrzuty z edytorem, obrazy</td><td>Tak</td><td>Tak</td></tr>
+        <tr><td>Szablony i zmienne</td><td>—</td><td>Tak</td></tr>
+        <tr><td>„Wklej jako…” (wielkość liter, spacje, podziały)</td><td>—</td><td>Tak</td></tr>
+        <tr><td>Kopia zapasowa: eksport i import</td><td>—</td><td>Tak</td></tr>
+      </tbody>
+    </table>
+    <p>W wersji darmowej zablokowane pozycje mają dopisek „· Pro”. Po instalacji automatycznie startuje 14-dniowy okres próbny z wszystkimi funkcjami.</p>
+    <h3>Aktywacja</h3>
+    <ol>
+      <li>Otwórz „Ustawienia → Aktywacja” (lub „Pomoc → Aktywacja”).</li>
+      <li>Skopiuj ID urządzenia — jest potrzebne do uzyskania klucza dla tego komputera.</li>
+      <li>Wklej klucz w postaci <code>CMGR-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code> i naciśnij „Aktywuj”.</li>
+    </ol>
+    <p>Klucz jest sprawdzany offline. Zwykły klucz jest przypisany do jednego komputera; klucz detaliczny działa na dowolnym PC. Gdy klucz nie pasuje, program rozróżnia <b>błędny format</b>, <b>nieprawidłowy klucz</b>, <b>klucz z innego komputera</b> i <b>unieważniony klucz</b>. Dezaktywacja zwalnia klucz na tym urządzeniu.</p>
+
+    <h2 id="data">Gdzie są dane</h2>
+    <ul>
+      <li><b>Zwykła instalacja:</b> baza historii i plik ustawień są w profilu — <code>%USERPROFILE%\.clipboard_manager.db</code> i <code>%USERPROFILE%\.clipboard_manager.db.ini</code>.</li>
+      <li><b>Tryb przenośny:</b> jeśli obok <code>ClipboardManager.exe</code> leży plik <code>portable.txt</code>, dane przenoszą się do folderu <code>data</code> przy programie — wygodne dla pendrive'a.</li>
+      <li>Zrzuty i obrazy trafiają do wskazanego folderu; w trybie przenośnym domyślnie do <code>data\screenshots</code>.</li>
+    </ul>
+
+    <h2 id="faq">Częste pytania</h2>
+    <h3>Skrót nie działa</h3>
+    <p>Prawdopodobnie kombinacja jest zajęta przez inny program. Wybierz inną w „Ustawienia → Uruchamianie”; obok pola pojawi się komunikat, gdy klawisze są już używane.</p>
+    <h3>Wklejanie trafia do innego okna</h3>
+    <p>Windows nie pozwala wysyłać danych do programów z uprawnieniami administratora ze zwykłego procesu. Jeśli cel jest podniesiony, uruchom ClipboardManager jako administrator albo wklej przez schowek (<kbd>Ctrl</kbd>+<kbd>V</kbd>).</p>
+    <h3>Zniknęły stare wpisy</h3>
+    <p>Sprawdź przechowywanie i czas życia kosza w „Ustawienia → Przechowywanie”. Przypięte nigdy nie są usuwane z powodu wieku — przypinaj to, co ważne.</p>
+    <h3>Kombinacje z <kbd>PrtScr</kbd> nie działają</h3>
+    <p>Być może klawisz zajmuje inny program lub funkcja Windows. Program to zgłasza i proponuje alternatywę; zmień klawisze w „Ustawienia → Zrzuty i obrazy”.</p>
+    <h3>Klucz nie jest przyjmowany</h3>
+    <p>Sprawdź, czy skopiowano cały klucz i czy wydano go dla ID tego urządzenia. Klucze detaliczne nie są przypisane. Jeśli klucz unieważniono, napisz do pomocy.</p>
+    <h3>Program nie startuje po aktualizacji</h3>
+    <p>Zamknij go z zasobnika i uruchom ponownie. Jeśli nie pomaga, napisz do pomocy, dołączając plik dziennika z folderu danych.</p>
+
+  </article>
+</div>
+
+<footer class="wrap">
+  <p>© 2026 ClipboardManager Plus. <a href="/privacy/">Prywatność</a> · <a href="/terms/">Warunki</a> · <a href="/support/">Pomoc</a></p>
+  <p style="margin-top:8px">Samozatrudniony: Savitsa Alexey Vasilievich · INN 231003822887 · <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipboardManager Plus — Guía del usuario</title>
+<meta name="description" content="Cómo usar ClipboardManager Plus: atajos, historial, categorías y accesos rápidos, plantillas con variables, capturas con editor, ajustes, copia de seguridad y activación Pro.">
+<link rel="canonical" href="https://clipboardmanager.ru/docs/index.es.html">
+<link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/docs/">
+<link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/docs/index.en.html">
+<meta property="og:title" content="ClipboardManager Plus — Guía del usuario">
+<meta property="og:description" content="Todas las funciones en orden: historial, categorías, accesos, plantillas, capturas, ajustes y licencia Pro.">
+<meta property="og:type" content="article">
+<style>
+  :root{--bg:#0f172a;--panel:#1e293b;--panel2:#334155;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;--accent2:#818cf8;--border:#334155;--ok:#34d399}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:20px}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.65}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}
+  .brand{font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block}
+  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+  nav a:hover{color:var(--text)}
+  nav a.cur{color:var(--text);font-weight:700}
+  .lang a{color:var(--accent);text-decoration:none;font-size:13px}
+  .lang .current{color:var(--text);font-weight:700}
+  .hero{padding:44px 0 28px;border-bottom:1px solid var(--border)}
+  .hero .kicker{color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .hero h1{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:12px}
+  .hero p{color:var(--muted);font-size:16px;max-width:760px}
+  .docs{display:grid;grid-template-columns:250px 1fr;gap:40px;padding:34px 0 56px}
+  .toc{position:sticky;top:18px;align-self:start;font-size:14px}
+  .toc h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+  .toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0 4px 10px;border-left:2px solid transparent}
+  .toc a:hover{color:var(--text);border-left-color:var(--accent)}
+  article h2{font-size:24px;margin:34px 0 12px;padding-top:8px}
+  article h2:first-child{margin-top:0}
+  article h3{font-size:17px;margin:22px 0 8px}
+  article p{margin:10px 0}
+  article ul,article ol{margin:10px 0 10px 22px}
+  article li{margin:5px 0}
+  kbd{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:12px;line-height:1;padding:4px 7px;border-radius:5px;border:1px solid var(--panel2);border-bottom-width:2px;background:var(--panel);color:var(--text);white-space:nowrap}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  .note{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:14px;color:var(--muted)}
+  .note b{color:var(--text)}
+  .pro{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0b1220;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:5px;padding:2px 6px;vertical-align:2px}
+  footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  footer a{color:var(--muted)}
+  @media(max-width:880px){.docs{grid-template-columns:1fr;gap:18px}.toc{position:static;border-bottom:1px solid var(--border);padding-bottom:14px}.hero h1{font-size:27px}nav a{margin-left:0;margin-right:16px}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand"><span class="dot"></span> ClipboardManager Plus</div>
+  <nav>
+    <a href="/">Inicio</a>
+    <a href="/download/">Descargar</a>
+    <a href="/docs/index.es.html" class="cur">Guía</a>
+    <a href="/support/">Soporte</a>
+    <span class="lang"><a href="index.html">RU</a> · <a href="index.en.html">EN</a> · <span class="current">ES</span></span>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Guía del usuario · Windows 10 / 11</div>
+    <h1>Cómo usar ClipboardManager Plus</h1>
+    <p>El programa recuerda todo lo que copia para que luego pueda pegarlo con una tecla. Aquí están todas las funciones en orden: desde el primer inicio hasta plantillas, capturas y copia de seguridad.</p>
+  </div>
+</section>
+
+<div class="wrap docs">
+  <aside class="toc">
+    <h2>Contenido</h2>
+    <a href="#start">Primer inicio</a>
+    <a href="#hotkeys">Atajos</a>
+    <a href="#window">Ventana del historial</a>
+    <a href="#entries">Trabajar con registros</a>
+    <a href="#quickmenu">Menú rápido</a>
+    <a href="#snippets">Plantillas y variables</a>
+    <a href="#screenshots">Capturas de pantalla</a>
+    <a href="#images">Imágenes</a>
+    <a href="#trash">Papelera y conservación</a>
+    <a href="#settings">Ajustes</a>
+    <a href="#backup">Copia de seguridad</a>
+    <a href="#updates">Actualizaciones</a>
+    <a href="#pro">Free y Pro</a>
+    <a href="#data">Dónde están los datos</a>
+    <a href="#faq">Preguntas frecuentes</a>
+  </aside>
+
+  <article>
+
+    <h2 id="start">Primer inicio</h2>
+    <p>Tras la instalación el programa arranca con Windows (se puede desactivar) y vive en el área de notificación junto al reloj. No hay una ventana principal permanente: el historial se abre con un atajo.</p>
+    <ol>
+      <li>Pulse <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> — la ventana del historial aparece junto al cursor.</li>
+      <li>Copie varios fragmentos de texto en cualquier programa: aparecerán en la lista.</li>
+      <li>Seleccione un registro con las flechas y pulse <kbd>Enter</kbd>: el texto se pega en la ventana que estaba usando.</li>
+      <li>Pulse <kbd>Esc</kbd> para cerrar sin pegar.</li>
+    </ol>
+    <div class="note"><b>Importante.</b> El programa no envía datos a internet. El historial vive en un archivo local y la comprobación de actualizaciones solo transmite el número de versión.</div>
+
+    <h2 id="hotkeys">Atajos</h2>
+    <table>
+      <thead><tr><th>Teclas</th><th>Acción</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td><td>Abrir el historial</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd></td><td>Menú rápido junto al cursor (solo recientes)</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Pegar el registro seleccionado</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Ir a la búsqueda</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd></td><td>Pegado inmediato desde un acceso rápido</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Cerrar la ventana</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd></td><td>Pegar como texto sin formato</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd></td><td>Abrir plantillas <span class="pro">Pro</span></td></tr>
+        <tr><td><kbd>PrtScr</kbd></td><td>Captura de un área</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>PrtScr</kbd></td><td>Captura de la ventana activa</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>PrtScr</kbd></td><td>Captura de toda la pantalla</td></tr>
+      </tbody>
+    </table>
+    <p>La tecla principal y la de pegado sin formato se cambian en «Ajustes → Inicio»; la de plantillas también allí, y las de captura en «Ajustes → Capturas e imágenes». Si la combinación ya está ocupada, aparecerá un aviso junto al campo.</p>
+
+    <h2 id="window">Ventana del historial</h2>
+    <p>A la izquierda están las categorías, a la derecha los registros. Arriba, el campo de búsqueda filtra la lista mientras escribe.</p>
+    <h3>Secciones fijas</h3>
+    <ul>
+      <li><b>Todos los registros</b> — el historial completo en orden de copia.</li>
+      <li><b>Fijados</b> — lo que marcó como importante; no se borran por la antigüedad.</li>
+      <li><b>Accesos rápidos</b> — hasta nueve registros para <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd>.</li>
+      <li><b>Sin categoría</b> — registros sin asignar.</li>
+      <li><b>Imágenes</b> — imágenes copiadas y capturas.</li>
+      <li><b>Plantillas</b> — textos preparados <span class="pro">Pro</span>.</li>
+      <li><b>Papelera</b> — registros borrados que aún se pueden restaurar.</li>
+    </ul>
+    <p>Debajo aparecen sus categorías: se crean, renombran y borran desde el menú «Categorías». Una categoría puede fijarse y entonces todos sus registros suben, como los fijados individualmente.</p>
+    <p>Al pasar el cursor sobre un registro aparece una tarjeta con el texto completo; se desactiva en «Ajustes → Almacenamiento», donde también están la ordenación por frecuencia de uso y «Fijados arriba».</p>
+    <p>El menú «Vista» controla la hora del registro, el plegado de la barra de categorías y el tema oscuro.</p>
+
+    <h2 id="entries">Trabajar con registros</h2>
+    <p>Todas las acciones están en el menú «Edición» y en el menú contextual del botón derecho.</p>
+    <ul>
+      <li><b>Pegar</b> — copiar el registro y enviarlo a la ventana activa.</li>
+      <li><b>Copiar</b> — ponerlo en el portapapeles sin pegar.</li>
+      <li><b>Pegar y borrar</b> — pegar y quitar el registro del historial.</li>
+      <li><b>Pegar los seleccionados juntos</b> — seleccione varios (<kbd>Ctrl</kbd>+clic o <kbd>Ctrl</kbd>+<kbd>A</kbd>) y péguelos en bloque, cada uno en su línea.</li>
+      <li><b>Fijar / quitar fijación</b> — protege de la antigüedad y lo sube arriba.</li>
+      <li><b>Editar</b> — cambiar el texto en el historial.</li>
+      <li><b>Ver</b> — ventana aparte para texto largo o una imagen.</li>
+      <li><b>A la categoría / Quitar de la categoría</b> — ordenar el historial en carpetas.</li>
+      <li><b>A accesos rápidos / Quitar de accesos</b> — asignar a <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+dígito.</li>
+      <li><b>Subir / Bajar</b> — orden manual en la lista.</li>
+      <li><b>Borrar</b> — lo envía a la papelera.</li>
+      <li><b>Pegar como…</b> — <span class="pro">Pro</span>: pegar en mayúsculas o minúsculas, con inicial mayúscula, sin espacios sobrantes o sin saltos de línea.</li>
+    </ul>
+    <div class="note">El doble clic hace lo mismo que <kbd>Enter</kbd>. Con «Cerrar la ventana después de pegar» la ventana se oculta en cuanto se envía el texto.</div>
+
+    <h2 id="quickmenu">Menú rápido junto al cursor</h2>
+    <p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> abre una lista compacta de los registros recientes justo donde está el cursor. Doble clic o <kbd>Enter</kbd> pega en la ventana que estaba activa, <kbd>Esc</kbd> cierra.</p>
+    <p>Útil cuando no quiere cerrar lo que está haciendo solo para pegar uno de los últimos fragmentos.</p>
+
+    <h2 id="snippets">Plantillas y variables <span class="pro">Pro</span></h2>
+    <p>Una plantilla es texto preparado que se pega entero y puede insertar la fecha, la hora y el nombre de usuario actuales. Se abren desde «Edición → Plantillas», con <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> o desde el menú del área de notificación.</p>
+    <h3>El editor de plantillas</h3>
+    <ul>
+      <li>Nombre, grupo y texto de la plantilla.</li>
+      <li>Botones de variables que insertan el marcador en el cursor.</li>
+      <li>Grupos: crear, renombrar, mover y borrar.</li>
+      <li><kbd>Ctrl</kbd>+<kbd>Enter</kbd> — guardar la plantilla.</li>
+    </ul>
+    <h3>Variables</h3>
+    <table>
+      <thead><tr><th>Variable</th><th>Inserta</th></tr></thead>
+      <tbody>
+        <tr><td><code>{date}</code> o <code>{d}</code></td><td>La fecha actual, p. ej. 11.11.2026</td></tr>
+        <tr><td><code>{time}</code> o <code>{t}</code></td><td>La hora actual, p. ej. 14:05</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Fecha y hora juntas</td></tr>
+        <tr><td><code>{year}</code></td><td>El año actual</td></tr>
+        <tr><td><code>{user}</code> o <code>{username}</code></td><td>El nombre de usuario de Windows</td></tr>
+      </tbody>
+    </table>
+    <p>Las variables se resuelven al pegar, no al crear, así que la misma plantilla siempre da fecha y hora frescas. Las llaves desconocidas quedan tal cual.</p>
+
+    <h2 id="screenshots">Capturas de pantalla</h2>
+    <p>Tres modos con <kbd>PrtScr</kbd>, <kbd>Alt</kbd>+<kbd>PrtScr</kbd> y <kbd>Shift</kbd>+<kbd>PrtScr</kbd>. Si el sistema ya usa <kbd>PrtScr</kbd>, el programa lo avisa y asigna el área a <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd>.</p>
+    <h3>Editor</h3>
+    <p>Tras seleccionar el área se abre el editor de anotaciones: mano para mover, flecha, lápiz, línea, rectángulo, texto, numeración y desenfoque. Color y grosor se eligen en la barra.</p>
+    <table>
+      <thead><tr><th>Teclas</th><th>Acción</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Deshacer / rehacer</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Copiar la captura</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Guardar en archivo</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Listo: enviar al historial</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Cancelar</td></tr>
+      </tbody>
+    </table>
+    <p>En «Ajustes → Capturas e imágenes» puede ocultar el editor, activar el guardado automático en una carpeta y decidir si «Listo» copia también la captura.</p>
+    <div class="note">Los archivos de imagen se eliminan del disco solo al borrar definitivamente desde la papelera: mientras el registro se pueda restaurar, su imagen sigue ahí.</div>
+
+    <h2 id="images">Imágenes</h2>
+    <p>Las imágenes copiadas en el navegador o en un editor van a la sección «Imágenes» y se guardan junto al historial de texto. Ábralas con «Ver»: incluye zoom y modo «Ajustar».</p>
+    <p>Con «Guardar las imágenes copiadas en una carpeta», cada imagen copiada se guarda además como archivo en la carpeta elegida.</p>
+
+    <h2 id="trash">Papelera y conservación</h2>
+    <p>Borrar no destruye de inmediato: el registro va a la papelera y permanece allí el número de horas configurado (24 por defecto). Allí están «Restaurar», «Borrar definitivamente» y «Vaciar papelera».</p>
+    <p>En «Ajustes → Almacenamiento» se configura:</p>
+    <ul>
+      <li><b>Conservación</b> en días — 0 por defecto, es decir, sin límite. Los fijados quedan excluidos.</li>
+      <li><b>Duración de la papelera</b> en horas.</li>
+      <li><b>Guardar copias repetidas</b> — por defecto una repetición no crea fila nueva, sino que sube la existente.</li>
+      <li><b>Desplazamiento con la rueda</b> — cuántas filas por muesca.</li>
+      <li><b>Mostrar la categoría del registro</b> en la lista.</li>
+    </ul>
+
+    <h2 id="settings">Ajustes</h2>
+    <p>Se abren desde «Ajustes → Ajustes» o desde el menú del área de notificación. Secciones a la izquierda:</p>
+    <table>
+      <thead><tr><th>Sección</th><th>Qué configura</th></tr></thead>
+      <tbody>
+        <tr><td>Portapapeles</td><td>Idioma, seguimiento del portapapeles, sonidos, filtro de aplicaciones</td></tr>
+        <tr><td>Almacenamiento</td><td>Conservación, papelera, tarjetas emergentes, orden por uso, fijados arriba, copias repetidas, desplazamiento</td></tr>
+        <tr><td>Ventana</td><td>Siempre visible, cerrar tras pegar, ocultar tras copiar, minimizar al área, tema oscuro, tamaño de letra, ocultar carpetas fijas</td></tr>
+        <tr><td>Inicio</td><td>Arrancar con Windows, atajo principal, atajo de pegado sin formato, atajo de plantillas</td></tr>
+        <tr><td>Capturas e imágenes</td><td>Editor, copiar al pulsar «Listo», guardado automático, carpeta, tres atajos, color y grosor por defecto</td></tr>
+        <tr><td>Avanzado</td><td>Copia de seguridad (exportar e importar), comprobación de actualizaciones</td></tr>
+      </tbody>
+    </table>
+    <p>El <b>filtro de aplicaciones</b> de «Portapapeles» permite registrar solo los programas indicados o ignorarlos. La lista son nombres de proceso separados por punto y coma, p. ej. <code>WINWORD.EXE;EXCEL.EXE</code>.</p>
+
+    <h2 id="backup">Copia de seguridad <span class="pro">Pro</span></h2>
+    <p>El historial, las categorías, los fijados, los accesos rápidos y las plantillas se exportan a un único archivo JSON. Exportación e importación están en dos lugares: «Archivo → Exportar a JSON / Importar desde JSON» y «Ajustes → Avanzado → Copia de seguridad».</p>
+    <p>La importación no crea duplicados: los registros que ya existen se omiten. Antes de cambiar de equipo, guarde en el antiguo, transfiera el archivo e importe.</p>
+
+    <h2 id="updates">Actualizaciones</h2>
+    <p>Una vez al día el programa consulta el número de versión más reciente. No se descarga ni se instala nada automáticamente; si hay versión nueva se ofrece abrir la página de descarga.</p>
+    <p>Comprobar a mano en «Ayuda → Buscar actualizaciones»; desactivar en «Ajustes → Avanzado».</p>
+
+    <h2 id="pro">Free y Pro</h2>
+    <p>La versión gratuita es un gestor de portapapeles completo. Pro desbloquea lo relacionado con textos preparados y traslado de datos:</p>
+    <table>
+      <thead><tr><th>Función</th><th>Free</th><th>Pro</th></tr></thead>
+      <tbody>
+        <tr><td>Historial, búsqueda, categorías, fijar, accesos</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>Capturas con editor, imágenes</td><td>Sí</td><td>Sí</td></tr>
+        <tr><td>Plantillas y variables</td><td>—</td><td>Sí</td></tr>
+        <tr><td>«Pegar como…» (mayúsculas, espacios, saltos)</td><td>—</td><td>Sí</td></tr>
+        <tr><td>Copia de seguridad: exportar e importar</td><td>—</td><td>Sí</td></tr>
+      </tbody>
+    </table>
+    <p>En la versión gratuita los elementos cerrados llevan el sufijo «· Pro». Tras instalar empieza automáticamente una prueba de 14 días con todas las funciones.</p>
+    <h3>Activación</h3>
+    <ol>
+      <li>Abra «Ajustes → Activación» (o «Ayuda → Activación»).</li>
+      <li>Copie el ID del dispositivo: hace falta para obtener una clave para este equipo.</li>
+      <li>Pegue una clave como <code>CMGR-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code> y pulse «Activar».</li>
+    </ol>
+    <p>La clave se verifica sin conexión. Una clave normal se vincula a un equipo; una clave retail funciona en cualquier PC. Si no encaja, el programa distingue <b>formato incorrecto</b>, <b>clave no válida</b>, <b>clave de otro equipo</b> y <b>clave revocada</b>. Desactivar libera la clave en este dispositivo.</p>
+
+    <h2 id="data">Dónde están los datos</h2>
+    <ul>
+      <li><b>Instalación normal:</b> la base del historial y el archivo de ajustes están en el perfil — <code>%USERPROFILE%\.clipboard_manager.db</code> y <code>%USERPROFILE%\.clipboard_manager.db.ini</code>.</li>
+      <li><b>Modo portátil:</b> si junto a <code>ClipboardManager.exe</code> está el archivo <code>portable.txt</code>, los datos pasan a la carpeta <code>data</code> junto al programa, cómodo para un USB.</li>
+      <li>Las capturas e imágenes van a la carpeta indicada; en modo portátil, por defecto <code>data\screenshots</code>.</li>
+    </ul>
+
+    <h2 id="faq">Preguntas frecuentes</h2>
+    <h3>El atajo no funciona</h3>
+    <p>Probablemente la combinación está ocupada por otro programa. Elija otra en «Ajustes → Inicio»; junto al campo aparece un aviso si las teclas ya están en uso.</p>
+    <h3>El pegado va a otra ventana</h3>
+    <p>Windows no permite enviar entrada a programas con permisos de administrador desde un proceso normal. Si el destino está elevado, inicie ClipboardManager como administrador o pegue desde el portapapeles (<kbd>Ctrl</kbd>+<kbd>V</kbd>).</p>
+    <h3>Han desaparecido registros antiguos</h3>
+    <p>Revise la conservación y la duración de la papelera en «Ajustes → Almacenamiento». Los fijados nunca se borran por antigüedad: fije lo importante.</p>
+    <h3>No funcionan las combinaciones con <kbd>PrtScr</kbd></h3>
+    <p>Puede que otro programa o una función de Windows tenga la tecla. El programa lo avisa y sugiere una alternativa; cámbielas en «Ajustes → Capturas e imágenes».</p>
+    <h3>La clave no se acepta</h3>
+    <p>Compruebe que copió la clave entera y que se emitió para el ID de este equipo. Las claves retail no están vinculadas. Si la clave fue revocada, escriba al soporte.</p>
+    <h3>El programa no arranca tras una actualización</h3>
+    <p>Ciérrelo desde el área de notificación y vuelva a iniciarlo. Si no ayuda, escriba al soporte y adjunte el archivo de registro de la carpeta de datos.</p>
+
+  </article>
+</div>
+
+<footer class="wrap">
+  <p>© 2026 ClipboardManager Plus. <a href="/privacy/">Privacidad</a> · <a href="/terms/">Condiciones</a> · <a href="/support/">Soporte</a></p>
+  <p style="margin-top:8px">Autónomo: Savitsa Alexey Vasilievich · INN 231003822887 · <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a></p>
+</footer>
+
+</body>
+</html>

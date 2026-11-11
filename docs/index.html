@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Руководство пользователя ClipboardManager Plus</title>
+<meta name="description" content="Как пользоваться ClipboardManager Plus: горячие клавиши, история копий, категории и быстрые слоты, шаблоны с переменными, скриншоты с редактором, настройки, резервная копия и активация Pro.">
+<link rel="canonical" href="https://clipboardmanager.ru/docs/">
+<link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/docs/">
+<link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/docs/?lang=en">
+<meta property="og:title" content="Руководство пользователя ClipboardManager Plus">
+<meta property="og:description" content="Все функции программы по порядку: история, категории, слоты, шаблоны, скриншоты, настройки и Pro-лицензия.">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --bg:#0f172a; --panel:#1e293b; --panel2:#334155; --text:#e2e8f0; --muted:#94a3b8;
+    --accent:#38bdf8; --accent2:#818cf8; --border:#334155; --ok:#34d399; --warn:#fbbf24;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:20px}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.65}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}
+  .brand{font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block}
+  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+  nav a:hover{color:var(--text)}
+  nav a.cur{color:var(--text);font-weight:700}
+  .lang a{color:var(--accent);text-decoration:none;font-size:13px}
+  .lang .current{color:var(--text);font-weight:700}
+  .hero{padding:44px 0 28px;border-bottom:1px solid var(--border)}
+  .hero .kicker{color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .hero h1{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:12px}
+  .hero p{color:var(--muted);font-size:16px;max-width:760px}
+  .docs{display:grid;grid-template-columns:250px 1fr;gap:40px;padding:34px 0 56px}
+  .toc{position:sticky;top:18px;align-self:start;font-size:14px}
+  .toc h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+  .toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0 4px 10px;border-left:2px solid transparent}
+  .toc a:hover{color:var(--text);border-left-color:var(--accent)}
+  article h2{font-size:24px;margin:34px 0 12px;padding-top:8px}
+  article h2:first-child{margin-top:0}
+  article h3{font-size:17px;margin:22px 0 8px}
+  article p{margin:10px 0}
+  article ul,article ol{margin:10px 0 10px 22px}
+  article li{margin:5px 0}
+  article li::marker{color:var(--accent)}
+  kbd{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:12px;line-height:1;padding:4px 7px;border-radius:5px;border:1px solid var(--panel2);border-bottom-width:2px;background:var(--panel);color:var(--text);white-space:nowrap}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  .note{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:14px;color:var(--muted)}
+  .note b{color:var(--text)}
+  .pro{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0b1220;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:5px;padding:2px 6px;vertical-align:2px}
+  footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  footer a{color:var(--muted)}
+  @media(max-width:880px){.docs{grid-template-columns:1fr;gap:18px}.toc{position:static;border-bottom:1px solid var(--border);padding-bottom:14px}.hero h1{font-size:27px}nav a{margin-left:0;margin-right:16px}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand"><span class="dot"></span> ClipboardManager Plus</div>
+  <nav>
+    <a href="/">Главная</a>
+    <a href="/download/">Скачать</a>
+    <a href="/docs/" class="cur">Руководство</a>
+    <a href="/support/">Поддержка</a>
+    <span class="lang"><span class="current">RU</span> · <a href="index.en.html">EN</a></span>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Руководство пользователя · Windows 10 / 11</div>
+    <h1>Как пользоваться ClipboardManager Plus</h1>
+    <p>Программа запоминает всё, что вы копируете, чтобы потом вставить нужное одной клавишей. Ниже — все функции по порядку: от первого запуска до шаблонов, скриншотов и резервной копии.</p>
+  </div>
+</section>
+
+<div class="wrap docs">
+  <aside class="toc">
+    <h2>Содержание</h2>
+    <a href="#start">Первый запуск</a>
+    <a href="#hotkeys">Горячие клавиши</a>
+    <a href="#window">Окно истории</a>
+    <a href="#entries">Работа с записями</a>
+    <a href="#quickmenu">Быстрое меню</a>
+    <a href="#snippets">Шаблоны и переменные</a>
+    <a href="#screenshots">Скриншоты</a>
+    <a href="#images">Изображения</a>
+    <a href="#trash">Корзина и срок хранения</a>
+    <a href="#settings">Настройки</a>
+    <a href="#backup">Резервная копия</a>
+    <a href="#updates">Обновления</a>
+    <a href="#pro">Free и Pro</a>
+    <a href="#data">Где хранятся данные</a>
+    <a href="#faq">Частые вопросы</a>
+  </aside>
+
+  <article>
+
+    <h2 id="start">Первый запуск</h2>
+    <p>После установки программа запускается вместе с Windows (это можно отключить) и работает из области уведомлений — рядом с часами. Отдельного «главного окна» на экране нет: история открывается по горячей клавише.</p>
+    <ol>
+      <li>Нажмите <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> — откроется окно истории рядом с курсором.</li>
+      <li>Скопируйте несколько фрагментов текста в любых программах — они появятся в списке.</li>
+      <li>Выберите запись стрелками и нажмите <kbd>Enter</kbd> — текст вставится в то окно, где вы работали.</li>
+      <li>Нажмите <kbd>Esc</kbd>, чтобы закрыть окно без вставки.</li>
+    </ol>
+    <div class="note"><b>Важно.</b> Программа не отправляет данные в интернет. История хранится в локальном файле на вашем компьютере, а проверка обновлений передаёт только номер текущей версии.</div>
+
+    <h2 id="hotkeys">Горячие клавиши</h2>
+    <table>
+      <thead><tr><th>Клавиши</th><th>Действие</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td><td>Открыть окно истории</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd></td><td>Быстрое меню у курсора (только недавние записи)</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Вставить выделенную запись</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Перейти к поиску по истории</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd></td><td>Мгновенная вставка из быстрого слота</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Закрыть окно</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd></td><td>Вставка как простой текст</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd></td><td>Открыть шаблоны <span class="pro">Pro</span></td></tr>
+        <tr><td><kbd>PrtScr</kbd></td><td>Скриншот выделенной области</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>PrtScr</kbd></td><td>Скриншот активного окна</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>PrtScr</kbd></td><td>Скриншот всего экрана</td></tr>
+      </tbody>
+    </table>
+    <p>Основную клавишу и клавишу простой вставки можно сменить в «Настройки → Запуск», клавишу шаблонов — там же, клавиши скриншотов — в «Настройки → Скриншоты и изображения». Если выбранное сочетание занято другой программой, рядом с полем появится предупреждение.</p>
+
+    <h2 id="window">Окно истории</h2>
+    <p>Слева — колонка категорий, справа — список записей. Сверху находится поле поиска, оно фильтрует список по мере ввода.</p>
+    <h3>Встроенные разделы</h3>
+    <ul>
+      <li><b>Все записи</b> — полная история в порядке копирования.</li>
+      <li><b>Закреплённые</b> — то, что вы отметили как важное; такие записи не удаляются по сроку хранения.</li>
+      <li><b>Быстрые слоты</b> — до девяти записей для вставки по <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd>.</li>
+      <li><b>Без категории</b> — записи, которым категория не назначена.</li>
+      <li><b>Изображения</b> — скопированные картинки и скриншоты.</li>
+      <li><b>Шаблоны</b> — заготовки текста <span class="pro">Pro</span>.</li>
+      <li><b>Корзина</b> — удалённые записи, которые ещё можно восстановить.</li>
+    </ul>
+    <p>Ниже идут ваши категории: они создаются, переименовываются и удаляются через меню «Категории». Категорию можно закрепить — тогда все записи в ней поднимаются наверх, как закреплённые по одной.</p>
+    <p>При наведении на запись появляется карточка с полным текстом — её можно отключить в «Настройки → Хранение». Там же включаются сортировка по частоте использования и «закреплённые вверху».</p>
+    <p>Меню «Вид» управляет показом времени записи, сворачиванием панели категорий и тёмной темой.</p>
+
+    <h2 id="entries">Работа с записями</h2>
+    <p>Все действия доступны из меню «Правка» и из контекстного меню по правой кнопке мыши.</p>
+    <ul>
+      <li><b>Вставить</b> — скопировать запись и отправить её в активное окно.</li>
+      <li><b>Копировать</b> — положить запись в буфер обмена, не вставляя.</li>
+      <li><b>Вставить и удалить</b> — вставить и сразу убрать запись из истории.</li>
+      <li><b>Вставить выбранные вместе</b> — выделите несколько записей (<kbd>Ctrl</kbd>+клик или <kbd>Ctrl</kbd>+<kbd>A</kbd>) и вставьте их одной строкой, каждая с новой строки.</li>
+      <li><b>Закрепить / открепить</b> — защищает запись от удаления по сроку хранения и поднимает её вверх.</li>
+      <li><b>Изменить</b> — править текст прямо в истории.</li>
+      <li><b>Просмотр</b> — отдельное окно для длинного текста или картинки.</li>
+      <li><b>В категорию / Убрать из категории</b> — раскладывание истории по папкам.</li>
+      <li><b>В быстрые слоты / Убрать из слотов</b> — назначение записи на <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+цифру.</li>
+      <li><b>Переместить вверх / вниз</b> — ручной порядок в списке.</li>
+      <li><b>Удалить</b> — отправляет запись в корзину.</li>
+      <li><b>Вставить как…</b> — <span class="pro">Pro</span>: вставить текст в верхнем или нижнем регистре, с заглавной буквы, без лишних пробелов или без переносов строк.</li>
+    </ul>
+    <div class="note">Двойной клик по записи делает то же, что <kbd>Enter</kbd>. Если включена настройка «Закрывать окно после вставки», окно спрячется сразу после отправки текста.</div>
+
+    <h2 id="quickmenu">Быстрое меню у курсора</h2>
+    <p>Сочетание <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> открывает компактный список недавних записей прямо там, где стоит курсор. Двойной клик или <kbd>Enter</kbd> вставляет запись в то окно, которое было активным до открытия меню, <kbd>Esc</kbd> закрывает список.</p>
+    <p>Это удобно, когда главное окно закрывать не хочется, а нужно вставить один из последних фрагментов.</p>
+
+    <h2 id="snippets">Шаблоны и переменные <span class="pro">Pro</span></h2>
+    <p>Шаблон — это заготовка текста, которая вставляется целиком и может подставлять текущую дату, время и имя пользователя. Открыть шаблоны можно через «Правка → Шаблоны», сочетанием <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> или из меню в трее.</p>
+    <h3>Что есть в редакторе шаблона</h3>
+    <ul>
+      <li>Название, группа и текст шаблона.</li>
+      <li>Кнопки вставки переменных — они добавляют заготовку в текст на месте курсора.</li>
+      <li>Группы шаблонов: создание, переименование, перенос и удаление.</li>
+      <li><kbd>Ctrl</kbd>+<kbd>Enter</kbd> — сохранить шаблон.</li>
+    </ul>
+    <h3>Переменные</h3>
+    <table>
+      <thead><tr><th>Переменная</th><th>Что подставляет</th></tr></thead>
+      <tbody>
+        <tr><td><code>{date}</code> или <code>{d}</code></td><td>Текущую дату, например 11.11.2026</td></tr>
+        <tr><td><code>{time}</code> или <code>{t}</code></td><td>Текущее время, например 14:05</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Дату и время вместе</td></tr>
+        <tr><td><code>{year}</code></td><td>Текущий год</td></tr>
+        <tr><td><code>{user}</code> или <code>{username}</code></td><td>Имя пользователя Windows</td></tr>
+      </tbody>
+    </table>
+    <p>Переменные подставляются в момент вставки, а не при создании шаблона, поэтому один и тот же шаблон каждый раз даёт свежие дату и время. Неизвестные фигурные скобки остаются как есть.</p>
+
+    <h2 id="screenshots">Скриншоты</h2>
+    <p>Три режима запускаются клавишами <kbd>PrtScr</kbd>, <kbd>Alt</kbd>+<kbd>PrtScr</kbd> и <kbd>Shift</kbd>+<kbd>PrtScr</kbd>. Если система уже заняла <kbd>PrtScr</kbd>, программа сообщит об этом и назначит область на <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd>.</p>
+    <h3>Редактор</h3>
+    <p>После выделения области открывается редактор аннотаций: рука для перемещения выделения, стрелка, карандаш, линия, прямоугольник, текст, нумерация шагов и размытие. Цвет и толщина выбираются на панели инструментов.</p>
+    <table>
+      <thead><tr><th>Клавиши</th><th>Действие</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Отменить / повторить</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Скопировать снимок</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Сохранить файл</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Готово: отправить в историю</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Отмена</td></tr>
+      </tbody>
+    </table>
+    <p>В «Настройки → Скриншоты и изображения» можно отключить показ редактора, включить автоматическое сохранение снимков в выбранную папку и выбрать, копировать ли снимок в буфер по кнопке «Готово».</p>
+    <div class="note">Файлы изображений удаляются с диска только при окончательном удалении из корзины — пока запись можно восстановить, картинка на месте.</div>
+
+    <h2 id="images">Изображения</h2>
+    <p>Скопированные в браузере или графическом редакторе картинки попадают в раздел «Изображения» и хранятся вместе с текстовой историей. Открыть такую запись можно через «Просмотр» — с масштабированием и режимом «Вписать».</p>
+    <p>Если включить «Сохранять копируемые изображения в папку», каждая скопированная картинка дополнительно сохраняется файлом в выбранный каталог.</p>
+
+    <h2 id="trash">Корзина и срок хранения</h2>
+    <p>Удаление записи не стирает её сразу: она попадает в корзину и остаётся там заданное число часов (по умолчанию 24). В корзине доступны «Восстановить», «Удалить навсегда» и «Очистить корзину».</p>
+    <p>В «Настройки → Хранение» настраиваются:</p>
+    <ul>
+      <li><b>Срок хранения</b> в днях — по умолчанию 0, то есть бессрочно. Закреплённые записи под срок не попадают.</li>
+      <li><b>Время жизни корзины</b> в часах.</li>
+      <li><b>Сохранять одинаковые копии подряд</b> — по умолчанию повтор не создаёт новую строку, а поднимает существующую.</li>
+      <li><b>Прокрутка колесом</b> — сколько строк прокручивать за один щелчок.</li>
+      <li><b>Показывать категорию записи</b> в списке.</li>
+    </ul>
+
+    <h2 id="settings">Настройки</h2>
+    <p>Открываются из меню «Настройки → Настройки» или из меню в области уведомлений. Разделы слева:</p>
+    <table>
+      <thead><tr><th>Раздел</th><th>Что настраивается</th></tr></thead>
+      <tbody>
+        <tr><td>Буфер обмена</td><td>Язык интерфейса, слежение за буфером, звуки копирования и вставки, фильтр по приложениям</td></tr>
+        <tr><td>Хранение</td><td>Срок хранения, корзина, всплывающие карточки, сортировка по частоте, закреплённые вверху, повторные копии, прокрутка</td></tr>
+        <tr><td>Окно</td><td>Поверх всех окон, закрывать после вставки, прятать после копирования, сворачивать в трей, тёмная тема, размер шрифта, скрытие встроенных папок</td></tr>
+        <tr><td>Запуск</td><td>Автозапуск с Windows, основная горячая клавиша, клавиша простой вставки, клавиша шаблонов</td></tr>
+        <tr><td>Скриншоты и изображения</td><td>Редактор, копирование по «Готово», автосохранение, папка, три горячие клавиши, цвет и толщина по умолчанию</td></tr>
+        <tr><td>Дополнительно</td><td>Резервная копия (экспорт и импорт), проверка обновлений</td></tr>
+      </tbody>
+    </table>
+    <p><b>Фильтр приложений</b> в разделе «Буфер обмена» позволяет либо записывать копии только из указанных программ, либо наоборот игнорировать их. Список задаётся именами процессов через точку с запятой, например <code>WINWORD.EXE;EXCEL.EXE</code>.</p>
+
+    <h2 id="backup">Резервная копия <span class="pro">Pro</span></h2>
+    <p>История, категории, закреплённые записи, быстрые слоты и шаблоны выгружаются в один JSON-файл. Экспорт и импорт доступны в двух местах: меню «Файл → Экспорт в JSON / Импорт из JSON» и «Настройки → Дополнительно → Резервная копия».</p>
+    <p>Импорт не создаёт дублей: записи, которые уже есть в истории, пропускаются. Перед восстановлением на новом компьютере сначала сохраните копию на старом, затем перенесите файл и выполните импорт.</p>
+
+    <h2 id="updates">Обновления</h2>
+    <p>Раз в сутки программа узнаёт номер последней версии. Ничего не скачивается и не устанавливается автоматически — при наличии новой версии появится предложение открыть страницу загрузки.</p>
+    <p>Проверить вручную можно через «Справка → Проверить обновления», отключить — в «Настройки → Дополнительно».</p>
+
+    <h2 id="pro">Free и Pro</h2>
+    <p>Бесплатная версия полностью работает как менеджер буфера обмена. Pro открывает функции, связанные с заготовками и переносом данных:</p>
+    <table>
+      <thead><tr><th>Функция</th><th>Free</th><th>Pro</th></tr></thead>
+      <tbody>
+        <tr><td>История копий, поиск, категории, закрепление, слоты</td><td>Да</td><td>Да</td></tr>
+        <tr><td>Скриншоты с редактором и изображения</td><td>Да</td><td>Да</td></tr>
+        <tr><td>Шаблоны и переменные</td><td>—</td><td>Да</td></tr>
+        <tr><td>«Вставить как…» (регистр, пробелы, переносы)</td><td>—</td><td>Да</td></tr>
+        <tr><td>Экспорт и импорт резервной копии</td><td>—</td><td>Да</td></tr>
+      </tbody>
+    </table>
+    <p>В бесплатной версии закрытые пункты помечены подписью «· Pro». После установки автоматически начинается пробный период на 14 дней со всеми функциями.</p>
+    <h3>Активация</h3>
+    <ol>
+      <li>Откройте «Настройки → Активация» (или «Справка → Активация»).</li>
+      <li>Скопируйте ID устройства — он нужен, чтобы получить ключ для этого компьютера.</li>
+      <li>Вставьте ключ вида <code>CMGR-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code> и нажмите «Активировать».</li>
+    </ol>
+    <p>Ключ проверяется офлайн, интернет не требуется. Обычный ключ привязан к одному компьютеру; розничный ключ работает на любом ПК. Если ключ не подходит, программа различает <b>неверный формат</b>, <b>недействительный ключ</b>, <b>ключ выдан для другого компьютера</b> и <b>отозванный ключ</b>. Деактивация освобождает ключ на этом устройстве.</p>
+
+    <h2 id="data">Где хранятся данные</h2>
+    <ul>
+      <li><b>Обычная установка:</b> база истории и файл настроек лежат в профиле пользователя — <code>%USERPROFILE%\.clipboard_manager.db</code> и <code>%USERPROFILE%\.clipboard_manager.db.ini</code>.</li>
+      <li><b>Портативный режим:</b> если рядом с <code>ClipboardManager.exe</code> лежит файл <code>portable.txt</code>, данные переносятся в папку <code>data</code> рядом с программой — удобно для флешки.</li>
+      <li>Скриншоты и картинки сохраняются в папку, указанную в настройках; в портативном режиме по умолчанию это <code>data\screenshots</code>.</li>
+    </ul>
+
+    <h2 id="faq">Частые вопросы</h2>
+    <h3>Горячая клавиша не работает</h3>
+    <p>Скорее всего, сочетание занято другой программой. Откройте «Настройки → Запуск» и назначьте другое — рядом с полем появится сообщение, если клавиши уже используются.</p>
+    <h3>Вставка уходит не в то окно</h3>
+    <p>Windows запрещает отправлять ввод в программы, запущенные от имени администратора, из процессов с обычными правами. Если целевое приложение работает с повышенными правами, запустите ClipboardManager от администратора или вставляйте через буфер обмена (<kbd>Ctrl</kbd>+<kbd>V</kbd>).</p>
+    <h3>Пропали старые записи</h3>
+    <p>Проверьте срок хранения и время жизни корзины в «Настройки → Хранение». Закреплённые записи не удаляются по сроку — закрепляйте важное.</p>
+    <h3>Не работают <kbd>PrtScr</kbd>-сочетания</h3>
+    <p>Клавишу может занимать другая программа или функция Windows. Программа сообщит об этом и предложит альтернативу; сменить клавиши можно в «Настройки → Скриншоты и изображения».</p>
+    <h3>Ключ не принимается</h3>
+    <p>Сверьте, что скопирован весь ключ, и что он выдан для ID этого устройства. Для розничного ключа привязки нет. Если ключ отозван, обратитесь в поддержку.</p>
+    <h3>Программа не запускается после обновления</h3>
+    <p>Закройте её через область уведомлений, затем запустите заново. Если не помогло — напишите в поддержку, приложив файл журнала из папки данных.</p>
+
+  </article>
+</div>
+
+<footer class="wrap">
+  <p>© 2026 ClipboardManager Plus. <a href="/privacy/">Политика конфиденциальности</a> · <a href="/terms/">Оферта</a> · <a href="/support/">Поддержка</a></p>
+  <p style="margin-top:8px">Самозанятый Савица Алексей Васильевич · ИНН 231003822887 · <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a></p>
+</footer>
+
+</body>
+</html>

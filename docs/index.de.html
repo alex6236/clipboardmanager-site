@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipboardManager Plus — Benutzerhandbuch</title>
+<meta name="description" content="Bedienung von ClipboardManager Plus: Tastenkürzel, Verlauf, Kategorien und Schnellplätze, Vorlagen mit Variablen, Screenshots mit Editor, Einstellungen, Sicherung und Pro-Aktivierung.">
+<link rel="canonical" href="https://clipboardmanager.ru/docs/index.de.html">
+<link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/docs/">
+<link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/docs/index.en.html">
+<meta property="og:title" content="ClipboardManager Plus — Benutzerhandbuch">
+<meta property="og:description" content="Alle Funktionen der Reihe nach: Verlauf, Kategorien, Plätze, Vorlagen, Screenshots, Einstellungen und Pro-Lizenz.">
+<meta property="og:type" content="article">
+<style>
+  :root{--bg:#0f172a;--panel:#1e293b;--panel2:#334155;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;--accent2:#818cf8;--border:#334155;--ok:#34d399}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:20px}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.65}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent)}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}
+  .brand{font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block}
+  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+  nav a:hover{color:var(--text)}
+  nav a.cur{color:var(--text);font-weight:700}
+  .lang a{color:var(--accent);text-decoration:none;font-size:13px}
+  .lang .current{color:var(--text);font-weight:700}
+  .hero{padding:44px 0 28px;border-bottom:1px solid var(--border)}
+  .hero .kicker{color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .hero h1{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:12px}
+  .hero p{color:var(--muted);font-size:16px;max-width:760px}
+  .docs{display:grid;grid-template-columns:250px 1fr;gap:40px;padding:34px 0 56px}
+  .toc{position:sticky;top:18px;align-self:start;font-size:14px}
+  .toc h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+  .toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0 4px 10px;border-left:2px solid transparent}
+  .toc a:hover{color:var(--text);border-left-color:var(--accent)}
+  article h2{font-size:24px;margin:34px 0 12px;padding-top:8px}
+  article h2:first-child{margin-top:0}
+  article h3{font-size:17px;margin:22px 0 8px}
+  article p{margin:10px 0}
+  article ul,article ol{margin:10px 0 10px 22px}
+  article li{margin:5px 0}
+  kbd{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:12px;line-height:1;padding:4px 7px;border-radius:5px;border:1px solid var(--panel2);border-bottom-width:2px;background:var(--panel);color:var(--text);white-space:nowrap}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  .note{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:14px;color:var(--muted)}
+  .note b{color:var(--text)}
+  .pro{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0b1220;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:5px;padding:2px 6px;vertical-align:2px}
+  footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  footer a{color:var(--muted)}
+  @media(max-width:880px){.docs{grid-template-columns:1fr;gap:18px}.toc{position:static;border-bottom:1px solid var(--border);padding-bottom:14px}.hero h1{font-size:27px}nav a{margin-left:0;margin-right:16px}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand"><span class="dot"></span> ClipboardManager Plus</div>
+  <nav>
+    <a href="/">Start</a>
+    <a href="/download/">Download</a>
+    <a href="/docs/index.de.html" class="cur">Handbuch</a>
+    <a href="/support/">Support</a>
+    <span class="lang"><a href="index.html">RU</a> · <a href="index.en.html">EN</a> · <span class="current">DE</span></span>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Benutzerhandbuch · Windows 10 / 11</div>
+    <h1>ClipboardManager Plus bedienen</h1>
+    <p>Das Programm merkt sich alles, was Sie kopieren, damit Sie es später mit einer Taste einfügen können. Hier finden Sie alle Funktionen der Reihe nach — vom ersten Start bis zu Vorlagen, Screenshots und Sicherung.</p>
+  </div>
+</section>
+
+<div class="wrap docs">
+  <aside class="toc">
+    <h2>Inhalt</h2>
+    <a href="#start">Erster Start</a>
+    <a href="#hotkeys">Tastenkürzel</a>
+    <a href="#window">Verlaufsfenster</a>
+    <a href="#entries">Arbeiten mit Einträgen</a>
+    <a href="#quickmenu">Schnellmenü</a>
+    <a href="#snippets">Vorlagen und Variablen</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#images">Bilder</a>
+    <a href="#trash">Papierkorb und Aufbewahrung</a>
+    <a href="#settings">Einstellungen</a>
+    <a href="#backup">Sicherung</a>
+    <a href="#updates">Updates</a>
+    <a href="#pro">Free und Pro</a>
+    <a href="#data">Wo die Daten liegen</a>
+    <a href="#faq">Häufige Fragen</a>
+  </aside>
+
+  <article>
+
+    <h2 id="start">Erster Start</h2>
+    <p>Nach der Installation startet das Programm mit Windows (abschaltbar) und lebt im Infobereich neben der Uhr. Ein Hauptfenster ist nicht dauerhaft sichtbar: der Verlauf öffnet sich per Tastenkürzel.</p>
+    <ol>
+      <li>Drücken Sie <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> — das Verlaufsfenster erscheint am Mauszeiger.</li>
+      <li>Kopieren Sie einige Textstellen in beliebigen Programmen — sie erscheinen in der Liste.</li>
+      <li>Wählen Sie einen Eintrag mit den Pfeiltasten und drücken Sie <kbd>Enter</kbd> — der Text wird in das vorher aktive Fenster eingefügt.</li>
+      <li>Mit <kbd>Esc</kbd> schließen Sie das Fenster ohne Einfügen.</li>
+    </ol>
+    <div class="note"><b>Wichtig.</b> Das Programm sendet keine Daten ins Internet. Der Verlauf liegt in einer lokalen Datei; die Update-Prüfung überträgt nur die aktuelle Versionsnummer.</div>
+
+    <h2 id="hotkeys">Tastenkürzel</h2>
+    <table>
+      <thead><tr><th>Tasten</th><th>Aktion</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td><td>Verlaufsfenster öffnen</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd></td><td>Schnellmenü am Mauszeiger (nur letzte Einträge)</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Gewählten Eintrag einfügen</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Zur Suche springen</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd></td><td>Direktes Einfügen aus einem Schnellplatz</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Fenster schließen</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd></td><td>Als reinen Text einfügen</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd></td><td>Vorlagen öffnen <span class="pro">Pro</span></td></tr>
+        <tr><td><kbd>PrtScr</kbd></td><td>Screenshot eines Bereichs</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>PrtScr</kbd></td><td>Screenshot des aktiven Fensters</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>PrtScr</kbd></td><td>Screenshot des ganzen Bildschirms</td></tr>
+      </tbody>
+    </table>
+    <p>Die Haupttaste und die Taste für reines Einfügen ändern Sie unter „Einstellungen → Start“, die Vorlagentaste ebenfalls dort, die Screenshot-Tasten unter „Einstellungen → Screenshots und Bilder“. Ist eine Kombination bereits belegt, erscheint ein Hinweis neben dem Feld.</p>
+
+    <h2 id="window">Verlaufsfenster</h2>
+    <p>Links stehen die Kategorien, rechts die Einträge. Oben filtert das Suchfeld die Liste beim Tippen.</p>
+    <h3>Feste Bereiche</h3>
+    <ul>
+      <li><b>Alle Einträge</b> — der gesamte Verlauf in Kopierreihenfolge.</li>
+      <li><b>Angeheftet</b> — was Sie als wichtig markiert haben; diese Einträge werden nie durch die Aufbewahrungsfrist entfernt.</li>
+      <li><b>Schnellplätze</b> — bis zu neun Einträge für <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1…9</kbd>.</li>
+      <li><b>Ohne Kategorie</b> — Einträge ohne Zuordnung.</li>
+      <li><b>Bilder</b> — kopierte Bilder und Screenshots.</li>
+      <li><b>Vorlagen</b> — Textbausteine <span class="pro">Pro</span>.</li>
+      <li><b>Papierkorb</b> — gelöschte Einträge, die noch wiederhergestellt werden können.</li>
+    </ul>
+    <p>Darunter folgen Ihre eigenen Kategorien; anlegen, umbenennen und löschen über das Menü „Kategorien“. Eine Kategorie lässt sich anheften — dann rücken alle ihre Einträge nach oben, wie einzeln angeheftete.</p>
+    <p>Beim Überfahren eines Eintrags erscheint eine Karte mit dem vollen Text; abschaltbar unter „Einstellungen → Speicher“. Dort finden Sie auch die Sortierung nach Nutzungshäufigkeit und „Angeheftete oben“.</p>
+    <p>Das Menü „Ansicht“ steuert die Zeitangabe, das Einklappen der Kategorienleiste und das dunkle Design.</p>
+
+    <h2 id="entries">Arbeiten mit Einträgen</h2>
+    <p>Alle Aktionen finden Sie im Menü „Bearbeiten“ und im Kontextmenü der rechten Maustaste.</p>
+    <ul>
+      <li><b>Einfügen</b> — Eintrag kopieren und ins aktive Fenster senden.</li>
+      <li><b>Kopieren</b> — in die Zwischenablage legen, ohne einzufügen.</li>
+      <li><b>Einfügen und löschen</b> — einfügen und den Eintrag sofort aus dem Verlauf entfernen.</li>
+      <li><b>Ausgewählte zusammen einfügen</b> — mehrere Einträge markieren (<kbd>Ctrl</kbd>+Klick oder <kbd>Ctrl</kbd>+<kbd>A</kbd>) und als Block einfügen, jeder in einer eigenen Zeile.</li>
+      <li><b>Anheften / lösen</b> — schützt vor der Aufbewahrungsfrist und hebt den Eintrag nach oben.</li>
+      <li><b>Bearbeiten</b> — Text direkt im Verlauf ändern.</li>
+      <li><b>Anzeigen</b> — eigenes Fenster für langen Text oder ein Bild.</li>
+      <li><b>In Kategorie / Aus Kategorie</b> — Verlauf in Ordner sortieren.</li>
+      <li><b>Zu Schnellplätzen / Aus Plätzen</b> — Bindung an <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+Ziffer.</li>
+      <li><b>Nach oben / unten</b> — manuelle Reihenfolge in der Liste.</li>
+      <li><b>Löschen</b> — verschiebt den Eintrag in den Papierkorb.</li>
+      <li><b>Einfügen als…</b> — <span class="pro">Pro</span>: in Groß- oder Kleinschreibung, mit großem Anfangsbuchstaben, ohne überflüssige Leerzeichen oder ohne Zeilenumbrüche.</li>
+    </ul>
+    <div class="note">Ein Doppelklick auf einen Eintrag wirkt wie <kbd>Enter</kbd>. Mit der Option „Fenster nach dem Einfügen schließen“ verschwindet das Fenster sofort nach dem Senden.</div>
+
+    <h2 id="quickmenu">Schnellmenü am Mauszeiger</h2>
+    <p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> öffnet eine kurze Liste der letzten Einträge direkt am Mauszeiger. Doppelklick oder <kbd>Enter</kbd> fügt den Eintrag in das zuvor aktive Fenster ein, <kbd>Esc</kbd> schließt die Liste.</p>
+    <p>Praktisch, wenn Sie die laufende Arbeit nicht unterbrechen wollen, um einen der letzten Textbausteine einzufügen.</p>
+
+    <h2 id="snippets">Vorlagen und Variablen <span class="pro">Pro</span></h2>
+    <p>Eine Vorlage ist vorbereiteter Text, der als Ganzes eingefügt wird und aktuelles Datum, Uhrzeit und Benutzernamen einsetzen kann. Öffnen über „Bearbeiten → Vorlagen“, mit <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> oder aus dem Infobereichsmenü.</p>
+    <h3>Der Vorlageneditor</h3>
+    <ul>
+      <li>Name, Gruppe und Text der Vorlage.</li>
+      <li>Schaltflächen für Variablen, die den Platzhalter an der Schreibmarke einsetzen.</li>
+      <li>Gruppen: anlegen, umbenennen, verschieben, löschen.</li>
+      <li><kbd>Ctrl</kbd>+<kbd>Enter</kbd> — Vorlage speichern.</li>
+    </ul>
+    <h3>Variablen</h3>
+    <table>
+      <thead><tr><th>Variable</th><th>Setzt ein</th></tr></thead>
+      <tbody>
+        <tr><td><code>{date}</code> oder <code>{d}</code></td><td>Aktuelles Datum, z. B. 11.11.2026</td></tr>
+        <tr><td><code>{time}</code> oder <code>{t}</code></td><td>Aktuelle Uhrzeit, z. B. 14:05</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Datum und Uhrzeit zusammen</td></tr>
+        <tr><td><code>{year}</code></td><td>Aktuelles Jahr</td></tr>
+        <tr><td><code>{user}</code> oder <code>{username}</code></td><td>Windows-Benutzername</td></tr>
+      </tbody>
+    </table>
+    <p>Variablen werden beim Einfügen ausgewertet, nicht beim Anlegen — dieselbe Vorlage liefert also immer frisches Datum und frische Uhrzeit. Unbekannte Klammern bleiben unverändert.</p>
+
+    <h2 id="screenshots">Screenshots</h2>
+    <p>Drei Modi starten mit <kbd>PrtScr</kbd>, <kbd>Alt</kbd>+<kbd>PrtScr</kbd> und <kbd>Shift</kbd>+<kbd>PrtScr</kbd>. Ist <kbd>PrtScr</kbd> bereits vom System belegt, weist das Programm darauf hin und legt den Bereich auf <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd>.</p>
+    <h3>Editor</h3>
+    <p>Nach der Auswahl öffnet sich der Anmerkungseditor: Hand zum Verschieben, Pfeil, Stift, Linie, Rechteck, Text, Nummerierung und Weichzeichnen. Farbe und Stärke wählen Sie in der Leiste.</p>
+    <table>
+      <thead><tr><th>Tasten</th><th>Aktion</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Rückgängig / Wiederholen</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Aufnahme kopieren</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Als Datei speichern</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Fertig: in den Verlauf übernehmen</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Abbrechen</td></tr>
+      </tbody>
+    </table>
+    <p>Unter „Einstellungen → Screenshots und Bilder“ blenden Sie den Editor aus, aktivieren das automatische Speichern in einen Ordner und legen fest, ob „Fertig“ die Aufnahme zusätzlich kopiert.</p>
+    <div class="note">Bilddateien werden erst beim endgültigen Löschen aus dem Papierkorb von der Festplatte entfernt — solange ein Eintrag wiederherstellbar ist, bleibt sein Bild erhalten.</div>
+
+    <h2 id="images">Bilder</h2>
+    <p>In Browser oder Bildbearbeitung kopierte Bilder landen im Bereich „Bilder“ und bleiben beim Textverlauf. Öffnen Sie solche Einträge über „Anzeigen“ — mit Zoom und Modus „Einpassen“.</p>
+    <p>Mit „Kopierte Bilder in Ordner speichern“ wird jedes kopierte Bild zusätzlich als Datei im gewählten Verzeichnis abgelegt.</p>
+
+    <h2 id="trash">Papierkorb und Aufbewahrung</h2>
+    <p>Löschen entfernt einen Eintrag nicht sofort: er wandert in den Papierkorb und bleibt dort die eingestellte Zahl Stunden (standardmäßig 24). Dort stehen „Wiederherstellen“, „Endgültig löschen“ und „Papierkorb leeren“ bereit.</p>
+    <p>Unter „Einstellungen → Speicher“ stellen Sie ein:</p>
+    <ul>
+      <li><b>Aufbewahrung</b> in Tagen — 0 als Standard, also unbegrenzt. Angeheftete Einträge sind ausgenommen.</li>
+      <li><b>Lebensdauer des Papierkorbs</b> in Stunden.</li>
+      <li><b>Wiederholte Kopien behalten</b> — standardmäßig erzeugt eine Wiederholung keine neue Zeile, sondern hebt die vorhandene an.</li>
+      <li><b>Mausrad-Schritte</b> — wie viele Zeilen ein Raster scrollt.</li>
+      <li><b>Kategorie des Eintrags anzeigen</b> in der Liste.</li>
+    </ul>
+
+    <h2 id="settings">Einstellungen</h2>
+    <p>Zu öffnen über „Einstellungen → Einstellungen“ oder das Infobereichsmenü. Bereiche links:</p>
+    <table>
+      <thead><tr><th>Bereich</th><th>Einstellungen</th></tr></thead>
+      <tbody>
+        <tr><td>Zwischenablage</td><td>Sprache, Überwachung der Zwischenablage, Töne, Anwendungsfilter</td></tr>
+        <tr><td>Speicher</td><td>Aufbewahrung, Papierkorb, Hinweiskarten, Sortierung nach Nutzung, Angeheftete oben, wiederholte Kopien, Scrollen</td></tr>
+        <tr><td>Fenster</td><td>Immer im Vordergrund, nach dem Einfügen schließen, nach dem Kopieren ausblenden, in den Infobereich minimieren, dunkles Design, Schriftgröße, feste Ordner ausblenden</td></tr>
+        <tr><td>Start</td><td>Mit Windows starten, Haupttaste, Taste für reines Einfügen, Vorlagentaste</td></tr>
+        <tr><td>Screenshots und Bilder</td><td>Editor, Kopieren bei „Fertig“, automatisches Speichern, Ordner, drei Tastenkürzel, Standardfarbe und -stärke</td></tr>
+        <tr><td>Erweitert</td><td>Sicherung (Export und Import), Update-Prüfung</td></tr>
+      </tbody>
+    </table>
+    <p>Der <b>Anwendungsfilter</b> im Bereich „Zwischenablage“ erlaubt entweder nur die aufgelisteten Programme oder blendet sie aus. Die Liste enthält Prozessnamen, getrennt durch Semikolon, z. B. <code>WINWORD.EXE;EXCEL.EXE</code>.</p>
+
+    <h2 id="backup">Sicherung <span class="pro">Pro</span></h2>
+    <p>Verlauf, Kategorien, angeheftete Einträge, Schnellplätze und Vorlagen werden in eine JSON-Datei exportiert. Export und Import finden Sie an zwei Stellen: „Datei → Export nach JSON / Import aus JSON“ und „Einstellungen → Erweitert → Sicherung“.</p>
+    <p>Der Import erzeugt keine Dubletten: bereits vorhandene Einträge werden übersprungen. Vor dem Umzug auf einen neuen Rechner speichern Sie auf dem alten, übertragen die Datei und importieren sie.</p>
+
+    <h2 id="updates">Updates</h2>
+    <p>Einmal am Tag fragt das Programm die neueste Versionsnummer ab. Heruntergeladen oder installiert wird nichts automatisch — bei einer neuen Version wird der Download-Link angeboten.</p>
+    <p>Manuell prüfen über „Hilfe → Nach Updates suchen“, abschalten unter „Einstellungen → Erweitert“.</p>
+
+    <h2 id="pro">Free und Pro</h2>
+    <p>Die kostenlose Version ist ein vollwertiger Zwischenablagen-Manager. Pro schaltet Funktionen rund um vorbereitete Texte und Datenumzug frei:</p>
+    <table>
+      <thead><tr><th>Funktion</th><th>Free</th><th>Pro</th></tr></thead>
+      <tbody>
+        <tr><td>Verlauf, Suche, Kategorien, Anheften, Schnellplätze</td><td>Ja</td><td>Ja</td></tr>
+        <tr><td>Screenshots mit Editor, Bilder</td><td>Ja</td><td>Ja</td></tr>
+        <tr><td>Vorlagen und Variablen</td><td>—</td><td>Ja</td></tr>
+        <tr><td>„Einfügen als…“ (Schreibung, Leerzeichen, Umbrüche)</td><td>—</td><td>Ja</td></tr>
+        <tr><td>Sicherung: Export und Import</td><td>—</td><td>Ja</td></tr>
+      </tbody>
+    </table>
+    <p>In der kostenlosen Version tragen gesperrte Punkte den Zusatz „· Pro“. Nach der Installation startet automatisch eine 14-tägige Testphase mit allen Funktionen.</p>
+    <h3>Aktivierung</h3>
+    <ol>
+      <li>Öffnen Sie „Einstellungen → Aktivierung“ (oder „Hilfe → Aktivierung“).</li>
+      <li>Kopieren Sie die Geräte-ID — sie wird für den Schlüssel dieses Rechners benötigt.</li>
+      <li>Fügen Sie einen Schlüssel wie <code>CMGR-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code> ein und klicken Sie „Aktivieren“.</li>
+    </ol>
+    <p>Der Schlüssel wird offline geprüft, Internet ist nicht nötig. Ein normaler Schlüssel gilt für einen Rechner; ein Retail-Schlüssel funktioniert auf jedem PC. Passt ein Schlüssel nicht, unterscheidet das Programm <b>falsches Format</b>, <b>ungültiger Schlüssel</b>, <b>Schlüssel für einen anderen Rechner</b> und <b>widerrufener Schlüssel</b>. Deaktivieren gibt den Schlüssel auf diesem Gerät frei.</p>
+
+    <h2 id="data">Wo die Daten liegen</h2>
+    <ul>
+      <li><b>Normale Installation:</b> Verlaufsdatenbank und Einstellungsdatei liegen im Benutzerprofil — <code>%USERPROFILE%\.clipboard_manager.db</code> und <code>%USERPROFILE%\.clipboard_manager.db.ini</code>.</li>
+      <li><b>Portabler Modus:</b> Liegt neben <code>ClipboardManager.exe</code> die Datei <code>portable.txt</code>, wandern die Daten in den Ordner <code>data</code> neben dem Programm — praktisch für einen USB-Stick.</li>
+      <li>Screenshots und Bilder landen im eingestellten Ordner; im portablen Modus standardmäßig in <code>data\screenshots</code>.</li>
+    </ul>
+
+    <h2 id="faq">Häufige Fragen</h2>
+    <h3>Das Tastenkürzel reagiert nicht</h3>
+    <p>Wahrscheinlich ist die Kombination von einem anderen Programm belegt. Wählen Sie unter „Einstellungen → Start“ eine andere; belegte Tasten werden neben dem Feld gemeldet.</p>
+    <h3>Das Einfügen landet im falschen Fenster</h3>
+    <p>Windows erlaubt es nicht, Eingaben an Programme mit Administratorrechten aus einem normalen Prozess zu senden. Läuft das Zielprogramm erhöht, starten Sie ClipboardManager als Administrator oder fügen Sie über die Zwischenablage ein (<kbd>Ctrl</kbd>+<kbd>V</kbd>).</p>
+    <h3>Alte Einträge sind verschwunden</h3>
+    <p>Prüfen Sie Aufbewahrungsfrist und Lebensdauer des Papierkorbs unter „Einstellungen → Speicher“. Angeheftete Einträge werden nie nach Frist gelöscht — heften Sie Wichtiges an.</p>
+    <h3>Die <kbd>PrtScr</kbd>-Kombinationen funktionieren nicht</h3>
+    <p>Möglicherweise belegt ein anderes Programm die Taste. Das Programm meldet das und schlägt eine Alternative vor; ändern können Sie die Tasten unter „Einstellungen → Screenshots und Bilder“.</p>
+    <h3>Der Schlüssel wird nicht angenommen</h3>
+    <p>Prüfen Sie, ob der ganze Schlüssel kopiert wurde und für die Geräte-ID dieses Rechners gilt. Retail-Schlüssel sind nicht gebunden. Ein widerrufener Schlüssel führt zum Support.</p>
+    <h3>Das Programm startet nach einem Update nicht</h3>
+    <p>Schließen Sie es über den Infobereich und starten Sie erneut. Hilft das nicht, schreiben Sie an den Support und legen Sie die Protokolldatei aus dem Datenordner bei.</p>
+
+  </article>
+</div>
+
+<footer class="wrap">
+  <p>© 2026 ClipboardManager Plus. <a href="/privacy/">Datenschutz</a> · <a href="/terms/">Bedingungen</a> · <a href="/support/">Support</a></p>
+  <p style="margin-top:8px">Selbstständig: Savitsa Alexey Vasilievich · INN 231003822887 · <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a></p>
+</footer>
+
+</body>
+</html>
