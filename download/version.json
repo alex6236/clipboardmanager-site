@@ -1,9 +1,9 @@
 {
-  "version": "1.3.0",
+  "version": "1.3.1",
   "date": "2026-11-11",
-  "notes": "Справка в программе, удаление категории с записями, снятие записи со слота, поиск без учёта регистра",
-  "setup": "ClipboardManagerPlus-Setup-1.3.0.exe",
-  "sha256": "662C30794D920C1C8D690F7BCD70D79298FF55A1D1DB50D18C793C6BF56194E3",
-  "portable": "ClipboardManagerPlus-Portable-1.3.0.zip",
-  "sha256_portable": "D9817314E7EA631BA9879BB6DD1A262D4F3F86299B43CA495C3610D9439C6E9D"
+  "notes": "Установка без прав администратора, лицензионное соглашение в установщике и в меню «Справка»",
+  "setup": "ClipboardManagerPlus-Setup-1.3.1.exe",
+  "sha256": "F65D9AF62BAF7FEDF5BCAE51C3A496BFE98CBDF24C68448713FDB013B148747C",
+  "portable": "ClipboardManagerPlus-Portable-1.3.1.zip",
+  "sha256_portable": "5A52A08D1EC096904CEF6BB4C62A88B0DACAB1F3EFF04A82984A10EB2D8B9EA8"
 }
