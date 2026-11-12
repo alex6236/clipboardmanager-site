@@ -1,9 +1,9 @@
 {
-  "version": "1.3.1",
-  "date": "2026-11-11",
-  "notes": "Установка без прав администратора, лицензионное соглашение в установщике и в меню «Справка»",
-  "setup": "ClipboardManagerPlus-Setup-1.3.1.exe",
-  "sha256": "F65D9AF62BAF7FEDF5BCAE51C3A496BFE98CBDF24C68448713FDB013B148747C",
-  "portable": "ClipboardManagerPlus-Portable-1.3.1.zip",
-  "sha256_portable": "5A52A08D1EC096904CEF6BB4C62A88B0DACAB1F3EFF04A82984A10EB2D8B9EA8"
+  "version": "1.3.2",
+  "date": "2026-11-12",
+  "notes": "Установка по умолчанию для всех пользователей (Program Files) с выбором «только для меня»; лицензионное соглашение открывается английским текстом",
+  "setup": "ClipboardManagerPlus-Setup-1.3.2.exe",
+  "sha256": "CF1361713A88771999E61CF3C8256F11B6AC824263BA94F09ABF88BC78B765AC",
+  "portable": "ClipboardManagerPlus-Portable-1.3.2.zip",
+  "sha256_portable": "06F8B2668EFD47DFD8F33E00E8E41990D3D5F19C76D60292E2A3C3D42D642718"
 }
