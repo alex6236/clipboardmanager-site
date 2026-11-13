@@ -89,8 +89,9 @@ li{margin:4px 0}
   var API_BASE = 'https://clipboardmanager-payments.sova11.workers.dev';
 
   var params = new URLSearchParams(location.search);
-  var order = params.get('order');
-  var token = params.get('t');
+  var order = params.get('InvId');
+  var sum = params.get('OutSum');
+  var sig = params.get('SignatureValue');
 
   var loading = document.getElementById('loading');
   var success = document.getElementById('success');
@@ -104,9 +105,9 @@ li{margin:4px 0}
     failure.classList.remove('hidden');
   }
 
-  if (!order || !token) { showFailure(); return; }
+  if (!order || !sum || !sig) { showFailure(); return; }
 
-  fetch(API_BASE + '/api/order?order=' + encodeURIComponent(order) + '&t=' + encodeURIComponent(token))
+  fetch(API_BASE + '/api/order?order=' + encodeURIComponent(order) + '&sum=' + encodeURIComponent(sum) + '&sig=' + encodeURIComponent(sig))
     .then(function(r){ if (!r.ok) throw new Error('bad status'); return r.json(); })
     .then(function(data){
       if (!data || !data.key) throw new Error('no key');
