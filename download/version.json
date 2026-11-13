@@ -1,9 +1,9 @@
 {
-  "version": "1.3.2",
-  "date": "2026-11-12",
-  "notes": "Установка по умолчанию для всех пользователей (Program Files) с выбором «только для меня»; лицензионное соглашение открывается английским текстом",
-  "setup": "ClipboardManagerPlus-Setup-1.3.2.exe",
-  "sha256": "CF1361713A88771999E61CF3C8256F11B6AC824263BA94F09ABF88BC78B765AC",
-  "portable": "ClipboardManagerPlus-Portable-1.3.2.zip",
-  "sha256_portable": "06F8B2668EFD47DFD8F33E00E8E41990D3D5F19C76D60292E2A3C3D42D642718"
+  "version": "1.3.3",
+  "date": "2026-11-13",
+  "notes": "Кнопка «Купить Pro» в приложении ведёт на страницу покупки clipboardmanager.ru/buy/",
+  "setup": "ClipboardManagerPlus-Setup-1.3.3.exe",
+  "sha256": "2B5E9355A2A378C83DA0F91392C5E3B2FFBF7F89962A439C79C6819D27F24900",
+  "portable": "ClipboardManagerPlus-Portable-1.3.3.zip",
+  "sha256_portable": "B48ECCE2534B77A1BDFBECCC6260779EBC89918A28B39C7EA644361A4DD8BA19"
 }

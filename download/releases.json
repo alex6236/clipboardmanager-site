@@ -1,137 +1,146 @@
 {
-    "generated":  "2026-11-12",
-    "releases":  [
-                     {
-                         "version":  "1.3.2",
-                         "date":  "2026-11-12",
-                         "notes":  "Установка по умолчанию для всех пользователей (Program Files) с выбором «только для меня»; лицензионное соглашение открывается английским текстом",
-                         "setup":  "ClipboardManagerPlus-Setup-1.3.2.exe",
-                         "sha256":  "CF1361713A88771999E61CF3C8256F11B6AC824263BA94F09ABF88BC78B765AC",
-                         "portable":  "ClipboardManagerPlus-Portable-1.3.2.zip",
-                         "sha256_portable":  "06F8B2668EFD47DFD8F33E00E8E41990D3D5F19C76D60292E2A3C3D42D642718"
-                     },
-                     {
-                         "version":  "1.3.1",
-                         "date":  "2026-11-11",
-                         "notes":  "Установка без прав администратора, лицензионное соглашение в установщике и в меню «Справка»",
-                         "setup":  "ClipboardManagerPlus-Setup-1.3.1.exe",
-                         "sha256":  "F65D9AF62BAF7FEDF5BCAE51C3A496BFE98CBDF24C68448713FDB013B148747C",
-                         "portable":  "ClipboardManagerPlus-Portable-1.3.1.zip",
-                         "sha256_portable":  "5A52A08D1EC096904CEF6BB4C62A88B0DACAB1F3EFF04A82984A10EB2D8B9EA8"
-                     },
-                     {
-                         "version":  "1.3.0",
-                         "date":  "2026-11-11",
-                         "notes":  "Справка в программе, удаление категории с записями, снятие записи со слота, поиск без учёта регистра",
-                         "setup":  "ClipboardManagerPlus-Setup-1.3.0.exe",
-                         "sha256":  "662C30794D920C1C8D690F7BCD70D79298FF55A1D1DB50D18C793C6BF56194E3",
-                         "portable":  "ClipboardManagerPlus-Portable-1.3.0.zip",
-                         "sha256_portable":  "D9817314E7EA631BA9879BB6DD1A262D4F3F86299B43CA495C3610D9439C6E9D"
-                     },
-                     {
-                         "version":  "1.2.13",
-                         "date":  "2026-11-10",
-                         "notes":  "Проверка обновлений, portable-папка data\\screenshots, вертикальное окно 576x783",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.13.exe",
-                         "sha256":  "3C156D16553E3F6686874AC671819BBAA5C1BF85332E81572D174A8A83EB5747",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.13.zip",
-                         "sha256_portable":  "A62B318501A00D7603A3E88913FF38C51F0B382569FA5C5E248B33B0C4D103C0"
-                     },
-                     {
-                         "version":  "1.2.12",
-                         "date":  "2026-11-10",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.12.exe",
-                         "sha256":  "037D6A30DF140F07FB44EA10859C8C3F9FBB16C24E8A828559201A575D9ABDFF",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.12.zip",
-                         "sha256_portable":  "7ECAF5152671721AAC7C6D857C9F1F78DF9F42525B468C2620846167A073CB3D"
-                     },
-                     {
-                         "version":  "1.2.11",
-                         "date":  "2026-11-10",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.11.exe",
-                         "sha256":  "C71AA7E135FEA01929815276860753FE995C31C74ED1148D8120398C82B120EC",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.11.zip",
-                         "sha256_portable":  "9136DE59DD1F22151B967D5C099EF39BDAE4DD8A7FD10AD746CEFD5862B71CB9"
-                     },
-                     {
-                         "version":  "1.2.10",
-                         "date":  "2026-11-10",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.10.exe",
-                         "sha256":  "261210B0F4C42BBA8F8C6B780EB0EC00D55C011B92B8FDFA706EAD8444045E10",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.10.zip",
-                         "sha256_portable":  "A217EA1B0B451623B62194E01B6DBB4152ECFF85DF6D8BB702E6C08C0BA7A4C8"
-                     },
-                     {
-                         "version":  "1.2.9",
-                         "date":  "2026-11-09",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.9.exe",
-                         "sha256":  "BF4425DF1FD346FA96AA8B296B07D4EBADCAE3981D527E58814393AFC0469136",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.9.zip",
-                         "sha256_portable":  "E9B2DA0FC1333703378232180E6622BF4FBA3A4FD8343B77587770A81C89F0D9"
-                     },
-                     {
-                         "version":  "1.2.8",
-                         "date":  "2026-11-09",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.8.exe",
-                         "sha256":  "EF067990D9D35429E3E10811E081161C6A947C31D92BCABAFF8FEEDC8ED8E5E0",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.8.zip",
-                         "sha256_portable":  "794D0D2414F3BAC7994D6B61C3C75D53ADF4B496AF39234B1F1A51D43BD51EFC"
-                     },
-                     {
-                         "version":  "1.2.7",
-                         "date":  "2026-11-09",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.7.exe",
-                         "sha256":  "829E89B3503185ACA6BA5C6BCB88E996706D461D3F19629992258C047F23B989",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.7.zip",
-                         "sha256_portable":  "5EC9C91F58B3763570FE41A79E71C67BBEF69B2F4A586E9EB310FC3BC3AA402C"
-                     },
-                     {
-                         "version":  "1.2.6",
-                         "date":  "2026-11-07",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.6.exe",
-                         "sha256":  "35822B0316E42F044CC2575FA0C1159FEE6DBD1221424720B35B44A63E2B9727",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.6.zip",
-                         "sha256_portable":  "AB2649304C87BEDE34C5AFB335C38FE371A0854248D90C8EFE8F8EC3BB442F05"
-                     },
-                     {
-                         "version":  "1.2.5",
-                         "date":  "2026-11-07",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.5.exe",
-                         "sha256":  "1DFA450D5E6F03083BAAAC80333699D7DE43850D793013FF3F4477D1F51793AB",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.5.zip",
-                         "sha256_portable":  "F9E31039CC44FCC428578E9AA1C7E2EA0A3079824CA03594F6C785E9BE733384"
-                     },
-                     {
-                         "version":  "1.2.4",
-                         "date":  "2026-11-07",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.4.exe",
-                         "sha256":  "0848084252971D87D887CD0B4FC4F1B0E82CB4513AAC3B15614C6981994D0E38",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.4.zip",
-                         "sha256_portable":  "995C9A4A5DA08C7E4351B96DB518D63E139657758361FEBC82FB1AB5719F1B42"
-                     },
-                     {
-                         "version":  "1.2.3",
-                         "date":  "2026-11-06",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.3.exe",
-                         "sha256":  "7369D69AD04FAC6662D053AADC1AFBA62C23BE4273A0021F24D245080628380A",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.3.zip",
-                         "sha256_portable":  "B13EA425E2BA26A59AACC1835398B0D9D25D0B1B4F3924BFE13CF5071F9034FC"
-                     },
-                     {
-                         "version":  "1.2.2",
-                         "date":  "2026-11-04",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.2.exe",
-                         "sha256":  "5D01F7A80A830157CD3F31064A7F5CE0AF265F561D010C5FCD6F4065809E5452",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.2.zip",
-                         "sha256_portable":  "E1EAC58868AF8C0A0D851AD5CF0453A96524E05271CD6607C22623884E2CE136"
-                     },
-                     {
-                         "version":  "1.2.1",
-                         "date":  "2026-11-04",
-                         "setup":  "ClipboardManagerPlus-Setup-1.2.1.exe",
-                         "sha256":  "2D13FC9C5434004EE1A322537A28CCC7877A08C97069E08809DB0E6B661ED9E6",
-                         "portable":  "ClipboardManagerPlus-Portable-1.2.1.zip",
-                         "sha256_portable":  "121DB53C2A9E8CBD12BEA37DADD89059EC0228121C3492289FC106693ABBA549"
-                     }
-                 ]
+  "generated": "2026-11-13",
+  "releases": [
+    {
+      "version": "1.3.3",
+      "date": "2026-11-13",
+      "notes": "Кнопка «Купить Pro» в приложении ведёт на страницу покупки clipboardmanager.ru/buy/",
+      "setup": "ClipboardManagerPlus-Setup-1.3.3.exe",
+      "sha256": "2B5E9355A2A378C83DA0F91392C5E3B2FFBF7F89962A439C79C6819D27F24900",
+      "portable": "ClipboardManagerPlus-Portable-1.3.3.zip",
+      "sha256_portable": "B48ECCE2534B77A1BDFBECCC6260779EBC89918A28B39C7EA644361A4DD8BA19"
+    },
+    {
+      "version": "1.3.2",
+      "date": "2026-11-12",
+      "notes": "Установка по умолчанию для всех пользователей (Program Files) с выбором «только для меня»; лицензионное соглашение открывается английским текстом",
+      "setup": "ClipboardManagerPlus-Setup-1.3.2.exe",
+      "sha256": "CF1361713A88771999E61CF3C8256F11B6AC824263BA94F09ABF88BC78B765AC",
+      "portable": "ClipboardManagerPlus-Portable-1.3.2.zip",
+      "sha256_portable": "06F8B2668EFD47DFD8F33E00E8E41990D3D5F19C76D60292E2A3C3D42D642718"
+    },
+    {
+      "version": "1.3.1",
+      "date": "2026-11-11",
+      "notes": "Установка без прав администратора, лицензионное соглашение в установщике и в меню «Справка»",
+      "setup": "ClipboardManagerPlus-Setup-1.3.1.exe",
+      "sha256": "F65D9AF62BAF7FEDF5BCAE51C3A496BFE98CBDF24C68448713FDB013B148747C",
+      "portable": "ClipboardManagerPlus-Portable-1.3.1.zip",
+      "sha256_portable": "5A52A08D1EC096904CEF6BB4C62A88B0DACAB1F3EFF04A82984A10EB2D8B9EA8"
+    },
+    {
+      "version": "1.3.0",
+      "date": "2026-11-11",
+      "notes": "Справка в программе, удаление категории с записями, снятие записи со слота, поиск без учёта регистра",
+      "setup": "ClipboardManagerPlus-Setup-1.3.0.exe",
+      "sha256": "662C30794D920C1C8D690F7BCD70D79298FF55A1D1DB50D18C793C6BF56194E3",
+      "portable": "ClipboardManagerPlus-Portable-1.3.0.zip",
+      "sha256_portable": "D9817314E7EA631BA9879BB6DD1A262D4F3F86299B43CA495C3610D9439C6E9D"
+    },
+    {
+      "version": "1.2.13",
+      "date": "2026-11-10",
+      "notes": "Проверка обновлений, portable-папка data\\screenshots, вертикальное окно 576x783",
+      "setup": "ClipboardManagerPlus-Setup-1.2.13.exe",
+      "sha256": "3C156D16553E3F6686874AC671819BBAA5C1BF85332E81572D174A8A83EB5747",
+      "portable": "ClipboardManagerPlus-Portable-1.2.13.zip",
+      "sha256_portable": "A62B318501A00D7603A3E88913FF38C51F0B382569FA5C5E248B33B0C4D103C0"
+    },
+    {
+      "version": "1.2.12",
+      "date": "2026-11-10",
+      "setup": "ClipboardManagerPlus-Setup-1.2.12.exe",
+      "sha256": "037D6A30DF140F07FB44EA10859C8C3F9FBB16C24E8A828559201A575D9ABDFF",
+      "portable": "ClipboardManagerPlus-Portable-1.2.12.zip",
+      "sha256_portable": "7ECAF5152671721AAC7C6D857C9F1F78DF9F42525B468C2620846167A073CB3D"
+    },
+    {
+      "version": "1.2.11",
+      "date": "2026-11-10",
+      "setup": "ClipboardManagerPlus-Setup-1.2.11.exe",
+      "sha256": "C71AA7E135FEA01929815276860753FE995C31C74ED1148D8120398C82B120EC",
+      "portable": "ClipboardManagerPlus-Portable-1.2.11.zip",
+      "sha256_portable": "9136DE59DD1F22151B967D5C099EF39BDAE4DD8A7FD10AD746CEFD5862B71CB9"
+    },
+    {
+      "version": "1.2.10",
+      "date": "2026-11-10",
+      "setup": "ClipboardManagerPlus-Setup-1.2.10.exe",
+      "sha256": "261210B0F4C42BBA8F8C6B780EB0EC00D55C011B92B8FDFA706EAD8444045E10",
+      "portable": "ClipboardManagerPlus-Portable-1.2.10.zip",
+      "sha256_portable": "A217EA1B0B451623B62194E01B6DBB4152ECFF85DF6D8BB702E6C08C0BA7A4C8"
+    },
+    {
+      "version": "1.2.9",
+      "date": "2026-11-09",
+      "setup": "ClipboardManagerPlus-Setup-1.2.9.exe",
+      "sha256": "BF4425DF1FD346FA96AA8B296B07D4EBADCAE3981D527E58814393AFC0469136",
+      "portable": "ClipboardManagerPlus-Portable-1.2.9.zip",
+      "sha256_portable": "E9B2DA0FC1333703378232180E6622BF4FBA3A4FD8343B77587770A81C89F0D9"
+    },
+    {
+      "version": "1.2.8",
+      "date": "2026-11-09",
+      "setup": "ClipboardManagerPlus-Setup-1.2.8.exe",
+      "sha256": "EF067990D9D35429E3E10811E081161C6A947C31D92BCABAFF8FEEDC8ED8E5E0",
+      "portable": "ClipboardManagerPlus-Portable-1.2.8.zip",
+      "sha256_portable": "794D0D2414F3BAC7994D6B61C3C75D53ADF4B496AF39234B1F1A51D43BD51EFC"
+    },
+    {
+      "version": "1.2.7",
+      "date": "2026-11-09",
+      "setup": "ClipboardManagerPlus-Setup-1.2.7.exe",
+      "sha256": "829E89B3503185ACA6BA5C6BCB88E996706D461D3F19629992258C047F23B989",
+      "portable": "ClipboardManagerPlus-Portable-1.2.7.zip",
+      "sha256_portable": "5EC9C91F58B3763570FE41A79E71C67BBEF69B2F4A586E9EB310FC3BC3AA402C"
+    },
+    {
+      "version": "1.2.6",
+      "date": "2026-11-07",
+      "setup": "ClipboardManagerPlus-Setup-1.2.6.exe",
+      "sha256": "35822B0316E42F044CC2575FA0C1159FEE6DBD1221424720B35B44A63E2B9727",
+      "portable": "ClipboardManagerPlus-Portable-1.2.6.zip",
+      "sha256_portable": "AB2649304C87BEDE34C5AFB335C38FE371A0854248D90C8EFE8F8EC3BB442F05"
+    },
+    {
+      "version": "1.2.5",
+      "date": "2026-11-07",
+      "setup": "ClipboardManagerPlus-Setup-1.2.5.exe",
+      "sha256": "1DFA450D5E6F03083BAAAC80333699D7DE43850D793013FF3F4477D1F51793AB",
+      "portable": "ClipboardManagerPlus-Portable-1.2.5.zip",
+      "sha256_portable": "F9E31039CC44FCC428578E9AA1C7E2EA0A3079824CA03594F6C785E9BE733384"
+    },
+    {
+      "version": "1.2.4",
+      "date": "2026-11-07",
+      "setup": "ClipboardManagerPlus-Setup-1.2.4.exe",
+      "sha256": "0848084252971D87D887CD0B4FC4F1B0E82CB4513AAC3B15614C6981994D0E38",
+      "portable": "ClipboardManagerPlus-Portable-1.2.4.zip",
+      "sha256_portable": "995C9A4A5DA08C7E4351B96DB518D63E139657758361FEBC82FB1AB5719F1B42"
+    },
+    {
+      "version": "1.2.3",
+      "date": "2026-11-06",
+      "setup": "ClipboardManagerPlus-Setup-1.2.3.exe",
+      "sha256": "7369D69AD04FAC6662D053AADC1AFBA62C23BE4273A0021F24D245080628380A",
+      "portable": "ClipboardManagerPlus-Portable-1.2.3.zip",
+      "sha256_portable": "B13EA425E2BA26A59AACC1835398B0D9D25D0B1B4F3924BFE13CF5071F9034FC"
+    },
+    {
+      "version": "1.2.2",
+      "date": "2026-11-04",
+      "setup": "ClipboardManagerPlus-Setup-1.2.2.exe",
+      "sha256": "5D01F7A80A830157CD3F31064A7F5CE0AF265F561D010C5FCD6F4065809E5452",
+      "portable": "ClipboardManagerPlus-Portable-1.2.2.zip",
+      "sha256_portable": "E1EAC58868AF8C0A0D851AD5CF0453A96524E05271CD6607C22623884E2CE136"
+    },
+    {
+      "version": "1.2.1",
+      "date": "2026-11-04",
+      "setup": "ClipboardManagerPlus-Setup-1.2.1.exe",
+      "sha256": "2D13FC9C5434004EE1A322537A28CCC7877A08C97069E08809DB0E6B661ED9E6",
+      "portable": "ClipboardManagerPlus-Portable-1.2.1.zip",
+      "sha256_portable": "121DB53C2A9E8CBD12BEA37DADD89059EC0228121C3492289FC106693ABBA549"
+    }
+  ]
 }
