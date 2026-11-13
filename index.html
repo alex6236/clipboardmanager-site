@@ -547,7 +547,7 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
           <li class="yes" data-t="pc2-5">Текстовые преобразования при вставке</li>
           <li class="yes" data-t="pc2-6">Приоритетная поддержка</li>
         </ul>
-        <a class="btn btn-primary" href="buy/" data-t="pc2-btn">Получить ключ</a>
+        <a class="btn btn-primary" id="buyBtn" href="buy/" data-t="pc2-btn">Получить ключ</a>
       </div>
     </div>
     <p class="note" style="margin-top:18px" data-t="p-note">Первые 14 дней Pro работает без ключа: скачайте программу и попробуйте все функции. Потом она останется в режиме Free, пока вы не введёте ключ.</p>
@@ -801,6 +801,8 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
     });
     var theme = document.getElementById("themeToggle");
     if (theme) theme.setAttribute("aria-label", lang === "ru" ? "Сменить тему" : "Switch theme");
+    var buy = document.getElementById("buyBtn");
+    if (buy) buy.setAttribute("href", lang === "ru" ? "buy/" : "buy/index.en.html");
     document.title = lang === "ru"
       ? "ClipboardManager Plus — менеджер буфера обмена для Windows"
       : "ClipboardManager Plus — clipboard manager for Windows";
