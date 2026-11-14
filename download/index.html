@@ -70,8 +70,13 @@
   .steps .qa{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:14px}
   .steps h3{font-size:16px;margin-bottom:6px}
   .steps p{color:var(--muted);font-size:15px}
+  .warn-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin:0 auto}
+  .warn-card{margin:0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .warn-card img{display:block;width:100%;height:auto;border-radius:8px;background:var(--panel2)}
+  .warn-card figcaption{margin-top:10px;color:var(--muted);font-size:13px}
+  .warn-note{max-width:900px;margin:0 auto 22px;color:var(--muted);font-size:14px;text-align:center}
   footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
-  @media(max-width:820px){.hero h1{font-size:30px}.dl-grid{grid-template-columns:1fr}}
+  @media(max-width:820px){.hero h1{font-size:30px}.dl-grid{grid-template-columns:1fr}.warn-grid{grid-template-columns:1fr}}
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -144,6 +149,23 @@
       <div class="qa"><h3>2. Введите ключ</h3><p>В программе откройте «Настройки» → «Активация» и вставьте ключ Pro, полученный после покупки.</p></div>
       <div class="qa"><h3>3. Готово</h3><p>Ключ действует на одного пользователя, без привязки к компьютеру. Шаблоны, переменные и текстовые преобразования становятся доступны.</p></div>
       <div class="qa"><h3>Нет ключа?</h3><p>Вы можете пользоваться бесплатной версией Free или положиться на 14-дневную пробную версию Pro — она начнётся автоматически.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Если Windows предупреждает при установке</h2>
+    <p class="warn-note">Установщик пока без цифровой подписи, поэтому Windows может сказать «неизвестный издатель». Это не вирус: файл скачан с этого сайта, его SHA-256 указан выше. Нажмите «More info» → «Run anyway» в Windows 11 или «Yes» в запросе UAC в Windows 10.</p>
+    <div class="warn-grid">
+      <figure class="warn-card">
+        <img src="../res/smartscreen-win11-en.gif" width="880" height="540" loading="lazy" alt="SmartScreen в Windows 11: More info → Run anyway">
+        <figcaption>Windows 11, SmartScreen: «More info» → «Run anyway».</figcaption>
+      </figure>
+      <figure class="warn-card">
+        <img src="../res/uac-win10-en.gif" width="880" height="540" loading="lazy" alt="Windows 10: подтверждение UAC кнопкой Yes">
+        <figcaption>Windows 10, UAC: подтверждение кнопкой «Yes».</figcaption>
+      </figure>
     </div>
   </div>
 </section>

@@ -85,6 +85,9 @@ button{font-family:inherit}
 .faq summary::after{content:"+";float:right;color:var(--accent);font-size:1.3rem;font-weight:400}
 .faq details[open] summary::after{content:"–"}
 .faq p{margin:12px 0 0;color:var(--text);font-size:.95rem}
+.faq .shot{margin:16px 0 0}
+.faq .shot img{display:block;width:100%;max-width:520px;height:auto;border:1px solid var(--border2);border-radius:var(--radius-m);box-shadow:var(--shadow);background:var(--panel2)}
+.faq .shot figcaption{margin-top:8px;color:var(--muted);font-size:.85rem}
 .links{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .link-card{display:flex;flex-direction:column;gap:3px;padding:16px 18px;border-radius:var(--radius-m);border:1px solid var(--border2);background:var(--panel);color:var(--text);box-shadow:var(--shadow)}
 .link-card:hover{background:var(--sel-bg);text-decoration:none}
@@ -198,6 +201,14 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;color:var(--muted)
         <details>
           <summary data-t="p2q">Антивирус или SmartScreen предупреждает при установке</summary>
           <p data-t="p2a">Установщик пока без цифровой подписи, поэтому Windows может показать предупреждение о неизвестном издателе. Скачивайте только со страницы загрузки этого сайта и сверяйте SHA-256 — хеши опубликованы там же.</p>
+          <figure class="shot">
+            <img src="../res/smartscreen-win11-en.gif" width="880" height="540" loading="lazy" alt="SmartScreen в Windows 11: More info → Run anyway">
+            <figcaption data-t="p2shot1">Windows 11, SmartScreen: «More info» → «Run anyway».</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="../res/uac-win10-en.gif" width="880" height="540" loading="lazy" alt="Windows 10: подтверждение UAC кнопкой Yes">
+            <figcaption data-t="p2shot2">Windows 10, UAC: подтверждение кнопкой «Yes».</figcaption>
+          </figure>
         </details>
         <details>
           <summary data-t="p3q">Функции Pro закрыты</summary>
@@ -272,10 +283,12 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;color:var(--muted)
       "p1a":"Сочетание может быть занято другой программой. Назначьте другое в настройках и проверьте, что ClipboardManager Plus запущен — его значок виден в системном трее рядом с часами.",
       "p2q":"Антивирус или SmartScreen предупреждает при установке",
       "p2a":"Установщик пока без цифровой подписи, поэтому Windows может показать предупреждение о неизвестном издателе. Скачивайте только со страницы загрузки этого сайта и сверяйте SHA-256 — хеши опубликованы там же.",
+      "p2shot1":"Windows 11, SmartScreen: «More info» → «Run anyway».",
+      "p2shot2":"Windows 10, UAC: подтверждение кнопкой «Yes».",
       "p3q":"Функции Pro закрыты",
       "p3a":"Первые 14 дней Pro работает без ключа. После пробного периода шаблоны с переменными, вставка как текст и расширенный импорт закрываются до ввода ключа; история и настройки при этом сохраняются.",
       "p4q":"Ключ не принимается",
-      "p4a":"Ключ привязан к компьютеру: после переустановки Windows или смены устройства нужен новый ключ по чеку. В окне «Активация» есть ID устройства — скопируйте его в письмо, если нужен перевыпуск.",
+      "p4a":"Проверьте, что ключ введён целиком: 25 символов вида CMGR-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX, регистр и дефисы не важны. Ключ не привязан к компьютеру: он действует у одного пользователя на любой машине. Если ключ потерялся, запросите его повторно на странице «Получить ключ повторно» по номеру заказа и почте или напишите в поддержку с номером заказа.",
       "more-title":"Полезные ссылки",
       "more-dl":"Скачать и активировать",
       "more-dl-sub":"Установщик, портативная версия, хеши и шаги активации",
@@ -303,10 +316,12 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;color:var(--muted)
       "p1a":"The shortcut may be taken by another program. Assign a different one in settings and make sure ClipboardManager Plus is running — its icon sits in the system tray next to the clock.",
       "p2q":"Antivirus or SmartScreen warns during installation",
       "p2a":"The installer is not code-signed yet, so Windows may warn about an unknown publisher. Download only from this site's download page and verify the SHA-256 published there.",
+      "p2shot1":"Windows 11, SmartScreen: click \"More info\", then \"Run anyway\".",
+      "p2shot2":"Windows 10, UAC: confirm with \"Yes\".",
       "p3q":"Pro features are locked",
       "p3a":"Pro works without a key for the first 14 days. After the trial, snippets with variables, paste-as-text and advanced import require a key; your history and settings are kept.",
       "p4q":"The key is not accepted",
-      "p4a":"The key is bound to one computer: after reinstalling Windows or changing the device you need a new key against your receipt. The Activation window shows the device ID — copy it into your message if a reissue is needed.",
+      "p4a":"Make sure the whole key is entered: 25 characters like CMGR-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX, case and dashes do not matter. The key is not bound to a computer: it works for one user on any machine. If you lost the key, request it again on the \"Get the key again\" page with your order number and email, or write to support with the order number.",
       "more-title":"Useful links",
       "more-dl":"Download and activate",
       "more-dl-sub":"Installer, portable build, hashes and activation steps",
