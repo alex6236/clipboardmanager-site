@@ -189,6 +189,10 @@ button{font-family:inherit}
 .hash-meta{color:var(--muted);flex:none}
 .hash-row code{font-family:var(--mono);word-break:break-all;color:var(--muted)}
 .note{color:var(--muted);font-size:.85rem}
+.warn-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:860px;margin:4px auto 0}
+.warn-card{margin:0;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-m);padding:14px;box-shadow:var(--shadow)}
+.warn-card img{display:block;width:100%;height:auto;border-radius:var(--radius-s);background:var(--panel2)}
+.warn-card figcaption{margin-top:10px;color:var(--muted);font-size:.85rem}
 .faq{max-width:760px;margin:0 auto}
 .faq details{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-m);padding:16px 20px;margin-bottom:12px;box-shadow:var(--shadow)}
 .faq summary{cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none}
@@ -206,6 +210,7 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
   .features{grid-template-columns:1fr 1fr}
   .price-grid{grid-template-columns:1fr}
   .dl-links{grid-template-columns:1fr}
+  .warn-grid{grid-template-columns:1fr}
   .nav-links a{display:none}
   .nav-links .toggle{margin-left:auto}
 }
@@ -579,6 +584,23 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
   </div>
 </section>
 
+<section class="section section--tight" id="install-warning">
+  <div class="container">
+    <h2 data-t="warn-title" style="text-align:center">Если Windows предупреждает при установке</h2>
+    <p class="sub" data-t="warn-note" style="text-align:center;margin-left:auto;margin-right:auto">Установщик пока без цифровой подписи, поэтому Windows может сказать «неизвестный издатель». Это не вирус: файл скачан с этого сайта, хеш SHA-256 указан выше. Нажмите «More info» → «Run anyway» в Windows 11 или «Yes» в запросе UAC в Windows 10.</p>
+    <div class="warn-grid">
+      <figure class="warn-card">
+        <img src="res/smartscreen-win11-en.gif" width="880" height="540" loading="lazy" alt="SmartScreen в Windows 11: More info → Run anyway">
+        <figcaption data-t="warn-cap1">Windows 11, SmartScreen: «More info» → «Run anyway».</figcaption>
+      </figure>
+      <figure class="warn-card">
+        <img src="res/uac-win10-en.gif" width="880" height="540" loading="lazy" alt="Windows 10: подтверждение UAC кнопкой Yes">
+        <figcaption data-t="warn-cap2">Windows 10, UAC: подтверждение кнопкой «Yes».</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="faq">
   <div class="container">
     <h2 data-t="faq-title" style="text-align:center">Частые вопросы</h2>
@@ -700,6 +722,10 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
       "dl-portable":"Портативная версия","dl-portable-sub":"ZIP без установки, данные рядом с программой · 1,1 МБ",
       "dl-note":"SHA-256 для проверки целостности файлов. Антивирус может предупредить: установщик пока без цифровой подписи. Подробности установки — на странице загрузки.",
       "dl-more":"Страница загрузки и инструкция по активации →",
+    "warn-title":"Если Windows предупреждает при установке",
+    "warn-note":"Установщик пока без цифровой подписи, поэтому Windows может сказать «неизвестный издатель». Это не вирус: файл скачан с этого сайта, хеш SHA-256 указан выше. Нажмите «More info» → «Run anyway» в Windows 11 или «Yes» в запросе UAC в Windows 10.",
+    "warn-cap1":"Windows 11, SmartScreen: «More info» → «Run anyway».",
+    "warn-cap2":"Windows 10, UAC: подтверждение кнопкой «Yes».",
       "faq-title":"Частые вопросы",
       "q1":"Есть ли бесплатная версия?","a1":"Да. Free работает без ограничения по времени: история, поиск, категории, изображения, скриншоты, тёмная тема и 8 языков. Регистрация не нужна.",
       "q2":"Чем Pro отличается от Free?","a2":"В Pro входят шаблоны со сниппетами и группами, подстановка переменных, расширенный импорт и экспорт, текстовые преобразования при вставке и приоритетная поддержка.",
@@ -773,6 +799,10 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
       "dl-portable":"Portable version","dl-portable-sub":"ZIP, no install, data next to the app · 1.0 MB",
       "dl-note":"SHA-256 to verify file integrity. Your antivirus may warn: the installer is not code-signed yet. Install steps are on the download page.",
       "dl-more":"Download page and activation guide →",
+    "warn-title":"If Windows warns during installation",
+    "warn-note":"The installer is not code-signed yet, so Windows may call the publisher unknown. It is not a virus: the file comes from this site and its SHA-256 is listed above. Click “More info” → “Run anyway” on Windows 11, or “Yes” in the UAC prompt on Windows 10.",
+    "warn-cap1":"Windows 11, SmartScreen: “More info” → “Run anyway”.",
+    "warn-cap2":"Windows 10, UAC: confirm with “Yes”.",
       "faq-title":"Frequently asked questions",
       "q1":"Is there a free version?","a1":"Yes. Free has no time limit: history, search, categories, images, screenshots, dark theme and 8 languages. No sign-up required.",
       "q2":"How is Pro different from Free?","a2":"Pro adds snippets and templates with groups, variable substitution, advanced import and export, text transformations on paste and priority support.",
