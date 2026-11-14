@@ -257,7 +257,7 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
       <a href="#pricing" data-t="nav-pricing">Тарифы</a>
       <a href="#download" data-t="nav-download">Скачать</a>
       <a href="#faq" data-t="nav-faq">FAQ</a>
-      <a href="docs/" data-t="nav-docs">Руководство</a>
+      <a href="docs/" data-ru-href="docs/" data-en-href="docs/index.en.html" data-t="nav-docs">Руководство</a>
       <div class="toggle" role="group" aria-label="Language / Язык">
         <button type="button" data-lang="ru" class="active" aria-label="Русский">RU</button>
         <button type="button" data-lang="en" aria-label="English">EN</button>
@@ -579,7 +579,7 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
         <div class="hash-row"><span class="hash-file">ClipboardManagerPlus-Portable-1.3.4.zip</span><span class="hash-meta">1,1 МБ · v1.3.4</span><code>AB132459FA2A7E2B500E5D04BDC07470763B51841165154C759004030441EDE8</code></div>
       </div>
       <p class="note" style="margin-top:14px" data-t="dl-note">SHA-256 для проверки целостности файлов. Антивирус может предупредить: установщик пока без цифровой подписи. Подробности установки — на странице загрузки.</p>
-      <p style="margin-top:16px"><a href="download/" data-t="dl-more">Страница загрузки и инструкция по активации →</a></p>
+      <p style="margin-top:16px"><a href="download/" data-ru-href="download/" data-en-href="download/index.en.html" data-t="dl-more">Страница загрузки и инструкция по активации →</a></p>
     </div>
   </div>
 </section>
@@ -647,11 +647,11 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
     <div class="foot-links">
       <a href="#features" data-t="foot-features">Возможности</a>
       <a href="#pricing" data-t="foot-pricing">Тарифы</a>
-      <a href="download/" data-t="foot-download">Скачать</a>
-      <a href="support/" data-t="foot-support">Поддержка</a>
-      <a href="docs/" data-t="foot-docs">Руководство</a>
-      <a href="privacy/" data-t="foot-privacy">Конфиденциальность</a>
-      <a href="terms/" data-t="foot-terms">Оферта</a>
+      <a href="download/" data-ru-href="download/" data-en-href="download/index.en.html" data-t="foot-download">Скачать</a>
+      <a href="support/" data-ru-href="support/" data-en-href="support/?lang=en" data-t="foot-support">Поддержка</a>
+      <a href="docs/" data-ru-href="docs/" data-en-href="docs/index.en.html" data-t="foot-docs">Руководство</a>
+      <a href="privacy/" data-ru-href="privacy/" data-en-href="privacy/index.en.html" data-t="foot-privacy">Конфиденциальность</a>
+      <a href="terms/" data-ru-href="terms/" data-en-href="terms/index.en.html" data-t="foot-terms">Оферта</a>
     </div>
   </div>
 </footer>
@@ -833,6 +833,10 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
     if (theme) theme.setAttribute("aria-label", lang === "ru" ? "Сменить тему" : "Switch theme");
     var buy = document.getElementById("buyBtn");
     if (buy) buy.setAttribute("href", lang === "ru" ? "buy/" : "buy/index.en.html");
+    document.querySelectorAll("[data-ru-href]").forEach(function (el) {
+      var h = el.getAttribute(lang === "ru" ? "data-ru-href" : "data-en-href");
+      if (h) el.setAttribute("href", h);
+    });
     document.title = lang === "ru"
       ? "ClipboardManager Plus — менеджер буфера обмена для Windows"
       : "ClipboardManager Plus — clipboard manager for Windows";
