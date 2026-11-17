@@ -1,48 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://clipboardmanager.ru/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://clipboardmanager.ru/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/download/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/download/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/download/" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://clipboardmanager.ru/docs/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/docs/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/docs/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/docs/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clipboardmanager.ru/buy/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/buy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/buy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/buy/" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://clipboardmanager.ru/support/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/support/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/support/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/support/" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://clipboardmanager.ru/partners/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/partners/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/partners/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/partners/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://clipboardmanager.ru/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/privacy/" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://clipboardmanager.ru/buy/</loc>
+    <loc>https://clipboardmanager.ru/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/terms/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/terms/" />
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://clipboardmanager.ru/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://clipboardmanager.ru/en/download/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/download/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/download/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/download/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://clipboardmanager.ru/en/docs/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/docs/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/docs/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/docs/" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://clipboardmanager.ru/terms/</loc>
+    <loc>https://clipboardmanager.ru/en/buy/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/buy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/buy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/buy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clipboardmanager.ru/en/support/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/support/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/support/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/support/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clipboardmanager.ru/en/partners/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/partners/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/partners/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/partners/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clipboardmanager.ru/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/privacy/" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://clipboardmanager.ru/partners/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://clipboardmanager.ru/partners/index.en.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://clipboardmanager.ru/en/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/terms/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/terms/" />
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 </urlset>

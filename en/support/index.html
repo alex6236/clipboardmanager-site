@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipboardManager Plus support — activation, key and refunds</title>
+<meta name="description" content="Answers about activation, lost keys, re-issuing a licence, refunds and troubleshooting ClipboardManager Plus on Windows 10/11.">
+<link rel="canonical" href="https://clipboardmanager.ru/en/support/">
+<link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/support/">
+<link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/support/">
+<link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/support/">
+<meta property="og:title" content="ClipboardManager Plus support — activation, key and refunds">
+<meta property="og:description" content="Answers about activation, lost keys, re-issuing a licence, refunds and troubleshooting ClipboardManager Plus on Windows 10/11.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clipboardmanager.ru/en/support/">
+<meta property="og:image" content="https://clipboardmanager.ru/res/main-history-ru.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index,follow">
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem("cm-theme");
+    if (t !== "dark" && t !== "light") {
+      t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+})();
+</script>
+<style>
+:root{
+  --bg:#f7f9fb; --bg2:#ffffff; --panel:#ffffff; --panel2:#f3f5f7;
+  --text:#1f2430; --muted:#5d6a78; --border:#e1e6ec; --border2:#d2d9e1;
+  --accent:#0078d4; --accent-hover:#106ebe; --accent-soft:#e8f2fa;
+  --sel-bg:#e5f1fb; --ok:#107c10; --radius-s:4px; --radius-m:8px; --radius-l:16px;
+  --shadow:0 2px 10px rgba(0,0,0,.06); --shadow-lg:0 18px 50px rgba(0,0,0,.14);
+  --mono:ui-monospace,'Cascadia Mono',Consolas,monospace;
+}
+[data-theme="dark"]{
+  --bg:#1a1d24; --bg2:#16181e; --panel:#232833; --panel2:#2b3140;
+  --text:#f3f5f8; --muted:#9aa7b5; --border:#333b49; --border2:#3e4857;
+  --accent:#4cc2ff; --accent-hover:#7fd4ff; --accent-soft:#1d3347;
+  --sel-bg:#26384a; --ok:#6ccb5f;
+  --shadow:0 2px 10px rgba(0,0,0,.35); --shadow-lg:0 18px 50px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Segoe UI Variable Text','Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .25s,color .25s}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;gap:16px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.05rem;color:var(--text)}
+.brand:hover{text-decoration:none}
+.logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#0078d4,#5ec7ff);display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;flex:none;letter-spacing:.3px}
+.nav-links{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav-links a{padding:8px 12px;border-radius:var(--radius-s);color:var(--text);font-size:.95rem}
+.nav-links a:hover{background:var(--panel2);text-decoration:none}
+.toggle{display:inline-flex;border:1px solid var(--border2);border-radius:var(--radius-m);overflow:hidden;background:var(--panel)}
+.toggle button,.toggle a{border:0;background:transparent;padding:6px 12px;font-size:.85rem;font-weight:500;color:var(--muted);cursor:pointer;text-decoration:none;display:inline-block}
+.toggle button.active,.toggle a.active{background:var(--accent);color:#fff}
+.theme-btn{display:inline-grid;place-items:center;width:32px;height:32px;margin-left:6px;border-radius:var(--radius-s);border:1px solid var(--border2);background:var(--panel);color:var(--text);cursor:pointer;flex:none}
+.theme-btn:hover{background:var(--panel2)}
+[data-theme="light"] .i-moon{display:none}
+[data-theme="dark"] .i-sun{display:none}
+button{font-family:inherit}
+.hero{padding:56px 0 8px}
+.hero h1{font-size:clamp(1.9rem,4.5vw,2.7rem);line-height:1.15;margin:0 0 14px;font-weight:650;letter-spacing:-.4px}
+.hero .lead{font-size:1.1rem;color:var(--muted);max-width:640px;margin:0}
+.section{padding:40px 0}
+.section h2{font-size:clamp(1.4rem,2.6vw,1.8rem);margin:0 0 8px;font-weight:650;letter-spacing:-.2px}
+.section .sub{color:var(--muted);max-width:640px;margin:0 0 22px}
+.contact{background:var(--panel);border:1px solid var(--accent);border-radius:var(--radius-l);box-shadow:0 0 0 1px var(--accent),var(--shadow);padding:26px 28px}
+.contact p{margin:0;color:var(--text)}
+.contact .soon{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;border-radius:var(--radius-m);background:var(--accent-soft);color:var(--text);font-size:.95rem}
+.contact .soon svg{width:18px;height:18px;color:var(--accent);flex:none}
+.contact .mail{margin-top:14px;font-size:1.05rem}
+.contact .mail a{font-weight:600}
+.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:10px}
+.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-m);padding:14px 18px 14px 52px;position:relative;box-shadow:var(--shadow);font-size:.96rem}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:13px;width:22px;height:22px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:.78rem;font-weight:700}
+.faq details{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-m);padding:16px 20px;margin-bottom:12px;box-shadow:var(--shadow)}
+.faq summary{cursor:pointer;font-weight:600;font-size:1rem;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--accent);font-size:1.3rem;font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:12px 0 0;color:var(--text);font-size:.95rem}
+.faq .shot{margin:16px 0 0}
+.faq .shot img{display:block;width:100%;max-width:520px;height:auto;border:1px solid var(--border2);border-radius:var(--radius-m);box-shadow:var(--shadow);background:var(--panel2)}
+.faq .shot figcaption{margin-top:8px;color:var(--muted);font-size:.85rem}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.link-card{display:flex;flex-direction:column;gap:3px;padding:16px 18px;border-radius:var(--radius-m);border:1px solid var(--border2);background:var(--panel);color:var(--text);box-shadow:var(--shadow)}
+.link-card:hover{background:var(--sel-bg);text-decoration:none}
+.link-card strong{font-size:.98rem;font-weight:600}
+.link-card span{font-size:.82rem;color:var(--muted)}
+footer{border-top:1px solid var(--border);padding:36px 0 44px;color:var(--muted);font-size:.9rem;background:var(--bg2);margin-top:24px}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot .brand{color:var(--text)}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+[hidden]{display:none!important}
+@media(max-width:860px){
+  .nav-links a{display:none}
+  .nav-links .toggle{margin-left:auto}
+  .links{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .nav-inner{gap:8px}
+  .brand{font-size:.85rem;gap:8px}
+  .brand span{white-space:nowrap}
+  .logo{width:30px;height:30px;font-size:12px}
+  .toggle button,.toggle a{padding:6px 9px;text-decoration:none;display:inline-block}
+  .contact{padding:22px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+  })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=114086821','ym');
+  ym(114086821,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,referrer:document.referrer,url:location.href});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114086821" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="/en/" data-ru-href="/en/" data-en-href="/en/">
+      <span class="logo">CB</span>
+      <span>ClipboardManager Plus</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/en/#features" data-ru-href="/en/#features" data-en-href="/en/#features" data-t="nav-features">Features</a>
+      <a href="/en/#pricing" data-ru-href="/en/#pricing" data-en-href="/en/#pricing" data-t="nav-pricing">Pricing</a>
+      <a href="/en/download/" data-ru-href="/en/download/" data-en-href="/en/download/" data-t="nav-download">Download</a>
+      <a href="/en/#faq" data-ru-href="/en/#faq" data-en-href="/en/#faq" data-t="nav-faq">FAQ</a>
+      <div class="toggle" role="group" aria-label="Language / Язык">
+        <a href="/support/" hreflang="ru" lang="ru" aria-label="Русский">RU</a>
+        <a href="/en/support/" hreflang="en" lang="en" class="active" aria-label="English">EN</a>
+      </div>
+      <button type="button" class="theme-btn" id="themeToggle" aria-label="Switch theme">
+        <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg>
+        <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1 data-t="hero-title">Support</h1>
+      <p class="lead" data-t="hero-lead">Help with installation, activation and errors. Just describe what happened — step by step, with the app version.</p>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact">
+        <h2 data-t="contact-title">How to reach us</h2>
+        <p data-t="contact-lead">Bugs, remarks and feature ideas go to a single mailbox. Use it for Pro key requests too if you bought directly.</p>
+        <div class="soon" id="contactSoon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span data-t="contact-soon">support@clipboardmanager.ru</span>
+        </div>
+        <p class="mail" id="contactMail" hidden><a id="contactLink" href="#"></a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="letter">
+    <div class="container">
+      <h2 data-t="letter-title">What to include</h2>
+      <p class="sub" data-t="letter-sub">The more precise the report, the faster the problem can be reproduced and answered.</p>
+      <ol class="steps">
+        <li data-t="l1">App version — it is part of the installer name you downloaded (for example ClipboardManagerPlus-Setup-1.3.2.exe).</li>
+        <li data-t="l2">Windows version and architecture: Windows 10 or 11, x64.</li>
+        <li data-t="l3">What you did — step by step, starting from launching the app.</li>
+        <li data-t="l4">What you expected and what actually happened.</li>
+        <li data-t="l5">A screenshot of the window or the exact error text, if you have one.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="problems">
+    <div class="container">
+      <h2 data-t="problems-title">Common problems</h2>
+      <p class="sub" data-t="problems-sub">Check these four cases first — half of all questions are solved right away.</p>
+      <div class="faq">
+        <details open>
+          <summary data-t="p1q">Ctrl+Shift+V does not open the history</summary>
+          <p data-t="p1a">The shortcut may be taken by another program. Assign a different one in settings and make sure ClipboardManager Plus is running — its icon sits in the system tray next to the clock.</p>
+        </details>
+        <details>
+          <summary data-t="p2q">Antivirus or SmartScreen warns during installation</summary>
+          <p data-t="p2a">The installer is not code-signed yet, so Windows may warn about an unknown publisher. Download only from this site's download page and verify the SHA-256 published there.</p>
+          <figure class="shot">
+            <img src="/res/smartscreen-win11-en.gif" width="880" height="540" loading="lazy" alt="SmartScreen in Windows 11: More info → Run anyway">
+            <figcaption data-t="p2shot1">Windows 11, SmartScreen: click "More info", then "Run anyway".</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/res/uac-win10-en.gif" width="880" height="540" loading="lazy" alt="Windows 10: confirm the UAC prompt with Yes">
+            <figcaption data-t="p2shot2">Windows 10, UAC: confirm with "Yes".</figcaption>
+          </figure>
+        </details>
+        <details>
+          <summary data-t="p3q">Pro features are locked</summary>
+          <p data-t="p3a">Pro works without a key for the first 14 days. After the trial, snippets with variables, paste-as-text and advanced import require a key; your history and settings are kept.</p>
+        </details>
+        <details>
+          <summary data-t="p4q">The key is not accepted</summary>
+          <p data-t="p4a">Make sure the whole key is entered: 25 characters like CMGR-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX, case and dashes do not matter. The key is not bound to a computer: it works for one user on any machine. If you lost the key, request it again on the "Get the key again" page with your order number and email, or write to support with the order number.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="more">
+    <div class="container">
+      <h2 data-t="more-title">Useful links</h2>
+      <div class="links">
+        <a class="link-card" href="/en/download/">
+          <strong data-t="more-dl">Download and activate</strong>
+          <span data-t="more-dl-sub">Installer, portable build, hashes and activation steps</span>
+        </a>
+        <a class="link-card" href="/en/#faq">
+          <strong data-t="more-faq">Frequently asked questions</strong>
+          <span data-t="more-faq-sub">Free vs Pro, where data is stored, supported Windows versions</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>
+      <div class="brand"><span class="logo" style="width:26px;height:26px;font-size:11px">CB</span> ClipboardManager Plus</div>
+      <p style="margin:10px 0 0" data-t="foot1">Clipboard manager for Windows.</p>
+      <p style="margin:6px 0 0;font-size:12px">Self-employed: Savitsa Aleksey Vasilievich · INN 231003822887 · <a href="mailto:support@clipboardmanager.ru" style="color:inherit">support@clipboardmanager.ru</a></p>
+    </div>
+    <div class="foot-links">
+      <a href="/en/" data-ru-href="/en/" data-en-href="/en/" data-t="foot-home">Home</a>
+      <a href="/en/#pricing" data-ru-href="/en/#pricing" data-en-href="/en/#pricing" data-t="foot-pricing">Pricing</a>
+      <a href="/en/download/" data-ru-href="/en/download/" data-en-href="/en/download/" data-t="foot-download">Download</a>
+      <a href="/en/privacy/" data-ru-href="/en/privacy/" data-en-href="/en/privacy/" data-t="foot-privacy">Privacy</a>
+      <a href="/en/terms/" data-ru-href="/en/terms/" data-en-href="/en/terms/" data-t="foot-terms">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var themeBtn = document.getElementById("themeToggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("cm-theme", next); } catch (e) {}
+    });
+  }
+  var year = new Date().getFullYear();
+  document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = year; });
+})();
+</script>
+</body>
+</html>

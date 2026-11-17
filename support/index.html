@@ -6,6 +6,9 @@
 <title>Поддержка — ClipboardManager Plus</title>
 <meta name="description" content="Поддержка ClipboardManager Plus: как сообщить об ошибке, что указать в письме, решение частых проблем с установкой, активацией и горячими клавишами.">
 <link rel="canonical" href="https://clipboardmanager.ru/support/">
+<link rel="alternate" hreflang="ru" href="https://clipboardmanager.ru/support/">
+<link rel="alternate" hreflang="en" href="https://clipboardmanager.ru/en/support/">
+<link rel="alternate" hreflang="x-default" href="https://clipboardmanager.ru/support/">
 <meta property="og:title" content="Поддержка — ClipboardManager Plus">
 <meta property="og:description" content="Как сообщить об ошибке, что указать в письме и как решить частые проблемы с установкой и активацией.">
 <meta property="og:type" content="website">
@@ -57,8 +60,8 @@ header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--b
 .nav-links a{padding:8px 12px;border-radius:var(--radius-s);color:var(--text);font-size:.95rem}
 .nav-links a:hover{background:var(--panel2);text-decoration:none}
 .toggle{display:inline-flex;border:1px solid var(--border2);border-radius:var(--radius-m);overflow:hidden;background:var(--panel)}
-.toggle button{border:0;background:transparent;padding:6px 12px;font-size:.85rem;font-weight:500;color:var(--muted);cursor:pointer}
-.toggle button.active{background:var(--accent);color:#fff}
+.toggle button,.toggle a{border:0;background:transparent;padding:6px 12px;font-size:.85rem;font-weight:500;color:var(--muted);cursor:pointer;text-decoration:none;display:inline-block}
+.toggle button.active,.toggle a.active{background:var(--accent);color:#fff}
 .theme-btn{display:inline-grid;place-items:center;width:32px;height:32px;margin-left:6px;border-radius:var(--radius-s);border:1px solid var(--border2);background:var(--panel);color:var(--text);cursor:pointer;flex:none}
 .theme-btn:hover{background:var(--panel2)}
 [data-theme="light"] .i-moon{display:none}
@@ -108,7 +111,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;color:var(--muted)
   .brand{font-size:.85rem;gap:8px}
   .brand span{white-space:nowrap}
   .logo{width:30px;height:30px;font-size:12px}
-  .toggle button{padding:6px 9px}
+  .toggle button,.toggle a{padding:6px 9px;text-decoration:none;display:inline-block}
   .contact{padding:22px 20px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -132,18 +135,18 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;color:var(--muted)
 
 <header class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="../" data-ru-href="../" data-en-href="../?lang=en">
+    <a class="brand" href="../" data-ru-href="../" data-en-href="/en/support/">
       <span class="logo">CB</span>
       <span>ClipboardManager Plus</span>
     </a>
     <nav class="nav-links">
-      <a href="../#features" data-ru-href="../#features" data-en-href="../?lang=en#features" data-t="nav-features">Возможности</a>
-      <a href="../#pricing" data-ru-href="../#pricing" data-en-href="../?lang=en#pricing" data-t="nav-pricing">Тарифы</a>
-      <a href="../download/" data-ru-href="../download/" data-en-href="../download/index.en.html" data-t="nav-download">Скачать</a>
-      <a href="../#faq" data-ru-href="../#faq" data-en-href="../?lang=en#faq" data-t="nav-faq">FAQ</a>
+      <a href="../#features" data-ru-href="../#features" data-en-href="/en/support/#features" data-t="nav-features">Возможности</a>
+      <a href="../#pricing" data-ru-href="../#pricing" data-en-href="/en/support/#pricing" data-t="nav-pricing">Тарифы</a>
+      <a href="../download/" data-ru-href="../download/" data-en-href="/en/support/" data-t="nav-download">Скачать</a>
+      <a href="../#faq" data-ru-href="../#faq" data-en-href="/en/support/#faq" data-t="nav-faq">FAQ</a>
       <div class="toggle" role="group" aria-label="Language / Язык">
-        <button type="button" data-lang="ru" class="active" aria-label="Русский">RU</button>
-        <button type="button" data-lang="en" aria-label="English">EN</button>
+        <a href="/support/" hreflang="ru" lang="ru" class="active" aria-label="Русский">RU</a>
+        <a href="/en/support/" hreflang="en" lang="en" aria-label="English">EN</a>
       </div>
       <button type="button" class="theme-btn" id="themeToggle" aria-label="Сменить тему">
         <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg>
@@ -247,11 +250,11 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;color:var(--muted)
       <p style="margin:6px 0 0;font-size:12px">Самозанятый Савица Алексей Васильевич · ИНН 231003822887 · <a href="mailto:support@clipboardmanager.ru" style="color:inherit">support@clipboardmanager.ru</a></p>
     </div>
     <div class="foot-links">
-      <a href="../" data-ru-href="../" data-en-href="../?lang=en" data-t="foot-home">Главная</a>
-      <a href="../#pricing" data-ru-href="../#pricing" data-en-href="../?lang=en#pricing" data-t="foot-pricing">Тарифы</a>
-      <a href="../download/" data-ru-href="../download/" data-en-href="../download/index.en.html" data-t="foot-download">Скачать</a>
-      <a href="../privacy/" data-ru-href="../privacy/" data-en-href="../privacy/index.en.html" data-t="foot-privacy">Конфиденциальность</a>
-      <a href="../terms/" data-ru-href="../terms/" data-en-href="../terms/index.en.html" data-t="foot-terms">Оферта</a>
+      <a href="../" data-ru-href="../" data-en-href="/en/support/" data-t="foot-home">Главная</a>
+      <a href="../#pricing" data-ru-href="../#pricing" data-en-href="/en/support/#pricing" data-t="foot-pricing">Тарифы</a>
+      <a href="../download/" data-ru-href="../download/" data-en-href="/en/support/" data-t="foot-download">Скачать</a>
+      <a href="../privacy/" data-ru-href="../privacy/" data-en-href="/en/support/" data-t="foot-privacy">Конфиденциальность</a>
+      <a href="../terms/" data-ru-href="../terms/" data-en-href="/en/support/" data-t="foot-terms">Оферта</a>
     </div>
   </div>
 </footer>
@@ -386,11 +389,10 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;color:var(--muted)
   }
 
   try {
-    var saved = localStorage.getItem("cm-lang");
-    var fromQuery = new URLSearchParams(location.search).get("lang");
-    if (fromQuery === "en" || fromQuery === "ru") lang = fromQuery;
-    else if (saved === "en" || saved === "ru") lang = saved;
-  } catch (e) {}
+      if (new URLSearchParams(location.search).get("lang") === "en") {
+        location.replace("/en/support/" + (location.hash || ""));
+      }
+    } catch (e) {}
 
   applyLanguage();
 
