@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clipboard Orbit — Clipboard Manager для Opera и Яндекс Браузера</title>
+<meta name="description" content="Clipboard Orbit сохраняет текст, ссылки и скриншоты, ищет по истории, закрепляет важное и хранит сниппеты. Работает локально, без аккаунта.">
+<link rel="icon" href="icon-128.png" type="image/png">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="demo.css">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+  })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=114086821','ym');
+  ym(114086821,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,referrer:document.referrer,url:location.href});
+</script>
+
+<!-- /Yandex.Metrika counter --></head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="https://clipboardmanager.ru/">
+      <img src="icon-128.png" alt="" width="26" height="26">
+      ClipboardManager
+    </a>
+    <nav class="nav" aria-label="Разделы страницы">
+      <a href="#features">Возможности</a>
+      <a href="#install">Установка</a>
+      <a href="#hotkeys">Горячие клавиши</a>
+      <a href="#faq">Вопросы</a>
+      <a href="privacy/index.html">Конфиденциальность</a>
+      <a href="en/index.html" hreflang="en" lang="en">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Расширение для Opera и Яндекс Браузера</p>
+        <h1>История буфера обмена прямо в браузере</h1>
+        <p class="lead">Clipboard Orbit сохраняет всё, что вы копируете: текст, ссылки, картинки и скриншоты. Поиск, закрепление и сниппеты открываются по Ctrl+Shift+B. Данные остаются на вашем компьютере.</p>
+        <div class="badges">
+          <span class="badge">Opera</span>
+          <span class="badge">Яндекс Браузер</span>
+          <span class="badge">Без аккаунта</span>
+          <span class="badge">Работает офлайн</span>
+        </div>
+        <div class="actions">
+          <!-- После публикации заменить href на ссылку карточки в каталоге Opera. -->
+          <a class="cta" href="https://addons.opera.com/ru/extensions/">Установить из каталога Opera</a>
+          <a class="ghost" href="#features">Что умеет</a>
+        </div>
+      </div>
+
+      <div class="demo-wrap">
+        <div class="chp-demo" data-lang="ru" data-icon="icon-128.png" data-shot="shot.png" aria-label="Интерактивный предпросмотр расширения"></div>
+        <p class="demo-caption">Интерактивный предпросмотр — можно нажимать</p>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="section-head">
+        <h2>Возможности</h2>
+        <p>Всё в одном попапе и плавающем окне</p>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <h3>Автосохранение</h3>
+          <p>Каждое копирование попадает в историю само: текст, ссылки, картинки со страниц.</p>
+        </article>
+        <article class="feature">
+          <h3>Поиск и закрепление</h3>
+          <p>Мгновенный поиск по всей истории. Важное закрепляется и остаётся наверху списка.</p>
+        </article>
+        <article class="feature">
+          <h3>Сниппеты</h3>
+          <p>Частые формулировки, адреса и реквизиты хранятся отдельно; дата и время подставляются переменными.</p>
+        </article>
+        <article class="feature">
+          <h3>Скриншоты</h3>
+          <p>Снимок видимой области или выделенного фрагмента. Обрезка, стрелки и пометки в редакторе.</p>
+        </article>
+        <article class="feature">
+          <h3>Плавающее окно</h3>
+          <p>История поверх других окон: удобно, когда браузер занимает весь экран.</p>
+        </article>
+        <article class="feature">
+          <h3>Группы и мультивыделение</h3>
+          <p>Отметьте несколько записей и закрепите, перенесите в группу или удалите одним действием.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="section-head">
+        <h2>Установка</h2>
+        <p>Три шага, меньше минуты</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="n">1</span>
+          <h3>Установите из каталога</h3>
+          <p>Откройте карточку в каталоге Opera и нажмите «Установить». Яндекс Браузер ставит расширения из каталогов Chrome и Opera.</p>
+        </article>
+        <article class="step">
+          <span class="n">2</span>
+          <h3>Закрепите иконку</h3>
+          <p>Нажмите кнопку с пазлом на панели и закрепите Clipboard Orbit, чтобы иконка осталась рядом с адресной строкой.</p>
+        </article>
+        <article class="step">
+          <span class="n">3</span>
+          <h3>Копируйте</h3>
+          <p>История появится сама. Открывайте её иконкой или сочетанием клавиш, ищите и вставляйте одним кликом.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="hotkeys">
+      <div class="section-head">
+        <h2>Горячие клавиши</h2>
+        <p>На macOS вместо Ctrl — Command</p>
+      </div>
+      <table class="hotkeys">
+        <thead>
+          <tr><th>Сочетание</th><th>Действие</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ctrl+Shift+B</td><td>Открыть историю буфера обмена</td></tr>
+          <tr><td>Ctrl+Shift+Space</td><td>Плавающее окно поверх других</td></tr>
+          <tr><td>Ctrl+Shift+5</td><td>Снимок видимой области</td></tr>
+          <tr><td>Ctrl+Shift+4</td><td>Снимок выделенного фрагмента</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="privacy-band">
+        <div>
+          <h2>Данные остаются у вас</h2>
+          <p>История, закрепления и сниппеты хранятся локально в браузере. Расширение не отправляет содержимое буфера на сервер, не требует аккаунта и работает без интернета.</p>
+        </div>
+        <a href="privacy/index.html">Политика конфиденциальности</a>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-head">
+        <h2>Частые вопросы</h2>
+        <p>Коротко о главном</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Где хранится история копирования?</summary>
+          <p>Локально: текст и настройки — в хранилище браузера, изображения — в локальной базе расширения. Ничего не уходит в сеть.</p>
+        </details>
+        <details>
+          <summary>Есть ли синхронизация между устройствами?</summary>
+          <p>В этой версии нет. Экспорт и резервная копия сохраняются файлом на диск, при желании файл можно перенести вручную.</p>
+        </details>
+        <details>
+          <summary>Работает ли в Яндекс Браузере?</summary>
+          <p>Да. Яндекс Браузер ставит расширения из каталогов Chrome и Opera; в этой сборке учтены отличия его API.</p>
+        </details>
+        <details>
+          <summary>Сколько стоит?</summary>
+          <p>Бесплатно, без аккаунта и подписки. Все функции доступны сразу после установки.</p>
+        </details>
+        <details>
+          <summary>Куда сохраняются скриншоты?</summary>
+          <p>В папку загрузок браузера или в папку, выбранную в настройках. Имя файла содержит дату и время снимка.</p>
+        </details>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Clipboard Orbit — расширение для Opera и Яндекс Браузера.</span>
+    <a href="https://clipboardmanager.ru/">ClipboardManager Plus для Windows</a>
+    <a href="privacy/index.html">Конфиденциальность</a>
+    <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a>
+    <span class="spacer">© 2026 · Самозанятый Савица Алексей Васильевич · ИНН 231003822887</span>
+  </div>
+</footer>
+
+<script src="demo.js"></script>
+</body>
+</html>
