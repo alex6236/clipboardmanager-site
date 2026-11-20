@@ -108,9 +108,10 @@
 
 <script>
 (function () {
-  // Paste the endpoint that accepts POST application/json before deploying.
-  // Until it is set, the page renders but does not send anything.
-  const FEEDBACK_ENDPOINT = '';
+  // FormSubmit email link (https://formsubmit.co/el/…). Its AJAX endpoint needs a
+  // real mailbox in the URL, so the page hands the answer over to the FormSubmit
+  // send page instead of posting it from here.
+  const FEEDBACK_ENDPOINT = 'https://formsubmit.co/el/varofa';
 
   const DICT = {
     en: {
@@ -128,7 +129,8 @@
       needReason: 'Pick a reason first.',
       sending: 'Sending…',
       failed: 'Could not send. Please try again.',
-      notConnected: 'Feedback endpoint is not configured.'
+      notConnected: 'Feedback endpoint is not configured.',
+      openLink: 'The send page opened in a new tab — press Send there.'
     },
     ru: {
       title: 'Жаль, что вы ушли',
@@ -145,7 +147,8 @@
       needReason: 'Сначала выберите причину.',
       sending: 'Отправляем…',
       failed: 'Не удалось отправить. Попробуйте ещё раз.',
-      notConnected: 'Форма обратной связи ещё не подключена.'
+      notConnected: 'Форма обратной связи ещё не подключена.',
+      openLink: 'Страница отправки открылась в новой вкладке — нажмите там «Отправить».'
     }
   };
 
@@ -163,10 +166,12 @@
   });
 
   let reason = '';
+  let reasonLabel = '';
   document.getElementById('chips').addEventListener('click', (e) => {
     const chip = e.target.closest('.chip');
     if (!chip) return;
     reason = chip.dataset.reason;
+    reasonLabel = (chip.textContent || '').trim();
     document.querySelectorAll('.chip').forEach((c) => {
       c.setAttribute('aria-pressed', String(c === chip));
     });
@@ -190,29 +195,23 @@
     }
     send.disabled = true;
     status.textContent = t.sending;
-    try {
-      const res = await fetch(FEEDBACK_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          reason,
-          details: document.getElementById('details').value.trim(),
-          lang,
-          source: 'uninstall',
-          ts: new Date().toISOString()
-        })
-      });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      status.textContent = '';
-      document.getElementById('chips').classList.add('hidden');
-      document.getElementById('details').classList.add('hidden');
-      send.classList.add('hidden');
-      thanks.classList.remove('hidden');
-    } catch (e) {
-      status.textContent = t.failed;
-      status.classList.add('err');
-      send.disabled = false;
-    }
+    const details = document.getElementById('details').value.trim();
+    const message = [
+      'Reason: ' + (reasonLabel || reason),
+      details ? 'Details: ' + details : '',
+      'Language: ' + lang,
+      'Source: uninstall',
+      'Time: ' + new Date().toISOString()
+    ].filter(Boolean).join('\n');
+    const url = FEEDBACK_ENDPOINT.replace(/\/$/, '') +
+      '?subject=' + encodeURIComponent('Clipboard Orbit — uninstall feedback') +
+      '&message=' + encodeURIComponent(message.slice(0, 1200));
+    window.open(url, '_blank', 'noopener');
+    status.textContent = t.openLink;
+    document.getElementById('chips').classList.add('hidden');
+    document.getElementById('details').classList.add('hidden');
+    send.classList.add('hidden');
+    thanks.classList.remove('hidden');
   });
 })();
 </script>
