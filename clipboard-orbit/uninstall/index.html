@@ -116,7 +116,7 @@
     en: {
       title: 'Sorry to see you go',
       lead: 'One question — it helps us fix what broke.',
-      question: 'Why have you deleted the app?',
+      question: 'Why have you deleted the app? You can pick several.',
       reasonBug: "Something didn't work",
       reasonMissing: 'Missing a feature',
       reasonSlow: 'Too slow',
@@ -125,7 +125,7 @@
       detailsPlaceholder: 'Anything else? (optional)',
       send: 'Send',
       thanks: 'Thanks — we read every answer.',
-      needReason: 'Pick a reason first.',
+      needReason: 'Pick at least one reason.',
       sending: 'Sending…',
       failed: 'Could not send. Please try again.',
       notConnected: 'Feedback endpoint is not configured.'
@@ -133,7 +133,7 @@
     ru: {
       title: 'Жаль, что вы ушли',
       lead: 'Один вопрос — он поможет понять, что сломалось.',
-      question: 'Почему вы удалили расширение?',
+      question: 'Почему вы удалили расширение? Можно выбрать несколько.',
       reasonBug: 'Что-то не работало',
       reasonMissing: 'Не хватило функции',
       reasonSlow: 'Слишком медленно',
@@ -142,7 +142,7 @@
       detailsPlaceholder: 'Что-то ещё? (необязательно)',
       send: 'Отправить',
       thanks: 'Спасибо — мы читаем все ответы.',
-      needReason: 'Сначала выберите причину.',
+      needReason: 'Выберите хотя бы одну причину.',
       sending: 'Отправляем…',
       failed: 'Не удалось отправить. Попробуйте ещё раз.',
       notConnected: 'Форма обратной связи ещё не подключена.'
@@ -162,16 +162,19 @@
     if (t[key]) el.placeholder = t[key];
   });
 
-  let reason = '';
-  let reasonLabel = '';
+  const selected = new Map();
   document.getElementById('chips').addEventListener('click', (e) => {
     const chip = e.target.closest('.chip');
     if (!chip) return;
-    reason = chip.dataset.reason;
-    reasonLabel = (chip.textContent || '').trim();
-    document.querySelectorAll('.chip').forEach((c) => {
-      c.setAttribute('aria-pressed', String(c === chip));
-    });
+    const code = chip.dataset.reason;
+    const label = (chip.textContent || '').trim();
+    if (chip.getAttribute('aria-pressed') === 'true') {
+      chip.setAttribute('aria-pressed', 'false');
+      selected.delete(code);
+      return;
+    }
+    chip.setAttribute('aria-pressed', 'true');
+    selected.set(code, label);
   });
 
   const send = document.getElementById('send');
@@ -180,7 +183,7 @@
 
   send.addEventListener('click', async () => {
     status.classList.remove('err');
-    if (!reason) {
+    if (!selected.size) {
       status.textContent = t.needReason;
       status.classList.add('err');
       return;
@@ -198,7 +201,7 @@
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           _subject: 'Clipboard Orbit — uninstall feedback',
-          reason: reasonLabel || reason,
+          reason: [...selected.values()].join('; '),
           details: document.getElementById('details').value.trim(),
           lang,
           source: 'uninstall',
