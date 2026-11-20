@@ -108,10 +108,9 @@
 
 <script>
 (function () {
-  // FormSubmit email link (https://formsubmit.co/el/…). Its AJAX endpoint needs a
-  // real mailbox in the URL, so the page hands the answer over to the FormSubmit
-  // send page instead of posting it from here.
-  const FEEDBACK_ENDPOINT = 'https://formsubmit.co/el/varofa';
+  // FormSubmit AJAX endpoint. The mailbox is already published on the site, so it
+  // is used directly: the page posts the answer and FormSubmit forwards it by mail.
+  const FEEDBACK_ENDPOINT = 'https://formsubmit.co/ajax/support@clipboardmanager.ru';
 
   const DICT = {
     en: {
@@ -129,8 +128,7 @@
       needReason: 'Pick a reason first.',
       sending: 'Sending…',
       failed: 'Could not send. Please try again.',
-      notConnected: 'Feedback endpoint is not configured.',
-      openLink: 'The send page opened in a new tab — press Send there.'
+      notConnected: 'Feedback endpoint is not configured.'
     },
     ru: {
       title: 'Жаль, что вы ушли',
@@ -147,8 +145,7 @@
       needReason: 'Сначала выберите причину.',
       sending: 'Отправляем…',
       failed: 'Не удалось отправить. Попробуйте ещё раз.',
-      notConnected: 'Форма обратной связи ещё не подключена.',
-      openLink: 'Страница отправки открылась в новой вкладке — нажмите там «Отправить».'
+      notConnected: 'Форма обратной связи ещё не подключена.'
     }
   };
 
@@ -195,23 +192,33 @@
     }
     send.disabled = true;
     status.textContent = t.sending;
-    const details = document.getElementById('details').value.trim();
-    const message = [
-      'Reason: ' + (reasonLabel || reason),
-      details ? 'Details: ' + details : '',
-      'Language: ' + lang,
-      'Source: uninstall',
-      'Time: ' + new Date().toISOString()
-    ].filter(Boolean).join('\n');
-    const url = FEEDBACK_ENDPOINT.replace(/\/$/, '') +
-      '?subject=' + encodeURIComponent('Clipboard Orbit — uninstall feedback') +
-      '&message=' + encodeURIComponent(message.slice(0, 1200));
-    window.open(url, '_blank', 'noopener');
-    status.textContent = t.openLink;
-    document.getElementById('chips').classList.add('hidden');
-    document.getElementById('details').classList.add('hidden');
-    send.classList.add('hidden');
-    thanks.classList.remove('hidden');
+    try {
+      const res = await fetch(FEEDBACK_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Clipboard Orbit — uninstall feedback',
+          reason: reasonLabel || reason,
+          details: document.getElementById('details').value.trim(),
+          lang,
+          source: 'uninstall',
+          ts: new Date().toISOString()
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) === 'false') {
+        throw new Error(data.message || ('HTTP ' + res.status));
+      }
+      status.textContent = '';
+      document.getElementById('chips').classList.add('hidden');
+      document.getElementById('details').classList.add('hidden');
+      send.classList.add('hidden');
+      thanks.classList.remove('hidden');
+    } catch (e) {
+      status.textContent = t.failed;
+      status.classList.add('err');
+      send.disabled = false;
+    }
   });
 })();
 </script>
