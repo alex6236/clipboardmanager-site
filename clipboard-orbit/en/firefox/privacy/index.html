@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy — Clipboard Orbit for Firefox</title>
+<meta name="description" content="How Clipboard Orbit handles data: locally, without a server, analytics or an account.">
+<link rel="icon" href="../../../icon-128.png" type="image/png">
+<link rel="stylesheet" href="../../../styles.css">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+  })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=114086821','ym');
+  ym(114086821,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,referrer:document.referrer,url:location.href});
+</script>
+
+<!-- /Yandex.Metrika counter --><script src="../../../theme.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="https://clipboardmanager.ru/">
+      <img src="../../../icon-128.png" alt="" width="26" height="26">
+      ClipboardManager
+    </a>
+    <nav class="nav" aria-label="Navigation">
+      <a href="../../../index.html">Clipboard Orbit</a>
+      <a href="../../../firefox/privacy/index.html" hreflang="ru" lang="ru">RU</a>
+    <button type="button" class="theme-btn" id="themeToggle" aria-label="Switch theme"><svg class="i-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg><svg class="i-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap doc">
+  <h1>Privacy policy</h1>
+  <p class="updated">Clipboard Orbit extension for Firefox · updated 24 November 2026</p>
+
+  <p>This policy covers the Firefox build of the extension. The policy for the Opera and Yandex Browser builds is <a href="../../privacy/index.html">on a separate page</a>.</p>
+
+  <p>Clipboard Orbit runs on your computer and has no server. The extension does not collect, transmit or sell personal data.</p>
+
+  <h2>What is stored</h2>
+  <ul>
+    <li><strong>Clipboard history</strong> — text, links and images you copy. Stored in browser storage and the extension’s local database.</li>
+    <li><strong>Settings</strong> — theme, pinned items, groups, snippets, download folder, capture options.</li>
+    <li><strong>Service data</strong> — the chosen interface language and window state.</li>
+  </ul>
+  <p>This data never leaves the device. The extension does not send it to a server and does not use cloud sync.</p>
+
+  <h2>Screenshots, export and backups</h2>
+  <p>Screenshots are saved as files to the browser’s Downloads folder; the subfolder is set in the extension settings. History export and automatic backup are JSON files on disk. Neither is uploaded by the extension.</p>
+
+  <h2>Analytics and advertising</h2>
+  <p>The extension contains no counters, ad modules or trackers. It does not read page content to send it anywhere and does not rewrite affiliate links.</p>
+  <p>Separately from the extension, this site page uses a Yandex Metrica counter (114086821). It counts page visits and UTM-tagged traffic. The extension itself contains no analytics and never receives clipboard data.</p>
+  <p>Feedback left on the uninstall page is sent to support@clipboardmanager.ru through FormSubmit (formsubmit.co, built by Devro LABS). The service receives the text and forwards it to us, keeping a copy for up to 30 days. The message contains the chosen reason, your comment if you wrote one, the page language and the time of sending. No name or email address is requested.</p>
+
+  <h2>Permissions and why they are needed</h2>
+  <table>
+    <thead>
+      <tr><th>Permission</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>storage</code></td><td>Keeps history, settings and snippets locally.</td></tr>
+      <tr><td><code>clipboardRead</code></td><td>Detects what you copied so the item can be added to history.</td></tr>
+      <tr><td><code>clipboardWrite</code></td><td>Puts the selected item back into the clipboard.</td></tr>
+      <tr><td><code>alarms</code></td><td>Runs the daily local backup.</td></tr>
+      <tr><td><code>contextMenus</code></td><td>Adds “Save as snippet” to the context menu.</td></tr>
+      <tr><td><code>scripting</code></td><td>Attaches the copy handler to tabs that were open before install or update.</td></tr>
+      <tr><td><code>tabs</code></td><td>Finds the active tab to open the panel and the editor in the right place.</td></tr>
+      <tr><td><code>downloads</code></td><td>Saves screenshots and backups as files.</td></tr>
+      <tr><td><code>notifications</code></td><td>Shows a notice when a screenshot is saved.</td></tr>
+      <tr><td><code>host_permissions</code></td><td>Auto-saving and the panel work on any site; page content is never transmitted.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Deleting data</h2>
+  <p>Items can be deleted one by one or the whole history cleared in settings. Uninstalling the extension removes its local browser data; files saved to the Downloads folder remain on disk.</p>
+
+  <h2>Policy changes</h2>
+  <p>If the data handled changes, this page will be updated with a new date.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about data and the extension: <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a>.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Clipboard Orbit — an extension for Firefox, Opera and Yandex Browser.</span>
+    <a href="https://clipboardmanager.ru/">ClipboardManager Plus for Windows</a>
+    <a href="../../../index.html">Extension page</a>
+    <span class="spacer">© 2026 · Self-employed Alexey Savitsa · INN 231003822887</span>
+  </div>
+</footer>
+
+</body>
+</html>

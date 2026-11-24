@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -18,7 +18,8 @@
   ym(114086821,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,referrer:document.referrer,url:location.href});
 </script>
 
-<!-- /Yandex.Metrika counter --></head>
+<!-- /Yandex.Metrika counter --><script src="../../theme.js"></script>
+</head>
 <body>
 
 <header class="site-header">
@@ -30,6 +31,7 @@
     <nav class="nav" aria-label="Navigation">
       <a href="../index.html">Clipboard Orbit</a>
       <a href="../../privacy/index.html" hreflang="ru" lang="ru">RU</a>
+    <button type="button" class="theme-btn" id="themeToggle" aria-label="Switch theme"><svg class="i-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg><svg class="i-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
     </nav>
   </div>
 </header>
@@ -37,6 +39,8 @@
 <main class="wrap doc">
   <h1>Privacy policy</h1>
   <p class="updated">Clipboard Orbit extension · updated 24 November 2026</p>
+
+  <p>This policy covers the Opera and Yandex Browser builds. The policy for the Firefox build is <a href="../firefox/privacy/index.html">on a separate page</a>.</p>
 
   <p>Clipboard Orbit runs on your computer and has no server. The extension does not collect, transmit or sell personal data.</p>
 
@@ -49,7 +53,7 @@
   <p>This data never leaves the device. The extension does not send it to a server and does not use cloud sync.</p>
 
   <h2>Screenshots, export and backups</h2>
-  <p>Screenshots are saved as files to the browser’s Downloads folder; the subfolder is set in the extension settings. History export and automatic backup are JSON files on disk. Neither is uploaded by the extension.</p>
+  <p>Screenshots are saved as files to the browser’s Downloads folder or to a folder chosen in settings. History export and automatic backup are JSON files on disk. Neither is uploaded by the extension.</p>
 
   <h2>Analytics and advertising</h2>
   <p>The extension contains no counters, ad modules or trackers. It does not read page content to send it anywhere and does not rewrite affiliate links.</p>
@@ -67,8 +71,10 @@
       <tr><td><code>clipboardWrite</code></td><td>Puts the selected item back into the clipboard.</td></tr>
       <tr><td><code>alarms</code></td><td>Runs the daily local backup.</td></tr>
       <tr><td><code>contextMenus</code></td><td>Adds “Save as snippet” to the context menu.</td></tr>
+      <tr><td><code>windows</code></td><td>Creates and controls the floating window: move, resize, minimize, close.</td></tr>
       <tr><td><code>scripting</code></td><td>Attaches the copy handler to tabs that were open before install or update.</td></tr>
       <tr><td><code>tabs</code></td><td>Finds the active tab to open the panel and the editor in the right place.</td></tr>
+      <tr><td><code>offscreen</code></td><td>Copies images to the clipboard through a helper document without opening a window.</td></tr>
       <tr><td><code>downloads</code></td><td>Saves screenshots and backups as files.</td></tr>
       <tr><td><code>notifications</code></td><td>Shows a notice when a screenshot is saved.</td></tr>
       <tr><td><code>host_permissions</code></td><td>Auto-saving and the panel work on any site; page content is never transmitted.</td></tr>

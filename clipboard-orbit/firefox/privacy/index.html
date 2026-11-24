@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Политика конфиденциальности — Clipboard Orbit для Firefox</title>
+<meta name="description" content="Как Clipboard Orbit хранит данные: локально, без сервера, без аналитики и аккаунта.">
+<link rel="icon" href="../../icon-128.png" type="image/png">
+<link rel="stylesheet" href="../../styles.css">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+  })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=114086821','ym');
+  ym(114086821,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,referrer:document.referrer,url:location.href});
+</script>
+
+<!-- /Yandex.Metrika counter --><script src="../../theme.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="https://clipboardmanager.ru/">
+      <img src="../../icon-128.png" alt="" width="26" height="26">
+      ClipboardManager
+    </a>
+    <nav class="nav" aria-label="Навигация">
+      <a href="../../index.html">Clipboard Orbit</a>
+      <a href="../../../en/firefox/privacy/index.html" hreflang="en" lang="en">EN</a>
+    <button type="button" class="theme-btn" id="themeToggle" aria-label="Сменить тему"><svg class="i-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg><svg class="i-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap doc">
+  <h1>Политика конфиденциальности</h1>
+  <p class="updated">Расширение Clipboard Orbit для Firefox · обновлено 24 ноября 2026</p>
+
+  <p>Это политика для версии расширения под Firefox. Политика для версий под Opera и Яндекс Браузер — <a href="../../privacy/index.html">на отдельной странице</a>.</p>
+
+  <p>Clipboard Orbit работает на вашем компьютере и не имеет сервера. Расширение не собирает, не передаёт и не продаёт персональные данные.</p>
+
+  <h2>Какие данные хранятся</h2>
+  <ul>
+    <li><strong>История копирования</strong> — текст, ссылки и изображения, которые вы скопировали. Хранится в локальном хранилище браузера и локальной базе расширения.</li>
+    <li><strong>Настройки</strong> — тема, закреплённые записи, группы, сниппеты, папка сохранения, параметры съёмки.</li>
+    <li><strong>Служебные данные</strong> — выбранный язык интерфейса и состояние окон.</li>
+  </ul>
+  <p>Эти данные не покидают устройство. Расширение не отправляет их на сервер и не использует облачную синхронизацию.</p>
+
+  <h2>Скриншоты, экспорт и резервные копии</h2>
+  <p>Снимки экрана сохраняются файлами в папку загрузок браузера; подпапка задаётся в настройках расширения. Экспорт истории и автоматическая резервная копия — это JSON-файлы на диске. Ни один из этих файлов не загружается в сеть самим расширением.</p>
+
+  <h2>Аналитика и реклама</h2>
+  <p>Расширение не содержит счётчиков, рекламных модулей и трекеров. Оно не читает содержимое страниц для передачи наружу и не меняет партнёрские ссылки.</p>
+  <p>Отдельно от расширения: на этой странице сайта установлен счётчик Яндекс.Метрики (114086821). Он считает посещения страницы и переходы по UTM-меткам. Внутри расширения счётчиков нет, данные буфера обмена он не получает.</p>
+  <p>Отзыв со страницы причин удаления отправляется на support@clipboardmanager.ru через сервис FormSubmit (formsubmit.co, разработчик Devro LABS). Сервис принимает текст отзыва и пересылает его нам, сохраняя копию до 30 дней. В отзыве передаются выбранная причина, комментарий (если вы его написали), язык страницы и время отправки. Имя и email не запрашиваются.</p>
+
+  <h2>Разрешения и зачем они нужны</h2>
+  <table>
+    <thead>
+      <tr><th>Разрешение</th><th>Назначение</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>storage</code></td><td>Хранит историю, настройки и сниппеты локально.</td></tr>
+      <tr><td><code>clipboardRead</code></td><td>Определяет, что вы скопировали, чтобы добавить запись в историю.</td></tr>
+      <tr><td><code>clipboardWrite</code></td><td>Возвращает выбранную запись в буфер обмена.</td></tr>
+      <tr><td><code>alarms</code></td><td>Запускает ежедневную резервную копию.</td></tr>
+      <tr><td><code>contextMenus</code></td><td>Добавляет пункт «Сохранить как сниппет» в контекстное меню.</td></tr>
+      <tr><td><code>scripting</code></td><td>Подключает обработчик копирования к вкладкам, открытым до установки или обновления.</td></tr>
+      <tr><td><code>tabs</code></td><td>Определяет активную вкладку, чтобы открыть панель и редактор в нужном месте.</td></tr>
+      <tr><td><code>downloads</code></td><td>Сохраняет скриншоты и резервные копии файлами.</td></tr>
+      <tr><td><code>notifications</code></td><td>Показывает уведомление, когда снимок сохранён.</td></tr>
+      <tr><td><code>host_permissions</code></td><td>Автосохранение и панель работают на любом сайте; содержимое страниц никуда не передаётся.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Удаление данных</h2>
+  <p>Записи можно удалить по одной или очистить историю целиком в настройках. При удалении расширения локальные данные браузера удаляются вместе с ним; файлы, сохранённые в папку загрузок, остаются на диске.</p>
+
+  <h2>Изменения политики</h2>
+  <p>Если состав данных изменится, страница будет обновлена с новой датой.</p>
+
+  <h2>Контакты</h2>
+  <p>Вопросы по данным и работе расширения: <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a>.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Clipboard Orbit — расширение для Firefox, Opera и Яндекс Браузера.</span>
+    <a href="https://clipboardmanager.ru/">ClipboardManager Plus для Windows</a>
+    <a href="../../index.html">Страница расширения</a>
+    <span class="spacer">© 2026 · Самозанятый Савица Алексей Васильевич · ИНН 231003822887</span>
+  </div>
+</footer>
+
+</body>
+</html>

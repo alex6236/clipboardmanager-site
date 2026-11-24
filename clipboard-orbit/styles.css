@@ -1,14 +1,33 @@
-:root {
+﻿:root {
   --bg: #F7F9FC;
   --paper: #FFFFFF;
+  --paper-2: var(--paper-2);
   --ink: #0F2B46;
   --muted: #5B7186;
   --blue: #0F6CBD;
   --blue-dark: #0B5595;
   --blue-soft: #E8F1FB;
   --line: #D8E1EA;
+  --header: rgba(247, 249, 252, 0.9);
+  --on-blue: #FFFFFF;
   --sans: -apple-system, "Segoe UI", "Noto Sans", "DejaVu Sans", Arial, sans-serif;
   --mono: "SF Mono", Consolas, "DejaVu Sans Mono", monospace;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #1A1D24;
+  --paper: #232833;
+  --paper-2: #2B3140;
+  --ink: #F3F5F8;
+  --muted: #9AA7B5;
+  --blue: #4CC2FF;
+  --blue-dark: #7FD4FF;
+  --blue-soft: #1D3347;
+  --line: #333B49;
+  --header: rgba(26, 29, 36, 0.9);
+  --on-blue: #0E1620;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -35,7 +54,7 @@ a { color: var(--blue); }
 
 .site-header {
   border-bottom: 1px solid var(--line);
-  background: rgba(247, 249, 252, 0.9);
+  background: var(--header);
 }
 
 .site-header .wrap {
@@ -71,6 +90,28 @@ a { color: var(--blue); }
 }
 
 .nav a:hover { color: var(--ink); }
+
+.theme-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  flex: none;
+}
+
+.theme-btn:hover { border-color: var(--blue); }
+
+.i-moon { display: none; }
+
+[data-theme="dark"] .i-sun { display: none; }
+
+[data-theme="dark"] .i-moon { display: block; }
 
 .hero {
   display: grid;
@@ -126,7 +167,7 @@ h1 {
   display: inline-block;
   background: var(--blue);
   border: 1px solid var(--blue);
-  color: #fff;
+  color: var(--on-blue);
   text-decoration: none;
   font-weight: 600;
   font-size: 15.5px;
@@ -165,10 +206,10 @@ h1 {
   gap: 8px;
   padding: 10px 12px;
   border-bottom: 1px solid var(--line);
-  background: #FBFCFE;
+  background: var(--paper-2);
 }
 
-.mock-dot { width: 9px; height: 9px; border-radius: 50%; background: #E2E9F1; }
+.mock-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
 
 .mock-title {
   margin-left: 6px;
@@ -182,7 +223,7 @@ h1 {
   padding: 8px 11px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  color: #9AAAB9;
+  color: var(--muted);
   font-size: 13.5px;
 }
 
@@ -191,7 +232,7 @@ h1 {
   align-items: center;
   gap: 10px;
   padding: 9px 14px;
-  border-top: 1px solid #EEF3F8;
+  border-top: 1px solid var(--line);
   font-size: 13.5px;
   color: var(--ink);
 }
@@ -213,7 +254,7 @@ h1 {
   flex: 0 0 auto;
 }
 
-.mock-row.pinned { background: #FBFDFF; }
+.mock-row.pinned { background: var(--paper-2); }
 
 section { padding: 56px 0; }
 
@@ -286,7 +327,7 @@ h2 {
   height: 26px;
   border-radius: 50%;
   background: var(--blue);
-  color: #fff;
+  color: var(--on-blue);
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 10px;
@@ -309,7 +350,7 @@ h2 {
 .hotkeys th, .hotkeys td {
   text-align: left;
   padding: 11px 16px;
-  border-bottom: 1px solid #EEF3F8;
+  border-bottom: 1px solid var(--line);
 }
 
 .hotkeys th {
@@ -317,7 +358,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: var(--muted);
-  background: #FBFCFE;
+  background: var(--paper-2);
 }
 
 .hotkeys tr:last-child td { border-bottom: 0; }
@@ -331,7 +372,7 @@ h2 {
 
 .privacy-band {
   background: var(--blue);
-  color: #fff;
+  color: var(--on-blue);
   border-radius: 14px;
   padding: 30px 32px;
   display: flex;
@@ -340,14 +381,14 @@ h2 {
   flex-wrap: wrap;
 }
 
-.privacy-band h2 { color: #fff; font-size: 23px; margin: 0 0 6px; }
+.privacy-band h2 { color: inherit; font-size: 23px; margin: 0 0 6px; }
 
-.privacy-band p { margin: 0; color: #D8E7F7; max-width: 62ch; font-size: 15px; }
+.privacy-band p { margin: 0; color: inherit; opacity: 0.85; max-width: 62ch; font-size: 15px; }
 
 .privacy-band a {
   margin-left: auto;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--on-blue);
+  border: 1px solid var(--on-blue);
   padding: 9px 16px;
   border-radius: 8px;
   text-decoration: none;
@@ -356,7 +397,7 @@ h2 {
   white-space: nowrap;
 }
 
-.privacy-band a:hover { background: rgba(255, 255, 255, 0.12); }
+.privacy-band a:hover { background: rgba(128, 128, 128, 0.2); }
 
 .faq { border-top: 1px solid var(--line); }
 
