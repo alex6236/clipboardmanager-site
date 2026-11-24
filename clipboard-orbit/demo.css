@@ -33,6 +33,29 @@
 
 .chp-demo * { box-sizing: border-box; }
 
+.chp-demo.is-dark {
+  --d-bg: #0f0f1a;
+  --d-text: #e8e8f0;
+  --d-muted: #b0b0c4;
+  --d-border: #2d2d44;
+  --d-hover: #25253d;
+  --d-soft: #1a1a2e;
+  --d-accent: #a78bfa;
+  --d-accent-soft: #1f1a3a;
+  --d-danger: #f87171;
+  --d-copied: #123524;
+}
+
+.chp-theme { margin-left: auto; }
+
+.chp-theme-moon { display: none; }
+
+.chp-demo.is-dark .chp-theme-sun { display: none; }
+
+.chp-demo.is-dark .chp-theme-moon { display: block; }
+
+.chp-demo.is-dark .chp-switch { background: #3a3a52; }
+
 .chp-header {
   display: flex;
   align-items: center;

@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const root = document.querySelector('.chp-demo');
   if (!root) return;
 
@@ -50,7 +50,7 @@
         copy: 'Копировать', pin: 'Закрепить', unpin: 'Открепить', del: 'Удалить',
         move: 'В группу', up: 'Выше', down: 'Ниже', open: 'Открыть источник', edit: 'Редактировать',
         clearSearch: 'Очистить поиск', capture: 'Снять скриншот', add: 'Добавить запись', settings: 'Настройки',
-        preview: 'Открыть изображение'
+        preview: 'Открыть изображение', theme: 'Сменить тему'
       }
     },
     en: {
@@ -96,7 +96,7 @@
         copy: 'Copy', pin: 'Pin', unpin: 'Unpin', del: 'Delete',
         move: 'To group', up: 'Move up', down: 'Move down', open: 'Open source', edit: 'Edit',
         clearSearch: 'Clear search', capture: 'Take a screenshot', add: 'Add item', settings: 'Settings',
-        preview: 'Open image'
+        preview: 'Open image', theme: 'Switch theme'
       }
     }
   }[lang];
@@ -153,7 +153,9 @@
     clipboard: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="18" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/></svg>',
     pinBig: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>',
     pencil: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
-    folder: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
+    folder: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
+    sun: '<svg class="chp-theme-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>',
+    moon: '<svg class="chp-theme-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
   };
 
   const state = {
@@ -188,6 +190,7 @@
     '  <label class="chp-watch"><input type="checkbox" checked><span class="chp-switch"></span><span>' + T.watch + '</span></label>',
     '  <button type="button" class="chp-text" data-act="editor">' + T.editor + '</button>',
     '  <button type="button" class="chp-text" data-act="clear">' + T.clear + '</button>',
+    '  <button type="button" class="chp-icon chp-theme" data-act="theme" aria-label="' + T.aria.theme + '">' + I.sun + I.moon + '</button>',
     '</footer>',
     '<div class="chp-toast" role="status" aria-live="polite"></div>',
     '<div class="chp-modal" aria-hidden="true">',
@@ -584,6 +587,7 @@
     if (act === 'add') toast(T.addToast);
     if (act === 'settings') toast(T.settingsToast);
     if (act === 'capture') toast(T.captureToast);
+    if (act === 'theme') root.classList.toggle('is-dark');
   });
 
   modalEl.addEventListener('click', (event) => {
