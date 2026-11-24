@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Clipboard Orbit — Clipboard Manager для Opera и Яндекс Браузера</title>
+<title>Clipboard Orbit — Clipboard Manager для Firefox, Opera и Яндекс Браузера</title>
 <meta name="description" content="Clipboard Orbit сохраняет текст, ссылки и скриншоты, ищет по истории, закрепляет важное и хранит сниппеты. Работает локально, без аккаунта.">
 <link rel="icon" href="icon-128.png" type="image/png">
 <link rel="stylesheet" href="styles.css">
@@ -43,19 +43,21 @@
   <div class="wrap">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Расширение для Opera и Яндекс Браузера</p>
+        <p class="eyebrow">Расширение для Firefox, Opera и Яндекс Браузера</p>
         <h1>История буфера обмена прямо в браузере</h1>
         <p class="lead">Clipboard Orbit сохраняет всё, что вы копируете: текст, ссылки, картинки и скриншоты. Поиск, закрепление и сниппеты открываются по Ctrl+Shift+B. Данные остаются на вашем компьютере.</p>
         <div class="badges">
+          <span class="badge">Firefox</span>
           <span class="badge">Opera</span>
           <span class="badge">Яндекс Браузер</span>
           <span class="badge">Без аккаунта</span>
           <span class="badge">Работает офлайн</span>
         </div>
         <div class="actions">
-          <!-- После публикации заменить href на ссылку карточки в каталоге Opera. -->
-          <a class="cta" href="https://addons.opera.com/ru/extensions/">Установить из каталога Opera</a>
-          <a class="ghost" href="#features">Что умеет</a>
+          <!-- После публикации в AMO сверить слаг в ссылке (addons.mozilla.org/firefox/addon/<слаг>/). -->
+          <a class="cta" href="https://addons.mozilla.org/firefox/addon/clipboard-orbit/">Установить для Firefox</a>
+          <a class="ghost" href="https://addons.opera.com/ru/extensions/">Установить из каталога Opera</a>
+          <a class="ghost" href="https://clipboardmanager.ru/">Скачать для Windows</a>
         </div>
       </div>
 
@@ -107,7 +109,7 @@
         <article class="step">
           <span class="n">1</span>
           <h3>Установите из каталога</h3>
-          <p>Откройте карточку в каталоге Opera и нажмите «Установить». Яндекс Браузер ставит расширения из каталогов Chrome и Opera.</p>
+          <p>Откройте карточку в каталоге Firefox или Opera и нажмите «Установить». Яндекс Браузер ставит расширения из каталогов Chrome и Opera.</p>
         </article>
         <article class="step">
           <span class="n">2</span>
@@ -169,12 +171,16 @@
           <p>Да. Яндекс Браузер ставит расширения из каталогов Chrome и Opera; в этой сборке учтены отличия его API.</p>
         </details>
         <details>
+          <summary>Есть ли версия для Firefox?</summary>
+          <p>Да, нужен Firefox 140 или новее. В Firefox нельзя выбрать произвольную папку, поэтому снимки и резервные копии сохраняются в «Загрузки», а подпапка задаётся в настройках расширения.</p>
+        </details>
+        <details>
           <summary>Сколько стоит?</summary>
           <p>Бесплатно, без аккаунта и подписки. Все функции доступны сразу после установки.</p>
         </details>
         <details>
           <summary>Куда сохраняются скриншоты?</summary>
-          <p>В папку загрузок браузера или в папку, выбранную в настройках. Имя файла содержит дату и время снимка.</p>
+          <p>В папку загрузок браузера, подпапка задаётся в настройках расширения. Имя файла содержит дату и время снимка.</p>
         </details>
       </div>
     </section>
@@ -183,7 +189,7 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>Clipboard Orbit — расширение для Opera и Яндекс Браузера.</span>
+    <span>Clipboard Orbit — расширение для Firefox, Opera и Яндекс Браузера.</span>
     <a href="https://clipboardmanager.ru/">ClipboardManager Plus для Windows</a>
     <a href="privacy/index.html">Конфиденциальность</a>
     <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a>

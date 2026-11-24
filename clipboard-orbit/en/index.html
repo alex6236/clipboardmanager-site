@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Clipboard Orbit — Clipboard Manager for Opera and Yandex Browser</title>
+<title>Clipboard Orbit — Clipboard Manager for Firefox, Opera and Yandex Browser</title>
 <meta name="description" content="Clipboard Orbit saves text, links and screenshots, searches your history, pins what matters and keeps snippets. Runs locally, no account.">
 <link rel="icon" href="../icon-128.png" type="image/png">
 <link rel="stylesheet" href="../styles.css">
@@ -43,19 +43,21 @@
   <div class="wrap">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Extension for Opera and Yandex Browser</p>
+        <p class="eyebrow">Extension for Firefox, Opera and Yandex Browser</p>
         <h1>Your clipboard history, right in the browser</h1>
         <p class="lead">Clipboard Orbit saves everything you copy — text, links, images and screenshots. Search, pinned items and snippets open with Ctrl+Shift+B. All data stays on your computer.</p>
         <div class="badges">
+          <span class="badge">Firefox</span>
           <span class="badge">Opera</span>
           <span class="badge">Yandex Browser</span>
           <span class="badge">No account</span>
           <span class="badge">Works offline</span>
         </div>
         <div class="actions">
-          <!-- Replace href with the catalog card URL after publishing. -->
-          <a class="cta" href="https://addons.opera.com/en/extensions/">Install from Opera Add-ons</a>
-          <a class="ghost" href="#features">What it does</a>
+          <!-- After AMO publishing, check the slug in the link (addons.mozilla.org/firefox/addon/<slug>/). -->
+          <a class="cta" href="https://addons.mozilla.org/firefox/addon/clipboard-orbit/">Install for Firefox</a>
+          <a class="ghost" href="https://addons.opera.com/en/extensions/">Install from Opera Add-ons</a>
+          <a class="ghost" href="https://clipboardmanager.ru/">Download for Windows</a>
         </div>
       </div>
 
@@ -107,7 +109,7 @@
         <article class="step">
           <span class="n">1</span>
           <h3>Add it from the catalog</h3>
-          <p>Open the card in Opera Add-ons and press “Add to Opera”. Yandex Browser installs extensions from the Chrome and Opera catalogs.</p>
+          <p>Open the card in the Firefox or Opera catalog and press “Add”. Yandex Browser installs extensions from the Chrome and Opera catalogs.</p>
         </article>
         <article class="step">
           <span class="n">2</span>
@@ -169,12 +171,16 @@
           <p>Yes. Yandex Browser installs extensions from the Chrome and Opera catalogs; this build accounts for its API differences.</p>
         </details>
         <details>
+          <summary>Is there a Firefox version?</summary>
+          <p>Yes, it needs Firefox 140 or newer. Firefox does not allow picking an arbitrary folder, so screenshots and backups go to Downloads and the subfolder is set in the extension settings.</p>
+        </details>
+        <details>
           <summary>How much does it cost?</summary>
           <p>It is free — no account, no subscription. All features are available right after installation.</p>
         </details>
         <details>
           <summary>Where do screenshots go?</summary>
-          <p>To the browser’s Downloads folder or to the folder chosen in settings. The file name includes the date and time of the capture.</p>
+          <p>To the browser’s Downloads folder; the subfolder is set in the extension settings. The file name includes the date and time of the capture.</p>
         </details>
       </div>
     </section>
@@ -183,7 +189,7 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>Clipboard Orbit — an extension for Opera and Yandex Browser.</span>
+    <span>Clipboard Orbit — an extension for Firefox, Opera and Yandex Browser.</span>
     <a href="https://clipboardmanager.ru/">ClipboardManager Plus for Windows</a>
     <a href="privacy/index.html">Privacy</a>
     <a href="mailto:support@clipboardmanager.ru">support@clipboardmanager.ru</a>
