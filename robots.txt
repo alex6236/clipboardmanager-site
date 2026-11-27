@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /thanks/
 Disallow: /reissue/
+Disallow: /api/
 
 Sitemap: https://clipboardmanager.ru/sitemap.xml
