@@ -836,7 +836,7 @@ footer{border-top:1px solid var(--border);padding:40px 0 48px;color:var(--muted)
     var theme = document.getElementById("themeToggle");
     if (theme) theme.setAttribute("aria-label", lang === "ru" ? "Сменить тему" : "Switch theme");
     var buy = document.getElementById("buyBtn");
-    if (buy) buy.setAttribute("href", lang === "ru" ? "buy/" : "buy/index.en.html");
+    if (buy) buy.setAttribute("href", lang === "ru" ? "buy/" : "/en/buy/");
     document.querySelectorAll("[data-ru-href]").forEach(function (el) {
       var h = el.getAttribute(lang === "ru" ? "data-ru-href" : "data-en-href");
       if (h) el.setAttribute("href", h);
